@@ -34,3 +34,7 @@ known-first-party = ["app", "eval"]
 testpaths = ["backend/tests", "eval"]
 pythonpath = ["backend", "."]
 asyncio_mode = "auto"
+markers = [
+    "integration: marks tests as integration tests that require network or external services",
+]
+addopts = "--disable-socket --allow-unix-socket -m 'not integration'"

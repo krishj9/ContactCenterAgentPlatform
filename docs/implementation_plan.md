@@ -232,8 +232,8 @@ flowchart LR
 | P1.9 | Strict mypy setup on all contracts and ports; `pytest-socket` to prevent accidental network calls in unit tests | `backend/pyproject.toml`, `ci.yml` |
 
 **Exit Criteria:**
-- [ ] TypeScript and Python contracts perfectly aligned; serialization tests pass 100%.
-- [ ] Backend test suite runs completely offline with `APP_PROFILE=test`.
+- [x] TypeScript and Python contracts perfectly aligned; serialization tests pass 100%.
+- [x] Backend test suite runs completely offline with `APP_PROFILE=test`.
 
 ---
 

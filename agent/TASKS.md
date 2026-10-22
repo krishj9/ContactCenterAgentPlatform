@@ -9,8 +9,8 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 | Phase | Description | Track | Status | Primary Output |
 |---|---|---|---|---|
 | **P0** | Hygiene & Baseline | App + ML | ✅ COMPLETED | Security tooling (gitleaks/ruff), Python 3.14.8, baseline setup, golden scenarios |
-| **P1** | Contracts, Ports & Dependency Injection | App | ⬜ READY TO START | Pydantic v2 / TypeScript event contracts, DI container |
-| **P2** | Local Platform, UI Scaffold & Persistence | App | ⬜ TODO | Docker Compose, PostgreSQL 16, Vite + React + shadcn/ui scaffold |
+| **P1** | Contracts, Ports & Dependency Injection | App | ✅ COMPLETED | Pydantic v2 / TypeScript event contracts, DI container |
+| **P2** | Local Platform, UI Scaffold & Persistence | App | ⬜ READY TO START | Docker Compose, PostgreSQL 16, Vite + React + shadcn/ui scaffold |
 | **P3** | Knowledge Pipeline & Policy Corpus | App | ⬜ TODO | Markdown policy corpus, PostgreSQL pgvector index, manifest guard |
 | **P4** | Intent Model: Training & Serving | ML | ⬜ TODO | Fine-tuned Gemma 3 1B LoRA classifier, ONNX Runtime int8 serving |
 | **P5** | RAG v2, Grounding & UI Assist Cards | App + ML | ⬜ TODO | Router, reranker, NLI verifier, NBA & Suggested Response cards |
@@ -34,15 +34,15 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 - [x] **P0.7**: Formally amend requirements R8/R9 in `docs/requirements.md`.
 
 ### Phase P1: Contracts, Ports & DI
-- [ ] **P1.1**: Versioned event contracts (Pydantic v2 models with discriminated union).
-- [ ] **P1.2**: Core domain models (`IntentPrediction`, `EvidenceChunk`, `NextBestAction`, etc.).
-- [ ] **P1.3**: Backend ports (`IntentClassifier`, `VectorIndex`, `Generator`, `SpeechToText`).
-- [ ] **P1.4**: TypeScript contract types generated for the Vite client.
-- [ ] **P1.5**: Zustand store interfaces (`useSessionStore`, `useTranscriptStore`, `useAssistStore`).
-- [ ] **P1.6**: Test adapters for offline mock testing.
-- [ ] **P1.7**: Settings configuration and dependency injection container.
-- [ ] **P1.8**: Transcript replay runner for automated regression testing.
-- [ ] **P1.9**: Strict mypy setup and `pytest-socket` offline isolation.
+- [x] **P1.1**: Versioned event contracts (Pydantic v2 models with discriminated union).
+- [x] **P1.2**: Core domain models (`IntentPrediction`, `EvidenceChunk`, `NextBestAction`, etc.).
+- [x] **P1.3**: Backend ports (`IntentClassifier`, `VectorIndex`, `Generator`, `SpeechToText`).
+- [x] **P1.4**: TypeScript contract types generated for the Vite client.
+- [x] **P1.5**: Zustand store interfaces (`useSessionStore`, `useTranscriptStore`, `useAssistStore`).
+- [x] **P1.6**: Test adapters for offline mock testing.
+- [x] **P1.7**: Settings configuration and dependency injection container.
+- [x] **P1.8**: Transcript replay runner for automated regression testing.
+- [x] **P1.9**: Strict mypy setup and `pytest-socket` offline isolation.
 
 ### Phase P2: Local Platform, UI Scaffold & Persistence
 - [ ] **P2.1**: Docker Compose `core` (api, web, postgres:16 with pgvector, redis, fake-gcs).

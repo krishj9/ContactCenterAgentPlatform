@@ -86,7 +86,7 @@ class TfidfIntentRetriever:
             return []
 
         # Inverted index search
-        scores = defaultdict(float)
+        scores: defaultdict[int, float] = defaultdict(float)
         for token, q_val in q_vec.items():
             for doc_idx, doc_vec in enumerate(self.doc_vectors):
                 if token in doc_vec:

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -21,7 +22,10 @@ class Settings(BaseSettings):
     )
 
     APP_NAME: str = "Contact Center Agent Helper Platform"
-    APP_PROFILE: str = Field(default="local", description="Deployment profile: local | gcp | test")
+    APP_PROFILE: Literal["local", "gcp", "test"] = Field(
+        default="local",
+        description="Deployment profile: local | gcp | test",
+    )
     DEBUG: bool = False
 
     # Path configuration
@@ -36,6 +40,23 @@ class Settings(BaseSettings):
         default=50,
         description="Batch size for embedding generation.",
     )
+
+    # Operational thresholds and calibration values
+    INTENT_CONFIDENCE_THRESHOLD: float = Field(
+        default=0.70,
+        description="Minimum calibrated confidence to route to grounded RAG without warning.",
+    )
+    GROUNDING_SIMILARITY_THRESHOLD: float = Field(
+        default=0.75,
+        description="Minimum cosine similarity required to consider policy chunk supportive.",
+    )
+    RERANK_TOP_K: int = 5
+    RETRIEVAL_TOP_K: int = 10
+
+    # Persistence endpoints (for local and GCP profiles)
+    POSTGRES_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/cc_platform"
+    REDIS_URL: str = "redis://localhost:6379/0"
+    GCS_BUCKET: str = "cc-agent-platform-raw"
 
     @property
     def corpus_paths(self) -> CorpusPaths:
