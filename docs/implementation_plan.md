@@ -4,7 +4,7 @@
 |---|---|
 | Source spec | [technical_specification.md](./technical_specification.md) (referenced below as **Spec §x**) |
 | Supersedes | The build order in [tasks.md](./tasks.md) for the rebuild. |
-| Tech Stack Standard | **Vite + React (SPA)** · **Tailwind CSS + shadcn/ui** · **Zustand + TanStack Query** · **Web Audio API (AudioWorklet)** · **FastAPI (Python 3.14.8 / uv)** · **Qdrant / Vertex AI** |
+| Tech Stack Standard | **Vite + React (SPA)** · **Firebase Hosting** · **Tailwind CSS + shadcn/ui** · **Zustand + TanStack Query** · **Web Audio API (AudioWorklet)** · **FastAPI (Python 3.14.8 / uv)** · **PostgreSQL 16 pgvector (Local & Cloud SQL)** |
 | Planning assumption | 2–3 engineers across 3 parallel tracks (App, ML, Platform) |
 | Status | Final v2.0 (incorporating UI & Full Tech Stack) |
 
@@ -18,6 +18,7 @@ This system is built from the ground up with production quality, zero legacy tec
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                                   BROWSER CLIENTS                                      │
 │  Vite 6 + React 19 + TypeScript (Strict) · Tailwind CSS v4 + shadcn/ui (Radix UI)      │
+│  Hosting: Firebase Hosting (Edge CDN for static SPA dist)                              │
 │  State: Zustand v5 (Realtime/WS) + TanStack Query v5 (Server Cache)                    │
 │  Audio: Web Audio API + AudioWorklet (16kHz mono linear PCM 16-bit signed)             │
 └───────────────────────────────────────────┬────────────────────────────────────────────┘
@@ -26,6 +27,7 @@ This system is built from the ground up with production quality, zero legacy tec
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                              SESSION GATEWAY & REALTIME API                            │
 │  FastAPI (Python 3.14.8 / uv) · Uvicorn (ASGI) · Pydantic v2 (Strict Schema Validation)   │
+│  Cloud Run (Session Affinity, 3600s WebSocket timeout, min instances ≥ 1)              │
 │  Redis 7 (redis-py async): Session State, Inflight Task Locks, Pub/Sub Broadcast       │
 │  PostgreSQL 16 (SQLAlchemy 2.0 async + asyncpg + Alembic): Sessions, Transcripts, Audit │
 └─────────────┬─────────────────────────────┬────────────────────────────┬───────────────┘
@@ -33,8 +35,8 @@ This system is built from the ground up with production quality, zero legacy tec
               ▼                             ▼                            ▼
 ┌──────────────────────────┐  ┌───────────────────────────┐  ┌───────────────────────────┐
 │     INTENT SERVICE       │  │        RAG SERVICE        │  │       SPEECH-TO-TEXT      │
-│ Local: ONNX Runtime int8 │  │ Qdrant (Local) /          │  │ Local: Faster-Whisper     │
-│ GCP: Vertex AI Endpoint  │  │ Vertex Vector Search (GCP)│  │ (VAD streaming)           │
+│ Local: ONNX Runtime int8 │  │ PostgreSQL 16 pgvector    │  │ Local: Faster-Whisper     │
+│ GCP: Vertex AI Endpoint  │  │ (Local Docker / Cloud SQL)│  │ (VAD streaming)           │
 │ Base: Gemma 3 1B LoRA    │  │ Rerank: BGE-Reranker-v2-m3│  │ GCP: Cloud Speech-to-Text │
 │ Head: Linear Classifier  │  │ Gen: Ollama / Gemini Flash│  │ V2 Streaming (Chirp)      │
 └──────────────────────────┘  └───────────────────────────┘  └───────────────────────────┘
@@ -44,7 +46,7 @@ This system is built from the ground up with production quality, zero legacy tec
 
 | Layer | Component | Local Profile (`APP_PROFILE=local`) | GCP Production Profile (`APP_PROFILE=gcp`) |
 |---|---|---|---|
-| **Frontend Framework** | Client App | **Vite 6 + React 19** (TypeScript 5.x, Pure SPA) | Same build artifacts served via Nginx on **Cloud Run** / Cloud CDN |
+| **Frontend Framework** | Client App | **Vite 6 + React 19** (TypeScript 5.x, Pure SPA) | **Firebase Hosting** (Edge CDN for static SPA bundle, direct WSS to Cloud Run) |
 | **UI Components & Styling**| Design System | **Tailwind CSS v4** + **shadcn/ui** (Radix UI primitives) | Same |
 | **Icons & Typography** | Visual Assets | **Lucide React** + Inter font (`@fontsource/inter`) | Same |
 | **Client State Management**| Transient / Realtime | **Zustand v5** (WebSocket, audio buffers, live transcripts) | Same |
@@ -55,7 +57,7 @@ This system is built from the ground up with production quality, zero legacy tec
 | **State & Cache Store** | Session & Fan-out | **Redis 7** (Docker container, standalone) | **Memorystore for Redis** (Standard HA, TLS enabled) |
 | **Relational Database** | Durable Persistence | **PostgreSQL 16** (Docker container, Alembic) | **Cloud SQL for PostgreSQL 16** (Private IP, IAM Auth) |
 | **Object Store** | File / Artifact Store | **fake-gcs-server** (GCS JSON API emulator via `gcsfs`) | **Google Cloud Storage (GCS)** (Versioned, CMEK) |
-| **Vector Database** | Semantic Search | **Qdrant** (Dense cosine + BM25 sparse, aliases) | **Vertex AI Vector Search** (Stream update, PSC endpoint) |
+| **Vector Database** | Semantic Search | **PostgreSQL 16 pgvector** (`pgvector/pgvector:pg16`, HNSW + RRF) | **Cloud SQL for PostgreSQL 16 pgvector** (HNSW + `tsvector` hybrid RRF) |
 | **Intent Classifier** | Fast Intent Path | `apps/intent-svc` (ONNX Runtime int8 CPU, <100ms) | **Vertex AI Endpoint** (Gemma 3 1B LoRA on L4 GPU, <60ms) |
 | **Text Embeddings** | Vector Embeddings | `sentence-transformers` (`EmbeddingGemma`, 768d) | **Vertex AI Embeddings** (`gemini-embedding-001`, 768d) |
 | **Reranker** | Cross-Encoder | `bge-reranker-v2-m3` (local container) | **Vertex AI Ranking API** |
@@ -193,24 +195,23 @@ flowchart LR
 ---
 
 ### P0 — Hygiene & Baseline
-**Goal:** Clean, secure, reproducible starting point; remove leaked credentials; measure current baseline.
+**Goal:** Clean, secure, reproducible starting point; configure security tooling and establish golden baseline.
 **Depends on:** —  **Track:** App + ML
 
 | ID | Task | Files |
 |---|---|---|
-| P0.1 | **Secret remediation:** Remove AWS key fragment from docs. *(Manual, owner: repo admin)* Rotate key in IAM and purge from history (`git filter-repo`) | `EMBEDDINGS_CLARIFICATION.md` |
-| P0.2 | Add `gitleaks` + `ruff` pre-commit hooks and CI scan job | `.pre-commit-config.yaml`, `.github/workflows/ci.yml` |
-| P0.3 | Pin **Python 3.14.8** across all configs (`uv.lock`, CI, Dockerfiles, pyproject.toml) | `pyproject.toml`, `ci.yml`, `README.md`, `.python-version` |
-| P0.4 | **Unify import root:** Standardize on `app.*` with `backend/` as root. Move `pyproject.toml` into `backend/`. Merge root `tests/` into `backend/tests/` | `backend/pyproject.toml`, `backend/app/**`, `backend/tests/**` |
-| P0.5 | **Fix F3/F4:** Add `CorpusPaths` configuration object. Set `MAX_RECORDS_PER_STORE=0` (unlimited). Remove hardcoded `PYTHONPATH` from scripts | `backend/app/pipeline/jobs/build_normalized_corpora.py`, `backend/app/jobs/build_embeddings.py`, `scripts/rebuild_vector_store.sh` |
-| P0.6 | **Golden scenario fixtures (R17):** Card declined, fee dispute, travel notice, lost card, charged twice, plus 2 OOS chit-chat scripts with expected intents | `eval/scenarios/*.json`, `eval/schema.py` |
-| P0.7 | **Baseline measurement:** Evaluate current k-NN intent retrieval and log accuracy/latency report | `eval/reports/baseline.md` |
-| P0.8 | **Requirements alignment:** Formally amend R8/R9 in `docs/requirements.md` to reflect classifier-based intent detection | `docs/requirements.md` |
+| P0.1 | **Security Tooling Setup:** Configure `gitleaks` secret scanning and `ruff` linter/formatter in pre-commit hooks and CI workflow | `.pre-commit-config.yaml`, `.github/workflows/ci.yml` |
+| P0.2 | **Python Runtime Pinning:** Pin **Python 3.14.8** across all configs (`uv.lock`, CI, Dockerfiles, pyproject.toml) | `pyproject.toml`, `.github/workflows/ci.yml`, `README.md`, `.python-version` |
+| P0.3 | **Import & Project Root Standardization:** Standardize on `app.*` with `backend/` as root. Configure `backend/pyproject.toml` and merge `tests/` into `backend/tests/` | `backend/pyproject.toml`, `backend/app/**`, `backend/tests/**` |
+| P0.4 | **Corpus Paths Configuration:** Add unified `CorpusPaths` configuration object and set `MAX_RECORDS_PER_STORE=0` (unlimited) | `backend/app/pipeline/paths.py`, `backend/app/core/config.py` |
+| P0.5 | **Golden Scenario Fixtures (R17):** Card declined, fee dispute, travel notice, lost card, charged twice, plus 2 OOS chit-chat scripts with expected intents | `eval/scenarios/*.json`, `eval/schema.py` |
+| P0.6 | **Baseline Measurement:** Benchmark initial intent retrieval and log accuracy/latency report | `eval/reports/baseline.md` |
+| P0.7 | **Requirements Alignment:** Formally amend R8/R9 in `docs/requirements.md` to reflect classifier-based intent detection | `docs/requirements.md` |
 
 **Exit Criteria:**
-- [ ] CI green on Python 3.14.8; `gitleaks` clean across full git history.
-- [ ] Full normalized corpora indexable without path errors (~13k intent, ~1.7k FAQ).
-- [ ] Baseline accuracy report committed.
+- [x] CI green on Python 3.14.8; `gitleaks` clean across full git history.
+- [x] Full normalized corpora indexable without path errors (~13k intent, ~1.7k FAQ).
+- [x] Baseline accuracy report committed.
 
 ---
 
@@ -238,29 +239,29 @@ flowchart LR
 
 ### P2 — Local Platform, Persistence & Frontend Scaffolding
 **Goal:** Launch the one-command local stack (Docker Compose) and scaffold the new Vite + React + Tailwind + shadcn/ui application.
-**Depends on:** P1  **Track:** App  **Checkpoint:** D4 (Qdrant)
+**Depends on:** P1  **Track:** App  **Checkpoint:** D4 (pgvector)
 
 | ID | Task | Files |
 |---|---|---|
-| P2.1 | **Docker Compose `core`:** `web`, `api`, `postgres:16`, `redis:7`, `qdrant`, `fake-gcs-server` with explicit healthchecks and dependency ordering | `infra/compose/docker-compose.yml` |
+| P2.1 | **Docker Compose `core`:** `web`, `api`, `postgres:16` (`pgvector/pgvector:pg16`), `redis:7`, `fake-gcs-server` with explicit healthchecks and dependency ordering | `infra/compose/docker-compose.yml` |
 | P2.2 | **Scaffold Frontend SPA:** Initialize Vite 6 + React 19 + TypeScript in `apps/web/`. Configure Tailwind CSS v4 and `tsconfig.json` paths | `apps/web/package.json`, `apps/web/vite.config.ts`, `apps/web/tailwind.config.ts` |
 | P2.3 | **Setup shadcn/ui:** Install Radix UI primitives, Lucide icons, setup `@/components/ui` (`button`, `card`, `dialog`, `badge`, `tabs`, `scroll-area`, `tooltip`, `drawer`, `sheet`) | `apps/web/src/components/ui/**`, `apps/web/components.json` |
 | P2.4 | **Client Routing & Layout Shell:** Implement `react-router-dom` routes: `/` (Landing/Join), `/customer` (Customer View), `/agent` (Agent Cockpit) | `apps/web/src/App.tsx`, `apps/web/src/routes/**` |
-| P2.5 | **Alembic Database Schema:** Migrations for `sessions`, `participants`, `transcript_segments`, `issue_predictions`, `recommendations`, `recommendation_sources`, `response_suggestions`, `summaries`, `audit_events`, `kb_chunks`, `feedback_events` | `backend/app/db/models.py`, `backend/migrations/**` |
+| P2.5 | **Alembic Database Schema:** Migrations for `sessions`, `participants`, `transcript_segments`, `issue_predictions`, `recommendations`, `recommendation_sources`, `response_suggestions`, `summaries`, `audit_events`, `kb_chunks` (with `vector(768)` & `tsvector`), `feedback_events` | `backend/app/db/models.py`, `backend/migrations/**` |
 | P2.6 | **Postgres Repositories:** Async SQLAlchemy repositories replacing in-memory dictionaries | `backend/app/adapters/postgres/*.py` |
 | P2.7 | **Redis Session State Store:** Manage active turn windows, inflight asyncio task locks, and published message deduplication hashes | `backend/app/adapters/redis/state_store.py` |
 | P2.8 | **Audit Service:** Typed audit logger persisting all R16 audit categories to PostgreSQL | `backend/app/services/audit_service.py` |
-| P2.9 | **Dockerfiles:** Multi-stage production Dockerfiles: `apps/api/Dockerfile` (uv, Python 3.14.8-slim) and `apps/web/Dockerfile` (Node 20 build → Nginx unprivileged) | `apps/api/Dockerfile`, `apps/web/Dockerfile`, `apps/web/nginx.conf` |
+| P2.9 | **Production Container & Frontend Builds:** Multi-stage production Dockerfiles: `apps/api/Dockerfile` (uv, Python 3.14.8-slim) and `apps/web/` build setup targeting Firebase Hosting (`firebase.json`) | `apps/api/Dockerfile`, `apps/web/Dockerfile`, `firebase.json` |
 | P2.10| **Developer Makefile:** `make up`, `make up-mock`, `make down`, `make seed`, `make test`, `make lint` | `Makefile` |
 
 **Exit Criteria:**
 - [ ] `make up-mock` starts all containers healthy; browser opens `http://localhost:3000` showing shadcn/ui interface.
-- [ ] Database migrations execute cleanly; sessions and audit logs persist across container restarts.
+- [ ] Database migrations execute cleanly; sessions, audit logs, and pgvector extension persist across container restarts.
 
 ---
 
 ### P3 — Knowledge Pipeline & Policy Corpus
-**Goal:** Build the governed, versioned knowledge pipeline with an authored **Policy Store** and local Qdrant indexing.
+**Goal:** Build the governed, versioned knowledge pipeline with an authored **Policy Store** and PostgreSQL pgvector indexing.
 **Depends on:** P2  **Track:** App  **Checkpoints:** D3, D7
 
 | ID | Task | Files |
@@ -273,14 +274,14 @@ flowchart LR
 | P3.6 | **Medallion Data Layout:** Raw → Normalized → Chunks → Embeddings with quarantine area for invalid records | `pipeline/paths.py`, `pipeline/jobs/*.py` |
 | P3.7 | **Corpus Manifest & Startup Guard:** Emit `manifest.json`; runtime startup check halts if local embedder model does not match index metadata | `pipeline/manifest.py`, `backend/app/core/startup_checks.py` |
 | P3.8 | **Local Embedder:** `EmbeddingGemma` via `sentence-transformers` with query/document task-type prefixes | `backend/app/adapters/local/embedder.py` |
-| P3.9 | **Qdrant Vector Adapter:** Dense + sparse (BM25) vector search with payload filtering (`intent_labels`, `status`, effective dates) and collection aliases | `backend/app/adapters/local/qdrant_index.py` |
-| P3.10| **Indexing Jobs:** `kb_build` (full index), `kb_promote` (blue/green alias flip), `kb_upsert` / `kb_retire` (incremental updates) | `pipeline/jobs/kb_*.py` |
+| P3.9 | **PostgreSQL pgvector Adapter:** Dense (HNSW cosine) + full-text (`tsvector`) hybrid vector search with Reciprocal Rank Fusion (RRF), payload filtering (`intent_labels`, `status`), and active version routing | `backend/app/adapters/postgres/vector_index.py` |
+| P3.10| **Indexing Jobs:** `kb_build` (full index/partition), `kb_promote` (blue/green view/pointer flip), `kb_upsert` / `kb_retire` (incremental updates) | `pipeline/jobs/kb_*.py` |
 | P3.11| **Data Quality Assertions:** CI assertions for 100% intent coverage, train/test leakage isolation, and zero PII detection | `pipeline/quality/*.py` |
 | P3.12| **Retrieval Evaluation Harness:** Ground-truth qrels mapping golden queries to expected policy/FAQ chunk IDs; measures Recall@k and nDCG@5 | `eval/retrieval/qrels.jsonl`, `eval/retrieval/run.py` |
 
 **Exit Criteria:**
 - [ ] `make seed` generates identical corpus hashes; 100% of policy-required intents have active policy chunks.
-- [ ] Blue/green alias flip succeeds in Qdrant with zero dropped search queries.
+- [ ] Blue/green active version switch succeeds in PostgreSQL with zero dropped search queries.
 - [ ] Retrieval Recall@20 ≥ 0.95 (ensuring sufficient candidates for downstream reranking).
 
 ---
@@ -372,22 +373,20 @@ flowchart LR
 |---|---|---|
 | P7.1 | **Terraform Bootstrap & Core Project:** Enable APIs, configure remote GCS state bucket, provision Artifact Registry, create KMS keys | `infra/terraform/bootstrap/**`, `infra/terraform/modules/{project,registry,storage}` |
 | P7.2 | **Workload Identity Federation (WIF):** GitHub Actions IAM integration without long-lived JSON keys | `infra/terraform/modules/iam` |
-| P7.3 | **Networking Module:** VPC, Cloud NAT, Serverless VPC Access / Direct VPC Egress, Private Service Connect (PSC) for Vector Search | `infra/terraform/modules/network` |
-| P7.4 | **Database & Redis Modules:** Cloud SQL PostgreSQL 16 (Private IP, IAM Auth) and Memorystore Redis (Standard HA, TLS) | `infra/terraform/modules/{sql,redis}` |
-| P7.5 | **Vertex Vector Search Module:** Provision 3 stream-update indexes (`policy`, `faq`, `intent_exemplars`) + PSC Index Endpoint | `infra/terraform/modules/vector_search` |
+| P7.3 | **Networking Module:** VPC, Cloud NAT, Serverless VPC Access / Direct VPC Egress for Cloud Run, Private Service Access for Cloud SQL & Memorystore | `infra/terraform/modules/network` |
+| P7.4 | **Database & Redis Modules:** Cloud SQL PostgreSQL 16 with `pgvector` extension flag enabled (Private IP, IAM Auth) and Memorystore Redis (Standard HA, TLS) | `infra/terraform/modules/{sql,redis}` |
+| P7.5 | **Firebase Hosting Provisioning:** Configure Firebase Hosting project/targets for Vite SPA with edge CDN distribution and TLS | `firebase.json`, `.firebaserc`, `infra/terraform/modules/firebase` |
 | P7.6 | **Vertex AI Intent Endpoint:** Provision endpoint shell with L4 GPU autoscaling; deploy P4 intent classifier model | `infra/terraform/modules/vertex_endpoint`, `ml/intent/jobs/deploy_endpoint.sh` |
-| P7.7 | **Cloud Run Services:** Deploy `api` (Session affinity, 3600s timeout, CPU always allocated) and `web` (Nginx static SPA) | `infra/terraform/modules/cloud_run_service` |
+| P7.7 | **Cloud Run API Gateway:** Deploy `api` (Session affinity, 3600s WebSocket timeout, min instances ≥ 1, direct WSS entrypoint) | `infra/terraform/modules/cloud_run_service` |
 | P7.8 | **Cloud Armor & IAP Security:** Global HTTPS Load Balancer with Cloud Armor WAF and Identity-Aware Proxy guarding `/agent` routes | `infra/terraform/modules/lb_armor_iap`, `backend/app/core/iap.py` |
-| P7.9 | **GCP Port Adapters:** Vertex Embeddings (`gemini-embedding-001`), Vertex Vector Search client, Vertex Ranking API, Gemini Flash (`response_schema`), Google STT V2 streaming | `backend/app/adapters/gcp/*.py` |
-| P7.10| **Cloud KB Build Job:** Execute `kb_build` Cloud Run Job to index policy and FAQ corpora into Vertex Vector Search | `pipeline/jobs/kb_build.py` |
+| P7.9 | **GCP Port Adapters:** Vertex Embeddings (`gemini-embedding-001`), Cloud SQL pgvector async adapter, Vertex Ranking API, Gemini Flash (`response_schema`), Google STT V2 streaming | `backend/app/adapters/gcp/*.py` |
+| P7.10| **Cloud KB Build Job:** Execute `kb_build` Cloud Run Job to index policy and FAQ corpora into Cloud SQL PostgreSQL pgvector | `pipeline/jobs/kb_build.py` |
 | P7.11| **Dev Environment Deployment:** Compose `envs/dev` with `dev.tfvars`; deploy complete stack to GCP Dev project | `infra/terraform/envs/dev/**` |
-| P7.12| **Decommission AWS Code:** Completely remove legacy Bedrock, Pinecone, and boto3 dependencies | `backend/requirements.txt`, `infra/terraform/README.md` |
 
 **Exit Criteria (P7b Gate):**
 - [ ] `terraform apply` provisions complete Dev environment cleanly.
 - [ ] Golden transcript replay runs end-to-end on GCP with `APP_PROFILE=gcp`.
 - [ ] Intent endpoint latency p95 ≤ 60ms; end-to-end recommendation update p95 ≤ 2.5s.
-- [ ] All legacy AWS code deleted.
 
 ---
 
@@ -464,7 +463,7 @@ flowchart LR
 | **P0** | Clean baseline, Python 3.14.8, no leaks | `make test && gitleaks detect` | Zero leaks, baseline eval committed |
 | **P1** | Pydantic v2 & TypeScript contracts | `pytest -m "not integration"` | Offline unit tests pass 100% |
 | **P2** | Docker Compose, Postgres, Vite scaffold | `make up-mock` | All containers healthy, UI renders |
-| **P3** | Policy corpus, Qdrant index, manifest | `make seed && pytest -m retrieval` | 100% policy coverage, Recall@20 ≥ 0.95 |
+| **P3** | Policy corpus, PostgreSQL pgvector index, manifest | `make seed && pytest -m retrieval` | 100% policy coverage, Recall@20 ≥ 0.95 |
 | **P4** | Fine-tuned Gemma LoRA classifier | `python -m ml.intent.evaluate` | Acc ≥ 0.93, F1 ≥ 0.92, Latency ≤ 250ms |
 | **P5** | RAG v2, Grounding, UI Assist cards | `pytest backend/tests/invariants/` | Zero ungrounded actions, Recall@5 ≥ 0.90 |
 | **P6** | AudioWorklet, 3-column cockpit | Browser voice test on `http://localhost:3000` | Real voice audio streams to transcript |

@@ -1,0 +1,58 @@
+{
+  "scenario_id": "travel_notice",
+  "title": "International Travel Notice for Credit Card",
+  "description": "Customer is traveling to Japan and South Korea next week and needs to set a travel notification to prevent security blocks on international transactions.",
+  "customer_profile": {
+    "customer_id": "cust_6712",
+    "name": "Elena Rostova",
+    "account_type": "World Elite Mastercard",
+    "relationship_tier": "Platinum",
+    "account_number_masked": "****9943",
+    "context_summary": "Active primary cardholder departing in 5 days for Tokyo, Japan."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Apex Bank Priority Line, this is Alex speaking. How may I assist you today?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "Hi Alex, I am traveling to Tokyo and Seoul next Thursday for two weeks and I want to put a travel notice on my credit card so it doesn't get blocked.",
+      "expected_intent": "travel_notice",
+      "expected_confidence_min": 0.88,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-TRAVEL-NOTIF-01"],
+      "suggested_response_keywords": ["travel notice added", "destination countries", "dates of travel"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I can set that up for you right away. What is your return date?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "I will be returning on November 15th. Does this also cover ATM cash withdrawals abroad?",
+      "expected_intent": "travel_notice",
+      "expected_confidence_min": 0.88,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-TRAVEL-NOTIF-01", "POL-INTL-ATM-04"],
+      "suggested_response_keywords": ["ATM access enabled", "foreign transaction fee", "emergency contact"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called to place an international travel notice on World Elite Mastercard ****9943.",
+    "key_issues": ["International travel notification for Japan and South Korea."],
+    "actions_completed": ["Recorded travel dates (Oct 27 - Nov 15)", "Added travel exemption flags to fraud scoring engine"],
+    "required_followups": ["None, travel notice is active immediately"]
+  },
+  "tags": ["travel", "international", "fraud_exception", "credit_card"]
+}

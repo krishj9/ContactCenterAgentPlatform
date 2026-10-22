@@ -1,0 +1,58 @@
+{
+  "scenario_id": "chit_chat_recipe",
+  "title": "Out-of-Scope Cooking Recipe Chit-Chat",
+  "description": "Caller asks for cooking recommendations and sourdough bread recipes completely outside the banking domain.",
+  "customer_profile": {
+    "customer_id": "cust_3840",
+    "name": "Maria Gonzales",
+    "account_type": "Preferred Checking",
+    "relationship_tier": "Standard",
+    "account_number_masked": "****5193",
+    "context_summary": "Caller asking culinary questions completely unrelated to banking operations."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Thank you for reaching Apex Bank customer service, my name is Alex. How can I help you today?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "Hi Alex! I'm making dinner right now and I forgot how much yeast to put into sourdough bread. Do you have a good recipe?",
+      "expected_intent": "out_of_scope",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "MISSING_EVIDENCE",
+      "required_citations": [],
+      "suggested_response_keywords": ["banking assistant", "redirect to account questions"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I'm afraid I don't have baking recipes on hand! I am here to help with your Apex Bank checking account, credit cards, or loans.",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "Haha, no problem! What about baking chocolate chip cookies, do you like chewy or crispy cookies?",
+      "expected_intent": "out_of_scope",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "MISSING_EVIDENCE",
+      "required_citations": [],
+      "suggested_response_keywords": ["assist with banking services", "account inquiries"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called asking for baking recipes and casual conversation.",
+    "key_issues": ["Out-of-scope inquiry (cooking recipes)."],
+    "actions_completed": ["Clarified scope of support and offered banking assistance"],
+    "required_followups": ["None"]
+  },
+  "tags": ["out_of_scope", "chit_chat", "cooking"]
+}

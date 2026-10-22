@@ -1,0 +1,58 @@
+{
+  "scenario_id": "lost_card",
+  "title": "Lost Wallet and Missing Debit Card",
+  "description": "Customer lost their wallet on public transit and urgently needs to freeze their debit card and order a replacement.",
+  "customer_profile": {
+    "customer_id": "cust_1108",
+    "name": "David Miller",
+    "account_type": "Standard Checking",
+    "relationship_tier": "Standard",
+    "account_number_masked": "****3312",
+    "context_summary": "Customer reports physical loss of wallet containing debit card ending in 3312 within the past hour."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Apex Bank Emergency Assistance, my name is Alex. How can I help you?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "Help! I left my wallet on the commuter train thirty minutes ago and my debit card is inside. I need to block it immediately before anyone uses it.",
+      "expected_intent": "lost_card",
+      "expected_confidence_min": 0.90,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-LOST-CARD-01", "POL-CARD-FREEZE-02"],
+      "suggested_response_keywords": ["card blocked immediately", "zero liability", "replacement card"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I've immediately placed a permanent lock on card ending in 3312. No further transactions can go through. Are there any unauthorized charges on your account?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "No, I just checked my app and there are no charges yet. Can you send me a replacement card with expedited delivery?",
+      "expected_intent": "lost_card",
+      "expected_confidence_min": 0.90,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-LOST-CARD-01", "POL-EXP-REPLACE-03"],
+      "suggested_response_keywords": ["expedited shipping", "2 to 3 business days", "confirm address"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called to report a lost debit card and request an emergency replacement.",
+    "key_issues": ["Lost debit card on public transit."],
+    "actions_completed": ["Permanently blocked debit card ****3312", "Verified zero unauthorized transactions", "Ordered expedited replacement card"],
+    "required_followups": ["Replacement card arriving in 2 business days via FedEx"]
+  },
+  "tags": ["lost_card", "security", "block", "replacement"]
+}

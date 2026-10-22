@@ -1,0 +1,58 @@
+{
+  "scenario_id": "chit_chat_weather",
+  "title": "Out-of-Scope Weather Chit-Chat",
+  "description": "Caller asks about the weather forecast in Chicago and small talk unrelated to banking services.",
+  "customer_profile": {
+    "customer_id": "cust_2209",
+    "name": "Tom Davis",
+    "account_type": "Standard Checking",
+    "relationship_tier": "Standard",
+    "account_number_masked": "****1029",
+    "context_summary": "Caller initiating off-topic conversational small talk about local weather."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Thank you for calling Apex Bank support, my name is Alex. How can I help you?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "Hey Alex! Just calling to see what the weather is like over where your call center is. Is it snowing today?",
+      "expected_intent": "out_of_scope",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "MISSING_EVIDENCE",
+      "required_citations": [],
+      "suggested_response_keywords": ["banking inquiries", "how can I assist with your account"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "It's pretty chilly here today! Is there anything specific regarding your Apex Bank account or cards I can help you with?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "Do you think it's going to rain this weekend?",
+      "expected_intent": "out_of_scope",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "MISSING_EVIDENCE",
+      "required_citations": [],
+      "suggested_response_keywords": ["banking services", "account assistance"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called for non-banking casual conversation regarding the weather.",
+    "key_issues": ["Out-of-scope inquiry (weather forecast)."],
+    "actions_completed": ["Politely redirected customer back to banking assistance"],
+    "required_followups": ["None"]
+  },
+  "tags": ["out_of_scope", "chit_chat", "weather"]
+}

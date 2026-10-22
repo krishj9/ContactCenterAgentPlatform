@@ -1,0 +1,157 @@
+# Agent Task Tracker — Production Rebuild Plan
+
+This tracker reflects the production rebuild plan defined in [`docs/implementation_plan.md`](../docs/implementation_plan.md).
+
+---
+
+## Rebuild Progress (P0 – P10)
+
+| Phase | Description | Track | Status | Primary Output |
+|---|---|---|---|---|
+| **P0** | Hygiene & Baseline | App + ML | ✅ COMPLETED | Security tooling (gitleaks/ruff), Python 3.14.8, baseline setup, golden scenarios |
+| **P1** | Contracts, Ports & Dependency Injection | App | ⬜ READY TO START | Pydantic v2 / TypeScript event contracts, DI container |
+| **P2** | Local Platform, UI Scaffold & Persistence | App | ⬜ TODO | Docker Compose, PostgreSQL 16, Vite + React + shadcn/ui scaffold |
+| **P3** | Knowledge Pipeline & Policy Corpus | App | ⬜ TODO | Markdown policy corpus, PostgreSQL pgvector index, manifest guard |
+| **P4** | Intent Model: Training & Serving | ML | ⬜ TODO | Fine-tuned Gemma 3 1B LoRA classifier, ONNX Runtime int8 serving |
+| **P5** | RAG v2, Grounding & UI Assist Cards | App + ML | ⬜ TODO | Router, reranker, NLI verifier, NBA & Suggested Response cards |
+| **P6** | Realtime Voice, Security & Cockpit Polish | App | ⬜ TODO | AudioWorklet PCM 16kHz, JWT signed tokens, 3-column cockpit |
+| **P7** | GCP Infrastructure, Terraform & Adapters | Platform | ⬜ TODO | Terraform modules, Cloud Run, Vertex AI, dev deployment |
+| **P8** | ML/KB Pipelines & CI/CD Release Trains | ML + Platform | ⬜ TODO | Vertex AI Pipelines (KFP v2), automated promotion & rollback |
+| **P9** | Observability, Telemetry & GenAI Eval | Platform + ML | ⬜ TODO | OpenTelemetry, Vertex Gen AI Eval, Cloud Monitoring SLOs |
+| **P10**| Production Hardening, Security & Load Test | All | ⬜ TODO | VPC Service Controls, DLP PII redaction, k6 500-session load test |
+
+---
+
+## Detailed Task Breakdown
+
+### Phase P0: Hygiene & Baseline
+- [x] **P0.1**: Configure `gitleaks` secret scanning + `ruff` pre-commit hooks and CI workflow step.
+- [x] **P0.2**: Pin Python 3.14.8 across `pyproject.toml`, CI workflow, and Dockerfiles.
+- [x] **P0.3**: Standardize package imports to `app.*` with `backend/` as root directory.
+- [x] **P0.4**: Configure `CorpusPaths` and set `MAX_RECORDS_PER_STORE=0` (unlimited).
+- [x] **P0.5**: Create golden scenario fixtures (`eval/scenarios/*.json`).
+- [x] **P0.6**: Set up baseline measurement harness and record report (`eval/reports/baseline.md`).
+- [x] **P0.7**: Formally amend requirements R8/R9 in `docs/requirements.md`.
+
+### Phase P1: Contracts, Ports & DI
+- [ ] **P1.1**: Versioned event contracts (Pydantic v2 models with discriminated union).
+- [ ] **P1.2**: Core domain models (`IntentPrediction`, `EvidenceChunk`, `NextBestAction`, etc.).
+- [ ] **P1.3**: Backend ports (`IntentClassifier`, `VectorIndex`, `Generator`, `SpeechToText`).
+- [ ] **P1.4**: TypeScript contract types generated for the Vite client.
+- [ ] **P1.5**: Zustand store interfaces (`useSessionStore`, `useTranscriptStore`, `useAssistStore`).
+- [ ] **P1.6**: Test adapters for offline mock testing.
+- [ ] **P1.7**: Settings configuration and dependency injection container.
+- [ ] **P1.8**: Transcript replay runner for automated regression testing.
+- [ ] **P1.9**: Strict mypy setup and `pytest-socket` offline isolation.
+
+### Phase P2: Local Platform, UI Scaffold & Persistence
+- [ ] **P2.1**: Docker Compose `core` (api, web, postgres:16 with pgvector, redis, fake-gcs).
+- [ ] **P2.2**: Scaffold Vite 6 + React 19 + TypeScript SPA in `apps/web/`.
+- [ ] **P2.3**: Install and configure Tailwind CSS v4 + shadcn/ui component library.
+- [ ] **P2.4**: Client routing (`/customer` and `/agent`) and shell layouts.
+- [ ] **P2.5**: Alembic database schema migrations for all entities.
+- [ ] **P2.6**: PostgreSQL repositories (SQLAlchemy 2.0 async + asyncpg).
+- [ ] **P2.7**: Redis session state store (turn window, task cancellation locks).
+- [ ] **P2.8**: Structured audit event logger persisting to database.
+- [ ] **P2.9**: Production Dockerfiles for `apps/api` and `apps/web`.
+- [ ] **P2.10**: Developer Makefile commands (`make up`, `make up-mock`, `make seed`).
+
+### Phase P3: Knowledge Pipeline & Policy Corpus
+- [ ] **P3.1**: Intent taxonomy registry (`taxonomy/intents.yaml`) and alias mappings.
+- [ ] **P3.2**: Policy authoring schema and CODEOWNERS compliance review workflow.
+- [ ] **P3.3**: Author initial POC policy corpus in Markdown.
+- [ ] **P3.4**: Heading-aware Markdown chunker.
+- [ ] **P3.5**: FAQ semantic intent tagging.
+- [ ] **P3.6**: Medallion pipeline layout (raw → normalized → chunks → embeddings).
+- [ ] **P3.7**: Corpus manifest generator and startup guard check.
+- [ ] **P3.8**: Local `EmbeddingGemma` adapter with query/document prefixes.
+- [ ] **P3.9**: PostgreSQL pgvector adapter with dense (HNSW) + full-text (`tsvector`) hybrid search and active version routing.
+- [ ] **P3.10**: Indexing jobs (`kb_build`, `kb_promote`, `kb_upsert`).
+- [ ] **P3.11**: Data quality assertion suite.
+- [ ] **P3.12**: Retrieval evaluation harness measuring Recall@k and nDCG@5.
+
+### Phase P4: Intent Model: Training & Serving
+- [ ] **P4.1**: Dataset preparation (Banking77, CLINC150 OOS, synthetic conversational noise).
+- [ ] **P4.2**: Conversational multi-turn spoken dialogue augmentation.
+- [ ] **P4.3**: LoRA fine-tuning pipeline on Gemma 3 1B with class weights.
+- [ ] **P4.4**: Temperature calibration on validation set and ambiguity decision layer.
+- [ ] **P4.5**: Model evaluation against Spec §3.2.4 quality gates.
+- [ ] **P4.6**: Execute initial training run and verify Champion criteria.
+- [ ] **P4.7**: Merge LoRA and export to ONNX Runtime int8.
+- [ ] **P4.8**: Build `apps/intent-svc` microservice container.
+- [ ] **P4.9**: Backend client adapter with exemplar-kNN fallback.
+- [ ] **P4.10**: Connect intent classification to orchestrator with 300ms debounce.
+- [ ] **P4.11**: Build Agent UI Intent Chip and "Why?" 3-exemplar drawer.
+
+### Phase P5: RAG v2, Grounding & UI Assist Cards
+- [ ] **P5.1**: Multi-turn query builder with intent description synthesis.
+- [ ] **P5.2**: Store router with parallel dispatch and filter-relax retry.
+- [ ] **P5.3**: Cross-encoder reranker adapter (`bge-reranker-v2-m3`).
+- [ ] **P5.4**: Calibrate evidence and policy thresholds from qrels.
+- [ ] **P5.5**: Structured Pydantic generation schemas with citation constraints.
+- [ ] **P5.6**: Local Ollama Gemma 3 generator adapter with JSON-schema mode.
+- [ ] **P5.7**: Claim and citation verifier (chunk ID verification + NLI entailment).
+- [ ] **P5.8**: Deterministic Grounding State Machine.
+- [ ] **P5.9**: Structured playbook YAML fallback templates.
+- [ ] **P5.10**: Invariant test suite verifying zero ungrounded actions.
+- [ ] **P5.11**: Summary Service v2 generating structured case notes.
+- [ ] **P5.12**: UI Grounding Banner component with dynamic status coloring.
+- [ ] **P5.13**: UI Next-Best Action Cards with step checklists and action-type tags.
+- [ ] **P5.14**: UI Suggested Response Card with 1-click copy/insert/edit.
+- [ ] **P5.15**: UI Collapsible Evidence Drawer with matched snippets and similarity scores.
+- [ ] **P5.16**: UI Post-Call Summary Modal.
+
+### Phase P6: Realtime Voice, Security & Cockpit Polish
+- [ ] **P6.1**: Signed JWT join tokens with Redis `jti` single-use tracking.
+- [ ] **P6.2**: Outbound event filter ensuring customers never receive internal assist data.
+- [ ] **P6.3**: Multi-instance Redis Pub/Sub broadcast.
+- [ ] **P6.4**: Web Audio API AudioWorklet (`pcm-recorder-worklet.js`) downsampling to 16kHz mono PCM.
+- [ ] **P6.5**: Local Faster-Whisper streaming speech-to-text adapter with VAD.
+- [ ] **P6.6**: Customer View (`/customer`) with animated audio waveform canvas.
+- [ ] **P6.7**: 3-column Agent Cockpit layout assembly (`/agent`).
+- [ ] **P6.8**: Live rolling transcript timeline with partial styling and keyword search.
+- [ ] **P6.9**: Customer Context & synthetic CRM history panel.
+- [ ] **P6.10**: Audio connection resilience, sequence gap tracking, and auto-reconnect.
+
+### Phase P7: GCP Infrastructure, Terraform & Cloud Adapters
+- [ ] **P7.1**: Terraform core modules (project, remote state, artifact registry, KMS).
+- [ ] **P7.2**: Workload Identity Federation for GitHub Actions.
+- [ ] **P7.3**: VPC networking, NAT, Serverless VPC Access / Direct VPC Egress for Cloud Run, Private Service Access.
+- [ ] **P7.4**: Cloud SQL PostgreSQL 16 with pgvector extension enabled and Memorystore Redis provisioning.
+- [ ] **P7.5**: Firebase Hosting provisioning & distribution setup for Vite SPA static dist.
+- [ ] **P7.6**: Vertex AI Intent Endpoint provisioning with L4 GPU.
+- [ ] **P7.7**: Cloud Run API Gateway deployment (`api` with session affinity, 3600s WebSocket timeout, min instances ≥ 1).
+- [ ] **P7.8**: Cloud Armor WAF and Identity-Aware Proxy (IAP) guarding agent routes.
+- [ ] **P7.9**: GCP port adapters (Vertex embeddings, Cloud SQL pgvector, Ranking, Gemini Flash, STT V2).
+- [ ] **P7.10**: Cloud Run Job for knowledge base indexing into Cloud SQL PostgreSQL pgvector.
+- [ ] **P7.11**: Deploy complete Dev environment (`envs/dev`).
+
+### Phase P8: ML & Knowledge Pipelines, CI/CD Release Trains
+- [ ] **P8.1**: KFP `intent_train` Vertex AI Pipeline.
+- [ ] **P8.2**: Model promotion traffic splitting and alias management.
+- [ ] **P8.3**: KFP `kb_build` knowledge base pipeline with automated alias flip.
+- [ ] **P8.4**: GitHub Actions triggers for policy updates and taxonomy changes.
+- [ ] **P8.5**: Application CI/CD pipeline with Cosign image signing.
+- [ ] **P8.6**: Binary Authorization policy enforcement.
+- [ ] **P8.7**: Provision Staging and Production environments (`envs/staging`, `envs/prod`).
+
+### Phase P9: Observability, Telemetry & GenAI Eval
+- [ ] **P9.1**: OpenTelemetry distributed tracing from Vite SPA to backend and LLM calls.
+- [ ] **P9.2**: Local observability profile (Jaeger, Prometheus, Grafana, Loki).
+- [ ] **P9.3**: Cloud Monitoring SLO alerts and golden signal dashboards.
+- [ ] **P9.4**: Audit log sinks streaming to BigQuery and locked GCS bucket.
+- [ ] **P9.5**: Vertex AI GenAI Evaluation pipeline (groundedness, safety, policy adherence).
+- [ ] **P9.6**: Nightly automated quality evaluation job.
+- [ ] **P9.7**: Vertex AI Model Monitoring for drift detection on the intent endpoint.
+- [ ] **P9.8**: Agent UI feedback capture widgets streaming telemetry to BigQuery.
+
+### Phase P10: Production Hardening, Security & Load Testing
+- [ ] **P10.1**: VPC Service Controls perimeter around all data and AI services.
+- [ ] **P10.2**: Customer-Managed Encryption Keys (CMEK) via Cloud KMS.
+- [ ] **P10.3**: Cloud DLP real-time PII inspection and redaction.
+- [ ] **P10.4**: Model Armor prompt injection protection layer.
+- [ ] **P10.5**: Adversarial prompt injection red-team test suite.
+- [ ] **P10.6**: k6 high-concurrency WebSocket load test (500 concurrent sessions).
+- [ ] **P10.7**: Chaos resilience drills testing component failure modes.
+- [ ] **P10.8**: WCAG 2.1 AA accessibility audit and keyboard navigation certification.
+- [ ] **P10.9**: Architecture Decision Records (ADRs) and production operational runbooks.

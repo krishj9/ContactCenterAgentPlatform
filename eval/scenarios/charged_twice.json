@@ -1,0 +1,58 @@
+{
+  "scenario_id": "charged_twice",
+  "title": "Duplicate Charge on Hotel Booking",
+  "description": "Customer was charged twice for the identical amount ($248.50) by the same hotel merchant on consecutive days.",
+  "customer_profile": {
+    "customer_id": "cust_5541",
+    "name": "Jessica Pearson",
+    "account_type": "Platinum Credit Card",
+    "relationship_tier": "Platinum",
+    "account_number_masked": "****6609",
+    "context_summary": "Two pending/posted charges of $248.50 with identical merchant authorization ID."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Thank you for contacting Apex Bank Credit Card Services. My name is Alex. How may I assist you?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "I checked my recent transactions and I was charged twice for the exact same hotel booking of two hundred and forty-eight dollars and fifty cents.",
+      "expected_intent": "charged_twice",
+      "expected_confidence_min": 0.88,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-DUP-CHARGE-01", "POL-DISPUTE-PROC-02"],
+      "suggested_response_keywords": ["duplicate charge", "provisional credit", "dispute initiated"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I see both entries on your ledger for two hundred and forty-eight dollars and fifty cents. Let me initiate a duplicate charge dispute for you right now.",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "Will I get a provisional credit while your team investigates the merchant?",
+      "expected_intent": "charged_twice",
+      "expected_confidence_min": 0.88,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-DUP-CHARGE-01"],
+      "suggested_response_keywords": ["provisional credit", "investigation timeframe"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called regarding an identical duplicate charge of $248.50 from a hotel merchant.",
+    "key_issues": ["Duplicate transaction charge of $248.50."],
+    "actions_completed": ["Identified duplicate merchant authorization", "Submitted duplicate transaction dispute claim", "Issued provisional credit of $248.50"],
+    "required_followups": ["Merchant dispute resolution within 30-45 calendar days"]
+  },
+  "tags": ["duplicate_charge", "dispute", "credit_card", "billing"]
+}

@@ -4,7 +4,7 @@
 |---|---|
 | Status | Draft v1.0 — for architecture review |
 | Scope | Full rebuild of the Contact Center Agent Helper (Banking POC) |
-| Sources analysed | `docs/requirements.md`, `docs/tasks.md`, `README.md`, `design.md`, `ARCHITECTURE_DIAGRAM.md`, `EMBEDDINGS_CLARIFICATION.md`, `backend/app/services/*`, `backend/app/pipeline/*`, `infra/terraform`, `.github/workflows/ci.yml` |
+| Sources analysed | `docs/requirements.md`, `docs/tasks.md`, `README.md`, `design.md`, `ARCHITECTURE_DIAGRAM.md`, `backend/app/services/*`, `backend/app/pipeline/*`, `infra/terraform`, `.github/workflows/ci.yml` |
 | Hard constraints | (1) Fine-tuned LLM for intent detection · (2) RAG for all other knowledge/QA · (3) Dual deployment: local + GCP |
 
 ---
@@ -22,9 +22,7 @@ The business logic in the docs is solid. The implementation has drifted from it 
 | F5 | Grounding mixes intent + FAQ similarity scores; conflicts via substring checks | [grounding_service.py](file:///Users/krishnajammula/Development/CCAgentPlatform-AI/backend/app/services/grounding_service.py#L66-L79) | Brittle; raw cosine scores are not comparable across stores |
 | F6 | Recommendations are hard-coded playbooks (~33 KB of rules) | [recommendation_engine.py](file:///Users/krishnajammula/Development/CCAgentPlatform-AI/backend/app/services/recommendation_engine.py) | Not evidence-driven; doesn't scale with corpus |
 | F7 | In-memory session state, single instance, no WS auth | README "Limitations" | Can't scale horizontally |
-| F8 | Cloud target is AWS (Bedrock, ECS, DynamoDB) in a Terraform placeholder | [infra/terraform/README.md](file:///Users/krishnajammula/Development/CCAgentPlatform-AI/infra/terraform/README.md) | Must be re-platformed to GCP |
-| F9 | Credential hygiene | A partial AWS access key ID is committed in `EMBEDDINGS_CLARIFICATION.md`; hard-coded `PYTHONPATH` to another repo in `scripts/rebuild_vector_store.sh` | Rotate key and purge it from git history |
-| F10 | Mixed import roots (`app.*` vs `backend.app.*`) | services vs pipeline modules | Packaging/test fragility |
+| F8 | Mixed import roots (`app.*` vs `backend.app.*`) | services vs pipeline modules | Packaging/test fragility |
 
 ---
 
@@ -37,8 +35,8 @@ We will rebuild the platform as a **provider-agnostic, event-driven agent-assist
 2. **Knowledge path: RAG.** Every informational output (next-best actions, suggested responses, evidence, summaries) comes from **intent-conditioned hybrid retrieval** over the governed **Policy** and **FAQ** corpora. The pipeline adds reranking, schema-constrained generation, citation verification and a deterministic grounding state machine.
 
 The same container images and code run in two profiles:
-- **`local`**: Docker Compose, open-weight models, Qdrant, Postgres, Redis, a GCS emulator
-- **`gcp`**: Cloud Run, Vertex AI Endpoints, Vertex AI Vector Search, Gemini on Vertex AI, Cloud SQL, Memorystore, GCS
+- **`local`**: Docker Compose, open-weight models, PostgreSQL 16 + pgvector, Redis, a GCS emulator
+- **`gcp`**: Firebase Hosting (Vite SPA), Cloud Run (FastAPI Session Gateway), Vertex AI Endpoints (Gemma LoRA), Cloud SQL for PostgreSQL 16 + pgvector, Memorystore, GCS
 
 Only configuration and adapters change between profiles.
 
@@ -119,7 +117,7 @@ All infrastructure dependencies sit behind Python `Protocol` interfaces in `back
 | `IntentClassifier` | `intent-svc` container (CPU/MPS, int8) | Vertex AI Endpoint (same image, L4 GPU) | `FixtureIntentClassifier` |
 | `SpeechToText` | faster-whisper (streaming) or text-mock | Cloud Speech-to-Text V2 streaming (Chirp-family) | `MockTranscriptionAdapter` (exists) |
 | `Embedder` | EmbeddingGemma / sentence-transformers | Vertex AI `gemini-embedding-001` (dim 768) | deterministic hash embedder |
-| `VectorIndex` | Qdrant (dense + sparse, aliases) | Vertex AI Vector Search (hybrid, restricts) | in-memory numpy index |
+| `VectorIndex` | PostgreSQL pgvector (`pgvector/pgvector:pg16`, HNSW index + `tsvector` hybrid RRF) | Cloud SQL PostgreSQL 16 pgvector (HNSW index + `tsvector` hybrid RRF) | in-memory numpy index |
 | `DocumentStore` | Postgres | Cloud SQL for PostgreSQL | SQLite in-memory |
 | `Reranker` | `bge-reranker-v2-m3` cross-encoder | Vertex AI Ranking API | identity reranker |
 | `Generator` | Ollama (Gemma 3 4B/12B, JSON mode) | Gemini Flash on Vertex AI (controlled generation) | canned structured responses |
@@ -129,20 +127,20 @@ All infrastructure dependencies sit behind Python `Protocol` interfaces in `back
 | `Tracer/Metrics` | OTel → Jaeger + Prometheus/Grafana | OTel → Cloud Trace / Cloud Monitoring | no-op |
 
 > [!IMPORTANT]
-> **On LocalStack / MinIO.** LocalStack emulates **AWS**, not GCP, so it adds nothing here. MinIO speaks the S3 API, but the `google-cloud-storage` client uses the GCS JSON API. We standardise on **`fake-gcs-server`** (`STORAGE_EMULATOR_HOST`), so the **same GCS client code** runs locally. MinIO is still an option if access goes through `fsspec` (`s3fs` vs `gcsfs`). Vertex AI has no emulator, so its capabilities are replaced by local model containers behind the same ports.
+> **On Local GCS Emulation.** The `google-cloud-storage` client uses the GCS JSON API. We standardise on **`fake-gcs-server`** (`STORAGE_EMULATOR_HOST`), so the **same GCS client code** runs locally as in GCP. Vertex AI has no local emulator, so its capabilities are replaced by local model containers behind the same ports.
 
 ### 2.3 Local vs. GCP Mapping
 
 | Concern | Local (Docker Compose) | GCP (dev / staging / prod) |
 |---|---|---|
-| Frontend | `web` (Next.js dev/standalone) | Cloud Run service `web` behind global external ALB + Cloud CDN |
+| Frontend | `web` (Vite dev server / Nginx container) | **Firebase Hosting** (global edge CDN, Vite SPA static dist, custom domain with TLS) |
 | Session Gateway / API | `api` (Uvicorn) | Cloud Run `api`: WebSockets, session affinity, 3600 s timeout, min instances ≥ 1 |
 | Assist workers | in-process tasks in `api` | Same (in-process asyncio). Optionally split into `assist-worker` via Pub/Sub at scale |
 | Intent model serving | `intent-svc` (FastAPI + Transformers/ONNX Runtime) | Vertex AI Endpoint, custom container, `g2-standard-4` (1× L4), autoscale 1→N |
 | Intent training | `make train-intent` (CPU/MPS, small subset) | Vertex AI Pipelines → Custom Training (A100/L4) |
 | Generation LLM | `ollama` (Gemma 3) | Gemini Flash (pinned version) on Vertex AI |
 | Embeddings | `embedder` (EmbeddingGemma) | Vertex AI embeddings API |
-| Vector DB | `qdrant` | Vertex AI Vector Search (index + index endpoint over PSC) |
+| Vector DB | `postgres:16` (`pgvector/pgvector:pg16`) | **Cloud SQL for PostgreSQL 16 (pgvector extension enabled)** |
 | Reranker | `reranker` (cross-encoder) | Vertex AI Ranking API |
 | Relational / doc store | `postgres:16` | Cloud SQL for PostgreSQL (HA in prod), private IP |
 | Session state / fan-out | `redis:7` | Memorystore for Redis (Standard tier) |
@@ -399,8 +397,8 @@ Scores come from the **reranker**, calibrated per store on the golden set, and a
 | **Normalized** | `gs://<proj>-processed/normalized/{store}/{corpus_version}/` | `NormalizedRecord` JSONL | `build_normalized_corpora` (existing loaders/normalizers, reused) |
 | **Chunked & enriched** | `…/chunks/{store}/{corpus_version}/` | `Chunk` JSONL (+ `intent_labels`, sparse terms) | `chunk_and_enrich` |
 | **Embedded** | `…/embeddings/{store}/{corpus_version}/{embed_model}/` | Vertex Vector Search JSONL (`id`, `embedding`, `sparse_embedding`, `restricts`) | `embed_batch` |
-| **Indexed** | Vertex Vector Search index / Qdrant collection | — | `build_index` + `promote_index` |
-| **Doc store** | Postgres `kb_chunks` table | rows keyed by chunk ID | `load_docstore` |
+| **Indexed** | PostgreSQL `kb_chunks` pgvector (HNSW cosine index + `tsvector` GIN index) | — | `build_index` + `promote_index` |
+| **Doc store** | Postgres `kb_chunks` table | rows keyed by chunk ID (unified metadata + vectors) | `load_docstore` |
 
 The existing streaming loaders (generator/`yield`-based) and the `content_hash` dedupe in [dedupe.py](file:///Users/krishnajammula/Development/CCAgentPlatform-AI/backend/app/pipeline/processors/dedupe.py) are kept. Changes:
 - The 200-record cap is removed.
@@ -429,21 +427,20 @@ Every build emits `manifest.json`, which is the contract between the pipeline an
 > [!WARNING]
 > **Embedding-space parity.** Local (EmbeddingGemma) and GCP (Vertex) vectors are **not interchangeable**, even at equal dimension. Each environment builds its own index from the same chunks. At startup, the runtime compares its configured embedder against `manifest.embedding` and **refuses to serve** on a mismatch. If strict local/GCP retrieval parity is ever required, serve EmbeddingGemma on Cloud Run in GCP as well.
 
-### 4.4 Index Lifecycle (blue/green)
+### 4.4 Index Lifecycle & Blue/Green Serving
 
 ```mermaid
 flowchart LR
-    B["Build new index<br/>kb-v(n+1)"] --> D["Deploy alongside<br/>(new deployed_index_id /<br/>new Qdrant collection)"]
+    B["Build new partition / schema<br/>kb-v(n+1)"] --> D["Deploy alongside in Postgres<br/>(schema or partition kb_chunks_v2)"]
     D --> E["Retrieval eval gate<br/>Recall@5, nDCG@5,<br/>golden scenarios"]
-    E -->|pass| F["Flip alias<br/>(config: active_index=kb-v(n+1))"]
-    E -->|fail| K["Keep kb-v(n); alert"]
-    F --> U["Undeploy kb-v(n-1)<br/>after 24h soak"]
+    E -->|pass| F["Flip pointer/view<br/>(active_version = kb-v(n+1))"]
+    E -->|fail| K["Keep active version; alert"]
+    F --> U["Drop / archive kb-v(n-1)<br/>after 24h soak"]
 ```
 
-- **Full rebuilds** (embedding model change, chunker change): batch index build from GCS, then blue/green as above.
-- **Incremental updates** (policy edit/retire): Vertex Vector Search *stream update* index. Upsert or remove datapoints, and update `status` in `kb_chunks`. Locally, use Qdrant upsert/delete.
+- **Full rebuilds** (embedding model change, chunker change): batch index build into versioned partition/table, evaluate retrieval, then update the active pointer/view.
+- **Incremental updates** (policy edit/retire): transactional upsert or update of `status` and `embedding` in `kb_chunks`. Both local and GCP execute the identical SQL updates.
 - **Deletion / retirement:**
-  - Datapoints are removed from the index.
   - Doc rows are soft-deleted (`status=retired`) for audit reproducibility.
   - Queries always filter `status=active` and effective date.
 - **Reproducibility:** every `recommendation.update` stores `corpus_version` and chunk IDs, so any historical suggestion can be reconstructed.
@@ -578,7 +575,7 @@ flowchart LR
   - Any detected real-looking PII (PAN, SSN, IBAN) is **redacted before persistence, logging, or LLM calls**, and raises `PII_DETECTED`.
 - **Encryption:** TLS 1.2+ everywhere. CMEK (Cloud KMS) for GCS, Cloud SQL, BigQuery and Vertex resources where supported.
 - **VPC Service Controls** perimeter around `aiplatform`, `storage`, `bigquery`, `sqladmin`, `dlp` to prevent exfiltration.
-- **Secrets:** Secret Manager only. `.env` is git-ignored locally. **Action item:** remove the AWS key fragment from `EMBEDDINGS_CLARIFICATION.md`, rotate the key, and add `gitleaks` to pre-commit and CI.
+- **Secrets:** Secret Manager only (GCP). `.env` is git-ignored locally. Automated secret scanning via `gitleaks` is enforced in pre-commit hooks and CI.
 - **Retention (POC defaults):** transcripts 30 days, audit 1 year (locked bucket), summaries 90 days. All values are configurable.
 
 ### 6.3 AI Safety & Human-in-the-Loop Controls
@@ -681,8 +678,9 @@ flowchart LR
 | D1 | Intent base model size | Gemma 3 1B (laptop-friendly, meets latency) | Gemma 3 4B if macro-F1 gate missed; ModernBERT if "LLM" constraint is relaxed |
 | D2 | Intent serving on GCP | Vertex AI Endpoint (registry, traffic split, monitoring) | Cloud Run GPU (cheaper at low QPS, less model-ops tooling) |
 | D3 | Embedding parity | Separate per-environment indexes with manifest guard | EmbeddingGemma everywhere (strict parity, self-hosted cost) |
-| D4 | Local vector DB | Qdrant (hybrid + aliases ≈ Vertex features) | Keep Chroma (less churn, no sparse/alias parity) |
+| D4 | Vector DB & RAG | **PostgreSQL 16 pgvector (Local & Cloud SQL)** with HNSW + `tsvector` hybrid RRF | Qdrant / Vertex Vector Search (higher operational complexity, separate store) |
 | D5 | Generation model | Gemini Flash (pinned GA version) | Gemini Pro for summaries only |
 | D6 | Agent identity | IAP + Google identity | Identity Platform (if external agents) |
 | D7 | Policy corpus authorship | Compliance-owned Markdown in git | Headless CMS → export job |
 | D8 | Requirements amendment | Amend R8/R9 to reflect classifier-based intent | Keep intent store as primary (conflicts with constraint #1) |
+| D9 | Frontend Hosting | **Firebase Hosting** (global edge CDN, Vite SPA static assets) | Cloud Run service serving static Nginx bundle |

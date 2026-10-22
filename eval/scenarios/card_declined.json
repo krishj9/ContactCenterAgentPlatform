@@ -1,0 +1,58 @@
+{
+  "scenario_id": "card_declined",
+  "title": "Debit Card Declined at Grocery Merchant",
+  "description": "Customer is attempting to buy groceries and their debit card was repeatedly declined despite having sufficient funds in their checking account.",
+  "customer_profile": {
+    "customer_id": "cust_8921",
+    "name": "Sarah Connor",
+    "account_type": "Preferred Checking",
+    "relationship_tier": "Gold",
+    "account_number_masked": "****4821",
+    "context_summary": "Active debit card flagged for potential velocity fraud after 3 consecutive contactless attempts in 5 minutes."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Thank you for calling Apex Bank support, my name is Alex. How can I help you today?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "Hi Alex, I'm at the supermarket checkout and my debit card was just declined twice. I know I have plenty of money in my checking account.",
+      "expected_intent": "card_declined",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-CARD-DECL-01", "POL-FRAUD-SEC-03"],
+      "suggested_response_keywords": ["security lock", "temporary hold", "verify transaction"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I understand that's frustrating. Let me pull up your account right now and check the security blocks.",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "Thank you, can you clear the block so I can complete this purchase right now?",
+      "expected_intent": "card_declined",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-CARD-DECL-01"],
+      "suggested_response_keywords": ["unblocked", "approved", "retry"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called regarding a debit card declined at merchant checkout.",
+    "key_issues": ["Debit card declined due to automated velocity fraud trigger."],
+    "actions_completed": ["Verified caller identity", "Removed security block on debit card ****4821"],
+    "required_followups": ["Customer to retry checkout at POS terminal"]
+  },
+  "tags": ["card", "declined", "fraud_protection", "pos"]
+}

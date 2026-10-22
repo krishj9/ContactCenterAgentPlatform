@@ -1,0 +1,58 @@
+{
+  "scenario_id": "fee_dispute",
+  "title": "Dispute Monthly Maintenance and Overdraft Fee",
+  "description": "Customer notices a $35 overdraft fee and a $12 monthly service fee on their statement and requests a courtesy fee waiver.",
+  "customer_profile": {
+    "customer_id": "cust_4319",
+    "name": "Marcus Aurelius",
+    "account_type": "Everyday Checking",
+    "relationship_tier": "Standard",
+    "account_number_masked": "****7104",
+    "context_summary": "Customer in good standing for 3 years; zero prior overdraft fee waivers in the trailing 12 months."
+  },
+  "turns": [
+    {
+      "turn_id": 1,
+      "speaker": "agent",
+      "text": "Hello, thank you for reaching Apex Bank customer care. How may I assist you?",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 2,
+      "speaker": "customer",
+      "text": "I was checking my online statement and saw a thirty-five dollar overdraft fee charged yesterday. I've been a loyal customer for three years and I want this fee waived.",
+      "expected_intent": "fee_dispute",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-FEE-WAIV-01", "POL-OD-COURTESY-02"],
+      "suggested_response_keywords": ["courtesy waiver", "one-time exception", "credited back"]
+    },
+    {
+      "turn_id": 3,
+      "speaker": "agent",
+      "text": "I can certainly look into that fee for you Marcus. Let me check your waiver eligibility.",
+      "expected_intent": null,
+      "expected_grounding_state": null,
+      "required_citations": []
+    },
+    {
+      "turn_id": 4,
+      "speaker": "customer",
+      "text": "Great, will the thirty-five dollars be refunded back to my account today?",
+      "expected_intent": "fee_dispute",
+      "expected_confidence_min": 0.85,
+      "expected_grounding_state": "GROUNDED",
+      "required_citations": ["POL-FEE-WAIV-01"],
+      "suggested_response_keywords": ["credit within 24 hours", "waived"]
+    }
+  ],
+  "expected_summary": {
+    "call_overview": "Customer called requesting a waiver for a $35 overdraft fee on checking account ****7104.",
+    "key_issues": ["$35 overdraft fee dispute."],
+    "actions_completed": ["Verified fee waiver policy eligibility (0 waivers in past 12 months)", "Processed $35 courtesy fee waiver"],
+    "required_followups": ["Waiver credit reflects on account within 1 business day"]
+  },
+  "tags": ["fee", "dispute", "waiver", "overdraft"]
+}

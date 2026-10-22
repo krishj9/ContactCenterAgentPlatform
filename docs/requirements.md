@@ -133,25 +133,29 @@ Acceptance criteria:
 - The top issue should match the expected scenario label in scripted demos.
 - The system may return multiple issues if the conversation is ambiguous.
 
-### R8. Logical retrieval stores
-WHEN the system requires supporting context,
-THE SYSTEM SHALL retrieve from separate logical stores for intent, policy, and FAQ content.
+### R8. Knowledge stores and intent architecture
+WHEN the system requires domain classification or supporting evidence,
+THE SYSTEM SHALL separate fast-path intent detection (via a fine-tuned classifier head) from knowledge retrieval stores (policy, FAQ, and intent exemplars).
 
 Acceptance criteria:
-- Each record has a stable ID and metadata.
-- Each store can be queried independently.
-- A query can target one or more stores.
-- Store-specific metadata is preserved in retrieval results.
+- Primary intent classification is performed by a dedicated fine-tuned classifier head with calibrated confidence and explicit out-of-scope handling, rather than raw vector k-NN search.
+- Policy store provides authoritative compliance and operational rules required for grounding.
+- FAQ store provides customer-facing explanation phrasing and conversational scripts.
+- Intent exemplar store is queried asynchronously for explainability (3 nearest training utterances) without gating runtime decision flow.
+- Each knowledge record has a stable ID, content hash, and governed metadata.
+- Each store can be queried and indexed independently.
 
-### R9. Retrieval routing
-WHEN retrieval is triggered,
-THE SYSTEM SHALL route queries to appropriate stores based on use case.
+### R9. Intent-conditioned retrieval routing
+WHEN retrieval is triggered by conversation turns,
+THE SYSTEM SHALL route queries to appropriate knowledge stores conditioned on the classified intent and dialogue state.
 
 Acceptance criteria:
-- Intent store supports issue inference and utterance matching.
-- Policy store is required before presenting operational guidance as grounded.
-- FAQ store supports customer-facing explanation language.
-- Retrieval routing is testable and configurable.
+- Fast-path intent classification runs first with latency under 100ms, producing intent hypotheses and calibrated confidence scores.
+- Policy store retrieval is strictly required before presenting operational guidance as grounded (`GROUNDED`).
+- If supporting policy evidence is absent or similarity is below threshold, operational actions must be flagged as `POLICY_REVIEW_NEEDED` or suppressed (`MISSING_EVIDENCE`).
+- FAQ store retrieval provides supporting customer explanations aligned with the classified intent.
+- Retrieval routing supports hybrid dense and sparse full-text search with intent-label filtering.
+- Retrieval routing is testable and configurable offline.
 
 ### R10. Grounded next-best actions
 WHEN enough evidence is available,
