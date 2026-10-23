@@ -89,4 +89,15 @@ venvPath = ".."
 venv = ".venv"
 typeCheckingMode = "standard"
 
+[tool.pyrefly]
+search-path = [
+    ".",
+    "..",
+]
+site-package-path = [
+    "../.venv/lib/python3.14/site-packages",
+    ".venv/lib/python3.14/site-packages",
+]
+
+
 

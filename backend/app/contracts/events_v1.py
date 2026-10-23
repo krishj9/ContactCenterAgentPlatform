@@ -205,6 +205,7 @@ class IssueUpdateEvent(BaseEvent):
     intent_label: str
     confidence: float
     is_out_of_scope: bool = False
+    degraded: bool = False
     candidates: list[IntentCandidatePayload] = Field(default_factory=list)
     exemplar_ids: list[str] = Field(default_factory=list)
     provenance: ProvenancePayload = Field(default_factory=ProvenancePayload)

@@ -1,0 +1,7 @@
+search-path = [
+    ".",
+    "backend",
+]
+site-package-path = [
+    ".venv/lib/python3.14/site-packages",
+]

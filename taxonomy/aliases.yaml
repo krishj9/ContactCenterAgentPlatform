@@ -14,7 +14,7 @@ aliases:
     - pos_declined
     - card_blocked_at_store
     - restaurant_declined_card
-
+    - declined_card_payment
 
   # Travel Notice
   travel_notice:
@@ -34,6 +34,10 @@ aliases:
     - reverse_fee
     - monthly_fee_charge
     - maintenance_fee_dispute
+    - card_payment_fee_charged
+    - transfer_fee_charged
+    - cash_withdrawal_charge
+    - extra_charge_on_statement
 
   # Fraud Report
   fraud_report:
@@ -52,6 +56,7 @@ aliases:
     - charged_two_times
     - billed_twice
     - multiple_charges_same_item
+    - transaction_charged_twice
 
   # Lost or Stolen Card
   lost_or_stolen_card:

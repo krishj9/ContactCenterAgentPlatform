@@ -1,0 +1,36 @@
+# Full production training configuration (L4 / A100 GPU)
+model_name_or_path: "google/gemma-3-1b-pt"
+task_type: "SEQ_CLS"
+num_labels: 78
+max_length: 128
+
+# LoRA hyperparameters (Spec §3.2.1)
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+
+# Training hyperparameters
+learning_rate: 2.0e-4
+batch_size: 16
+gradient_accumulation_steps: 4
+epochs: 3
+warmup_ratio: 0.06
+weight_decay: 0.01
+label_smoothing: 0.1
+fp16: false
+bf16: true
+
+# Calibration & Out-of-scope thresholds
+tau_oos: 0.55
+multi_issue_p2_min: 0.25
+multi_issue_delta_max: 0.30
+
+# Output paths
+output_dir: "ml/intent/artifacts/full"
+data_dir: "data/processed/intent"
+seed: 42

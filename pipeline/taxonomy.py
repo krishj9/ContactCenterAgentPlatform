@@ -84,12 +84,14 @@ class TaxonomyRegistry:
     def resolve_alias(self, term: str) -> str:
         """Map term or colloquial alias to canonical taxonomy label."""
         cleaned = term.lower().strip()
-        if cleaned in self._intents:
-            return cleaned
         if cleaned in self._aliases:
             return self._aliases[cleaned]
+        if cleaned in self._intents:
+            return cleaned
 
         underscored = cleaned.replace(" ", "_").replace("-", "_")
+        if underscored in self._aliases:
+            return self._aliases[underscored]
         if underscored in self._intents:
             return underscored
         return self._aliases.get(underscored, term)

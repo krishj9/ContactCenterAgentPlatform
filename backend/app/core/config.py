@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
@@ -23,7 +24,9 @@ class Settings(BaseSettings):
 
     APP_NAME: str = "Contact Center Agent Helper Platform"
     APP_PROFILE: Literal["local", "gcp", "test"] = Field(
-        default="local",
+        default="test"
+        if ("PYTEST_CURRENT_TEST" in os.environ or os.getenv("CC_APP_PROFILE") == "test")
+        else "local",
         description="Deployment profile: local | gcp | test",
     )
     DEBUG: bool = False
@@ -54,6 +57,18 @@ class Settings(BaseSettings):
     INTENT_CONFIDENCE_THRESHOLD: float = Field(
         default=0.70,
         description="Minimum calibrated confidence to route to grounded RAG without warning.",
+    )
+    INTENT_OOS_THRESHOLD: float = Field(
+        default=0.55,
+        description="Out-of-scope confidence threshold tau_oos.",
+    )
+    INTENT_DEBOUNCE_MS: int = Field(
+        default=300,
+        description="Debounce interval in milliseconds for live customer speech turn classification.",
+    )
+    INTENT_SERVICE_URL: str = Field(
+        default="http://localhost:8001/v1/classify",
+        description="Endpoint URL for intent-svc ONNX Runtime microservice.",
     )
     GROUNDING_SIMILARITY_THRESHOLD: float = Field(
         default=0.75,

@@ -15,13 +15,14 @@ import {
   FileText,
   User,
   Clock,
-  Sparkles,
   ChevronRight,
   ExternalLink,
   ThumbsUp,
   ThumbsDown,
   Edit3,
 } from "lucide-react";
+import { IntentChip } from "@/components/agent/IntentChip";
+import type { IntentCandidatePayload } from "@/types/contracts";
 
 interface Turn {
   id: number;
@@ -43,6 +44,95 @@ export default function AgentPage() {
   );
   const [copied, setCopied] = useState(false);
   const [disposition, setDisposition] = useState<"accepted" | "edited" | "dismissed" | null>(null);
+
+  // Real-time intent detection state (P4.11)
+  const [activeIntent, setActiveIntent] = useState("card_declined");
+  const [activeConfidence, setActiveConfidence] = useState(0.942);
+  const [isOutOfScope, setIsOutOfScope] = useState(false);
+  const [isDegraded, setIsDegraded] = useState(false);
+  const [intentCandidates, setIntentCandidates] = useState<IntentCandidatePayload[]>([
+    { intent_label: "card_declined", confidence: 0.942 },
+    { intent_label: "country_support", confidence: 0.038 },
+    { intent_label: "general_inquiry", confidence: 0.02 },
+  ]);
+  const [exemplarIds, setExemplarIds] = useState<string[]>([
+    "ex-card_declined-1",
+    "ex-card_declined-2",
+    "ex-card_declined-3",
+  ]);
+  const [lastCustomerUtterance, setLastCustomerUtterance] = useState(
+    "Hi Alex, I'm currently in France and my Sapphire card was just declined at a restaurant in Paris. I need to pay the bill right now."
+  );
+
+  const simulateScenario = (scenarioKey: "card_declined" | "fee_dispute" | "travel_notice" | "out_of_scope" | "degraded") => {
+    switch (scenarioKey) {
+      case "card_declined":
+        setActiveIntent("card_declined");
+        setActiveConfidence(0.942);
+        setIsOutOfScope(false);
+        setIsDegraded(false);
+        setIntentCandidates([
+          { intent_label: "card_declined", confidence: 0.942 },
+          { intent_label: "country_support", confidence: 0.038 },
+          { intent_label: "general_inquiry", confidence: 0.02 },
+        ]);
+        setExemplarIds(["ex-card_declined-1", "ex-card_declined-2", "ex-card_declined-3"]);
+        setLastCustomerUtterance("Hi Alex, I'm currently in France and my Sapphire card was just declined at a restaurant in Paris. I need to pay the bill right now.");
+        break;
+      case "fee_dispute":
+        setActiveIntent("fee_dispute");
+        setActiveConfidence(0.918);
+        setIsOutOfScope(false);
+        setIsDegraded(false);
+        setIntentCandidates([
+          { intent_label: "fee_dispute", confidence: 0.918 },
+          { intent_label: "card_payment_fee_charged", confidence: 0.052 },
+          { intent_label: "general_inquiry", confidence: 0.03 },
+        ]);
+        setExemplarIds(["ex-fee_dispute-1", "ex-fee_dispute-2", "ex-fee_dispute-3"]);
+        setLastCustomerUtterance("I noticed an overdraft fee of thirty-five dollars charged to my statement yesterday. Can this fee be waived?");
+        break;
+      case "travel_notice":
+        setActiveIntent("travel_notice");
+        setActiveConfidence(0.965);
+        setIsOutOfScope(false);
+        setIsDegraded(false);
+        setIntentCandidates([
+          { intent_label: "travel_notice", confidence: 0.965 },
+          { intent_label: "country_support", confidence: 0.025 },
+          { intent_label: "general_inquiry", confidence: 0.01 },
+        ]);
+        setExemplarIds(["ex-travel_notice-1", "ex-travel_notice-2", "ex-travel_notice-3"]);
+        setLastCustomerUtterance("I am traveling to Tokyo next week and need to make sure my card is authorized for international purchases.");
+        break;
+      case "out_of_scope":
+        setActiveIntent("out_of_scope");
+        setActiveConfidence(0.975);
+        setIsOutOfScope(true);
+        setIsDegraded(false);
+        setIntentCandidates([
+          { intent_label: "out_of_scope", confidence: 0.975 },
+          { intent_label: "general_inquiry", confidence: 0.015 },
+          { intent_label: "card_declined", confidence: 0.01 },
+        ]);
+        setExemplarIds(["ex-oos-1", "ex-oos-2", "ex-oos-3"]);
+        setLastCustomerUtterance("What is the weather like in Paris or New York right now? Is it going to rain tomorrow?");
+        break;
+      case "degraded":
+        setActiveIntent("card_declined");
+        setActiveConfidence(0.880);
+        setIsOutOfScope(false);
+        setIsDegraded(true);
+        setIntentCandidates([
+          { intent_label: "card_declined", confidence: 0.880 },
+          { intent_label: "card_payment_not_recognised", confidence: 0.075 },
+          { intent_label: "general_inquiry", confidence: 0.045 },
+        ]);
+        setExemplarIds(["ex-card_declined-1", "ex-card_declined-2", "ex-card_declined-3"]);
+        setLastCustomerUtterance("My card was declined at checkout due to an unexpected block.");
+        break;
+    }
+  };
 
   // Timer simulation
   useEffect(() => {
@@ -290,33 +380,73 @@ export default function AgentPage() {
 
         {/* ================= COLUMN 3: Real-Time Assist Guidance & Grounding (4 cols) ================= */}
         <div className="lg:col-span-4 flex flex-col space-y-4 overflow-y-auto">
-          {/* Issue & Intent Detection Card */}
-          <Card className="bg-slate-900/80 border-slate-800 shadow-md">
-            <CardHeader className="pb-2">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-1.5">
-                  <Sparkles className="h-4 w-4 text-purple-400" />
-                  <CardTitle className="text-xs font-semibold text-white">Detected Issue & Intent</CardTitle>
-                </div>
-                <Badge variant="outline" className="border-purple-500/40 text-purple-300 bg-purple-950/20 text-[10px]">
-                  LoRA Gemma 1B Head
-                </Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-2 text-xs">
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-sm text-slate-100">card_declined</span>
-                <span className="font-mono text-emerald-400 font-bold">94.2% Confidence</span>
-              </div>
-              {/* Confidence Meter Bar */}
-              <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-400 rounded-full" style={{ width: "94.2%" }}></div>
-              </div>
-              <p className="text-[11px] text-slate-400">
-                Triggered by: "card was just declined at a restaurant in Paris"
-              </p>
-            </CardContent>
-          </Card>
+          {/* Quick Scenario Selector Bar for Live Intent Simulation */}
+          <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-950/60 border border-slate-800/80 overflow-x-auto text-[11px]">
+            <span className="text-[10px] text-slate-400 font-mono pl-1 uppercase tracking-wider shrink-0">
+              Test Scenario:
+            </span>
+            <button
+              onClick={() => simulateScenario("card_declined")}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
+                activeIntent === "card_declined" && !isDegraded
+                  ? "bg-purple-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-800/60 text-slate-400 hover:text-white"
+              }`}
+            >
+              Card Decline
+            </button>
+            <button
+              onClick={() => simulateScenario("fee_dispute")}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
+                activeIntent === "fee_dispute"
+                  ? "bg-purple-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-800/60 text-slate-400 hover:text-white"
+              }`}
+            >
+              Fee Dispute
+            </button>
+            <button
+              onClick={() => simulateScenario("travel_notice")}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
+                activeIntent === "travel_notice"
+                  ? "bg-purple-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-800/60 text-slate-400 hover:text-white"
+              }`}
+            >
+              Travel Notice
+            </button>
+            <button
+              onClick={() => simulateScenario("out_of_scope")}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
+                isOutOfScope
+                  ? "bg-rose-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-800/60 text-slate-400 hover:text-white"
+              }`}
+            >
+              OOS Chit-Chat
+            </button>
+            <button
+              onClick={() => simulateScenario("degraded")}
+              className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
+                isDegraded
+                  ? "bg-amber-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-800/60 text-slate-400 hover:text-white"
+              }`}
+            >
+              k-NN Fallback
+            </button>
+          </div>
+
+          {/* Issue & Intent Detection Card (P4.11 IntentChip with ExemplarDrawer) */}
+          <IntentChip
+            intentLabel={activeIntent}
+            confidence={activeConfidence}
+            isOutOfScope={isOutOfScope}
+            degraded={isDegraded}
+            triggeredByText={lastCustomerUtterance}
+            candidates={intentCandidates}
+            exemplarIds={exemplarIds}
+          />
 
           {/* Active Safety Guardrail Alert Banner */}
           <div className="flex items-center gap-2 p-2.5 rounded-lg bg-amber-950/40 border border-amber-500/40 text-amber-300 text-xs">

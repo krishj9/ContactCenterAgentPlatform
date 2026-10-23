@@ -26,6 +26,7 @@ class IntentPrediction:
     taxonomy_version: str = "tx-14"
     explanation_exemplar_ids: list[str] = field(default_factory=list)
     created_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    degraded: bool = False
 
     @property
     def is_confident(self) -> bool:

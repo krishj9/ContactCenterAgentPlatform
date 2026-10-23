@@ -1,0 +1,2434 @@
+{
+  "verify_source_of_funds": [
+    {
+      "id": "ex-verify_source_of_funds-1",
+      "text": "hi i am calling about my account [TURN] i would like to know how to work out where my funds um came from",
+      "intent": "verify_source_of_funds",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_source_of_funds-2",
+      "text": "How do I know where my funds so basically come from?",
+      "intent": "verify_source_of_funds",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_source_of_funds-3",
+      "text": "Show me the source of my money.",
+      "intent": "verify_source_of_funds",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_source_of_funds-4",
+      "text": "Are there steps to see where my funds come from?",
+      "intent": "verify_source_of_funds",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_source_of_funds-5",
+      "text": "I need to know this, where do my funds come from?",
+      "intent": "verify_source_of_funds",
+      "is_scenario": false
+    }
+  ],
+  "activate_my_card": [
+    {
+      "id": "ex-activate_my_card-1",
+      "text": "good afternoon i have a quick question [TURN] yes i was hoping you could help me with something [TURN] how do i get my card active",
+      "intent": "activate_my_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-activate_my_card-2",
+      "text": "so basically I couldn't complete card activation.",
+      "intent": "activate_my_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-activate_my_card-3",
+      "text": "yes i was hoping you could help me with something [TURN] how how do i activate my card so that i can start using it",
+      "intent": "activate_my_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-activate_my_card-4",
+      "text": "How can I make my card ready to use?",
+      "intent": "activate_my_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-activate_my_card-5",
+      "text": "Can you tell me how I go about activating a new card?",
+      "intent": "activate_my_card",
+      "is_scenario": false
+    }
+  ],
+  "balance_not_updated_after_bank_transfer": [
+    {
+      "id": "ex-balance_not_updated_after_bank_transfer-1",
+      "text": "How long do transfers take to go though",
+      "intent": "balance_not_updated_after_bank_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_bank_transfer-2",
+      "text": "good afternoon i have a quick question [TURN] Hello I have a UK account. Can you please check if everything is alright with it? I made a transfer um a couple hours ago but it doesn't show up yet.",
+      "intent": "balance_not_updated_after_bank_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_bank_transfer-3",
+      "text": "I transferred some money a couple days ago but haven't received it yet. How long should I expect to wait?",
+      "intent": "balance_not_updated_after_bank_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_bank_transfer-4",
+      "text": "I recently transferred some cash, but the balance has not changed.",
+      "intent": "balance_not_updated_after_bank_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_bank_transfer-5",
+      "text": "Where is the transfer that I did?",
+      "intent": "balance_not_updated_after_bank_transfer",
+      "is_scenario": false
+    }
+  ],
+  "pending_top_up": [
+    {
+      "id": "ex-pending_top_up-1",
+      "text": "Why hasn't my top-up finished pending yet?",
+      "intent": "pending_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_top_up-2",
+      "text": "hi i am calling about my account [TURN] thanks for waiting i just logged in [TURN] even even though i added money ey to the card i couldnt use it",
+      "intent": "pending_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_top_up-3",
+      "text": "How long does it take for a top up to be approved?",
+      "intent": "pending_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_top_up-4",
+      "text": "Even though I added money ey to the card, I couldn't use it",
+      "intent": "pending_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_top_up-5",
+      "text": "What if my top up doesn't go through?",
+      "intent": "pending_top_up",
+      "is_scenario": false
+    }
+  ],
+  "beneficiary_not_allowed": [
+    {
+      "id": "ex-beneficiary_not_allowed-1",
+      "text": "I am trying  to  transfer and  it has been  stopped why is  that",
+      "intent": "beneficiary_not_allowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-beneficiary_not_allowed-2",
+      "text": "I was unable to transfer to another account.",
+      "intent": "beneficiary_not_allowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-beneficiary_not_allowed-3",
+      "text": "Why is my beneficiary not allowed?",
+      "intent": "beneficiary_not_allowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-beneficiary_not_allowed-4",
+      "text": "Why is my beneficiary not being allowed to get payment services?",
+      "intent": "beneficiary_not_allowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-beneficiary_not_allowed-5",
+      "text": "are transfers to a beneficiary possible",
+      "intent": "beneficiary_not_allowed",
+      "is_scenario": false
+    }
+  ],
+  "country_support": [
+    {
+      "id": "ex-country_support-1",
+      "text": "yes i was hoping you could help me with something [TURN] do i mean you do business in the eu",
+      "intent": "country_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-country_support-2",
+      "text": "Can I get a card although I'm not in the UK",
+      "intent": "country_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-country_support-3",
+      "text": "Can I get a card if I don't reside in the UK?",
+      "intent": "country_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-country_support-4",
+      "text": "good afternoon i have a quick question [TURN] hey there i have an issue on my mobile app [TURN] um Are cards available to those outside of the UK?",
+      "intent": "country_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-country_support-5",
+      "text": "yes i was hoping you could help me with something [TURN] From From what countries can I use an account?",
+      "intent": "country_support",
+      "is_scenario": false
+    }
+  ],
+  "verify_my_identity": [
+    {
+      "id": "ex-verify_my_identity-1",
+      "text": "what are the steps for identity checks",
+      "intent": "verify_my_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_my_identity-2",
+      "text": "What forms of ID do you need for identity verification?",
+      "intent": "verify_my_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_my_identity-3",
+      "text": "What steps do I need to take for the identity checking process?",
+      "intent": "verify_my_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_my_identity-4",
+      "text": "What documentation is needed for the identity check?",
+      "intent": "verify_my_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_my_identity-5",
+      "text": "yes i was hoping you could help me with something [TURN] good afternoon i have a quick question [TURN] How can you assist um on verifying my identity?",
+      "intent": "verify_my_identity",
+      "is_scenario": false
+    }
+  ],
+  "pending_transfer": [
+    {
+      "id": "ex-pending_transfer-1",
+      "text": "hey there i have an issue on my mobile app [TURN] good afternoon i have a quick question [TURN] wait can you tell me when the transfer will be completed",
+      "intent": "pending_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_transfer-2",
+      "text": "there is a transfer pending.",
+      "intent": "pending_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_transfer-3",
+      "text": "hey there i have an issue on my mobile app [TURN] why is a transfer i um did recently still processing",
+      "intent": "pending_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_transfer-4",
+      "text": "hello thanks for taking my call [TURN] my my money transfer hasnt appeared yet",
+      "intent": "pending_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_transfer-5",
+      "text": "you know I'm confused as to why my transfer is still listed as pending on the website.",
+      "intent": "pending_transfer",
+      "is_scenario": false
+    }
+  ],
+  "top_up_limits": [
+    {
+      "id": "ex-top_up_limits-1",
+      "text": "Tell me if there is a limit to top-up.",
+      "intent": "top_up_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_limits-2",
+      "text": "How can I information on my limit for top-ups?",
+      "intent": "top_up_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_limits-3",
+      "text": "Is there any amount in which I would get cut off from topping up?",
+      "intent": "top_up_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_limits-4",
+      "text": "How much am I allowed to top-up?",
+      "intent": "top_up_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_limits-5",
+      "text": "How much is the limit for top-ups?",
+      "intent": "top_up_limits",
+      "is_scenario": false
+    }
+  ],
+  "get_physical_card": [
+    {
+      "id": "ex-get_physical_card-1",
+      "text": "thanks for waiting i just logged in [TURN] where where is my pin",
+      "intent": "get_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_physical_card-2",
+      "text": "wheres my pin",
+      "intent": "get_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_physical_card-3",
+      "text": "does the pin come under separate cover",
+      "intent": "get_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_physical_card-4",
+      "text": "The card PIN is not visible anywhere?",
+      "intent": "get_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_physical_card-5",
+      "text": "In regards to the PIN of the card?",
+      "intent": "get_physical_card",
+      "is_scenario": false
+    }
+  ],
+  "out_of_scope": [
+    {
+      "id": "ex-out_of_scope-1",
+      "text": "hello is anybody there?",
+      "intent": "out_of_scope",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-out_of_scope-2",
+      "text": "Hey Alex! Just calling to see what the weather is like over where your call center is. Is it snowing today? [TURN] Do you think it's going to rain this weekend?",
+      "intent": "out_of_scope",
+      "is_scenario": true
+    },
+    {
+      "id": "ex-out_of_scope-3",
+      "text": "do you like working at this bank?",
+      "intent": "out_of_scope",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-out_of_scope-4",
+      "text": "can you check my flight status on united?",
+      "intent": "out_of_scope",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-out_of_scope-5",
+      "text": "can you speak a little louder please?",
+      "intent": "out_of_scope",
+      "is_scenario": false
+    }
+  ],
+  "lost_or_stolen_phone": [
+    {
+      "id": "ex-lost_or_stolen_phone-1",
+      "text": "Is there something that I can do since my phone was stolen yesterday?",
+      "intent": "lost_or_stolen_phone",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_phone-2",
+      "text": "yesterday my phone was stolen from me  what do i need to do about it",
+      "intent": "lost_or_stolen_phone",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_phone-3",
+      "text": "I am not sure where my phone is.",
+      "intent": "lost_or_stolen_phone",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_phone-4",
+      "text": "yes i was hoping you could help me with something [TURN] thanks for waiting i just logged in [TURN] like hello i have lost my phone and im worried someones going to steal money from me",
+      "intent": "lost_or_stolen_phone",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_phone-5",
+      "text": "hi i am calling about my account [TURN] How do I use my card if I lost my phone?",
+      "intent": "lost_or_stolen_phone",
+      "is_scenario": false
+    }
+  ],
+  "disposable_card_limits": [
+    {
+      "id": "ex-disposable_card_limits-1",
+      "text": "How many times can I use my disposable card?",
+      "intent": "disposable_card_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-disposable_card_limits-2",
+      "text": "Are there restrictions on disposable virtual cards?",
+      "intent": "disposable_card_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-disposable_card_limits-3",
+      "text": "I have a disposable virtual card. Is there a limit to how many times I can use it?",
+      "intent": "disposable_card_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-disposable_card_limits-4",
+      "text": "Whats the maximum disposable virtual cards?",
+      "intent": "disposable_card_limits",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-disposable_card_limits-5",
+      "text": "hey there i have an issue on my mobile app [TURN] what what are the restrictions on the virtual cards",
+      "intent": "disposable_card_limits",
+      "is_scenario": false
+    }
+  ],
+  "supported_cards_and_currencies": [
+    {
+      "id": "ex-supported_cards_and_currencies-1",
+      "text": "I'd prefer to use my American Express when putting funds into my account.",
+      "intent": "supported_cards_and_currencies",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-supported_cards_and_currencies-2",
+      "text": "I want to add funds to my account. What payment methods are accepted?",
+      "intent": "supported_cards_and_currencies",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-supported_cards_and_currencies-3",
+      "text": "good afternoon i have a quick question [TURN] actually are there certain cards and currencies you support",
+      "intent": "supported_cards_and_currencies",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-supported_cards_and_currencies-4",
+      "text": "Which cards and currencies are supported?",
+      "intent": "supported_cards_and_currencies",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-supported_cards_and_currencies-5",
+      "text": "Which currencies do you work with?",
+      "intent": "supported_cards_and_currencies",
+      "is_scenario": false
+    }
+  ],
+  "cash_withdrawal_not_recognised": [
+    {
+      "id": "ex-cash_withdrawal_not_recognised-1",
+      "text": "There are incorrect charges on my account, there was a WD that was made by someone else.  I still have my card though.",
+      "intent": "cash_withdrawal_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cash_withdrawal_not_recognised-2",
+      "text": "There was just a withdrawal but it wasn't me, I've never even visited the town where the withdrawal happened.",
+      "intent": "cash_withdrawal_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cash_withdrawal_not_recognised-3",
+      "text": "I did not get the cash that is showing up in my app.",
+      "intent": "cash_withdrawal_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cash_withdrawal_not_recognised-4",
+      "text": "Some cash has been withdrawn but I didn't do it.",
+      "intent": "cash_withdrawal_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cash_withdrawal_not_recognised-5",
+      "text": "please please help me figure out the reason for the odd withdrawal amount from my account",
+      "intent": "cash_withdrawal_not_recognised",
+      "is_scenario": false
+    }
+  ],
+  "atm_support": [
+    {
+      "id": "ex-atm_support-1",
+      "text": "Which ATMs accept this circuit board ?",
+      "intent": "atm_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-atm_support-2",
+      "text": "Is the closest ATM to me within 2 miles?",
+      "intent": "atm_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-atm_support-3",
+      "text": "good afternoon i have a quick question [TURN] um i need help from someone in your department with finding my nearest atm",
+      "intent": "atm_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-atm_support-4",
+      "text": "how do I know where I can get money withdrawn?",
+      "intent": "atm_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-atm_support-5",
+      "text": "Can I use my card in another institutions ATM?",
+      "intent": "atm_support",
+      "is_scenario": false
+    }
+  ],
+  "pin_blocked": [
+    {
+      "id": "ex-pin_blocked-1",
+      "text": "How do I go about unlocking a pin?",
+      "intent": "pin_blocked",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pin_blocked-2",
+      "text": "My PIN has been blocked.",
+      "intent": "pin_blocked",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pin_blocked-3",
+      "text": "Help me unblock my account.  I entered the PIN wrong too many times.",
+      "intent": "pin_blocked",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pin_blocked-4",
+      "text": "Where do I find PIN for my card?",
+      "intent": "pin_blocked",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pin_blocked-5",
+      "text": "i entered in the actually wrong pin please help me unlock my account",
+      "intent": "pin_blocked",
+      "is_scenario": false
+    }
+  ],
+  "card_arrival": [
+    {
+      "id": "ex-card_arrival-1",
+      "text": "My card still hasn't arrived after two weeks, now what?",
+      "intent": "card_arrival",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_arrival-2",
+      "text": "My new card hasn't came in.",
+      "intent": "card_arrival",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_arrival-3",
+      "text": "good afternoon i have a quick question [TURN] yes i was hoping you could help me with something [TURN] is it possible for me to track the card is was mailed to me",
+      "intent": "card_arrival",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_arrival-4",
+      "text": "I was issued a card about a week ago. why hasn't it come in yet?",
+      "intent": "card_arrival",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_arrival-5",
+      "text": "hey there i have an issue on my mobile app [TURN] um My card hasn't arrived in the mail yet. I ordered it two weeks ago. What can I do?",
+      "intent": "card_arrival",
+      "is_scenario": false
+    }
+  ],
+  "topping_up_by_card": [
+    {
+      "id": "ex-topping_up_by_card-1",
+      "text": "Is my account able to be topped up by my friends?",
+      "intent": "topping_up_by_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-topping_up_by_card-2",
+      "text": "How do I top up on my card?",
+      "intent": "topping_up_by_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-topping_up_by_card-3",
+      "text": "If I want a friend to top off my account, can they?",
+      "intent": "topping_up_by_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-topping_up_by_card-4",
+      "text": "Am I the only one who can top-up my account?",
+      "intent": "topping_up_by_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-topping_up_by_card-5",
+      "text": "yes my name is on the account [TURN] good afternoon i have a quick question [TURN] what what information am i going to have to have in order to do a transfer with my card",
+      "intent": "topping_up_by_card",
+      "is_scenario": false
+    }
+  ],
+  "card_about_to_expire": [
+    {
+      "id": "ex-card_about_to_expire-1",
+      "text": "Where can I have a new bank card sent to China?",
+      "intent": "card_about_to_expire",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_about_to_expire-2",
+      "text": "hey there i have an issue on my mobile app [TURN] good afternoon i have a quick question [TURN] how do i order a new card the current one is well about to expire",
+      "intent": "card_about_to_expire",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_about_to_expire-3",
+      "text": "Are new cards available from China?",
+      "intent": "card_about_to_expire",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_about_to_expire-4",
+      "text": "My card is expiring soon.",
+      "intent": "card_about_to_expire",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_about_to_expire-5",
+      "text": "my card is expiring soon",
+      "intent": "card_about_to_expire",
+      "is_scenario": false
+    }
+  ],
+  "exchange_via_app": [
+    {
+      "id": "ex-exchange_via_app-1",
+      "text": "Is currency exchange possible?",
+      "intent": "exchange_via_app",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_via_app-2",
+      "text": "How can I exchange currencies with this app?",
+      "intent": "exchange_via_app",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_via_app-3",
+      "text": "With this app, will I be able to exchange currency?",
+      "intent": "exchange_via_app",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_via_app-4",
+      "text": "yes my name is on the account [TURN] what different currencies can i get",
+      "intent": "exchange_via_app",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_via_app-5",
+      "text": "Where can I get my currencies exchanged?",
+      "intent": "exchange_via_app",
+      "is_scenario": false
+    }
+  ],
+  "card_payment_wrong_exchange_rate": [
+    {
+      "id": "ex-card_payment_wrong_exchange_rate-1",
+      "text": "I didn't receive the correct exchange rate for an item that I bought.",
+      "intent": "card_payment_wrong_exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_wrong_exchange_rate-2",
+      "text": "hey there i have an issue on my mobile app [TURN] good afternoon i have a quick question [TURN] why am i being charged more on exchange with things i bought abroad",
+      "intent": "card_payment_wrong_exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_wrong_exchange_rate-3",
+      "text": "I want to change the wrong exchange rate.",
+      "intent": "card_payment_wrong_exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_wrong_exchange_rate-4",
+      "text": "can you please you know explain why the exchange rate for the item i bought is wrong",
+      "intent": "card_payment_wrong_exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_wrong_exchange_rate-5",
+      "text": "i dont think the charges made when i had currency exchanged are right",
+      "intent": "card_payment_wrong_exchange_rate",
+      "is_scenario": false
+    }
+  ],
+  "pending_card_payment": [
+    {
+      "id": "ex-pending_card_payment-1",
+      "text": "Why is the payment from my card still pending?",
+      "intent": "pending_card_payment",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_card_payment-2",
+      "text": "hello thanks for taking my call [TURN] thanks for waiting i just logged in [TURN] How How many days does a regular transaction take to complete? I see a pending payment that hasn't changed in the last several days.",
+      "intent": "pending_card_payment",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_card_payment-3",
+      "text": "How long will it take for my payment to go through?",
+      "intent": "pending_card_payment",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_card_payment-4",
+      "text": "Why hasn't my payment gone through yet?",
+      "intent": "pending_card_payment",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_card_payment-5",
+      "text": "A card payment on my account is shown as pending.",
+      "intent": "pending_card_payment",
+      "is_scenario": false
+    }
+  ],
+  "verify_top_up": [
+    {
+      "id": "ex-verify_top_up-1",
+      "text": "Where Is the top up verification code found?",
+      "intent": "verify_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_top_up-2",
+      "text": "How many digits identify the top-up verification code?",
+      "intent": "verify_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_top_up-3",
+      "text": "actually Why verify the top-ups?",
+      "intent": "verify_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_top_up-4",
+      "text": "hey there i have an issue on my mobile app [TURN] do i need to i mean verify my topup card",
+      "intent": "verify_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-verify_top_up-5",
+      "text": "Help me verify the card used on a top-up.",
+      "intent": "verify_top_up",
+      "is_scenario": false
+    }
+  ],
+  "card_declined": [
+    {
+      "id": "ex-card_declined-1",
+      "text": "Why does is payment not going through? Did my account get frozen or some other issue I don't know about. What can I do to fix this problem?",
+      "intent": "card_declined",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_declined-2",
+      "text": "thanks for waiting i just logged in [TURN] so basically card payment was declined do you know why",
+      "intent": "card_declined",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_declined-3",
+      "text": "My card payment doesn't work.",
+      "intent": "card_declined",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_declined-4",
+      "text": "The store card reader would not accept my card.",
+      "intent": "card_declined",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_declined-5",
+      "text": "I received my new card and tried using it today, just to have it show declined over and over again.  Why is this happening?",
+      "intent": "card_declined",
+      "is_scenario": false
+    }
+  ],
+  "fee_dispute": [
+    {
+      "id": "ex-fee_dispute-1",
+      "text": "What What is this extra \u20ac1 fee about?",
+      "intent": "fee_dispute",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fee_dispute-2",
+      "text": "I got billed an extra pound!",
+      "intent": "fee_dispute",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fee_dispute-3",
+      "text": "Why and I being charged this fee?",
+      "intent": "fee_dispute",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fee_dispute-4",
+      "text": "What are these fees i am paying?",
+      "intent": "fee_dispute",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fee_dispute-5",
+      "text": "Can you explain why I was charged extra when I used the card?",
+      "intent": "fee_dispute",
+      "is_scenario": false
+    }
+  ],
+  "card_delivery_estimate": [
+    {
+      "id": "ex-card_delivery_estimate-1",
+      "text": "How long will it take to have my card mailed to me?",
+      "intent": "card_delivery_estimate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_delivery_estimate-2",
+      "text": "How wait long is the wait for my card?",
+      "intent": "card_delivery_estimate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_delivery_estimate-3",
+      "text": "When will my card come? I need it as soon as possible!",
+      "intent": "card_delivery_estimate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_delivery_estimate-4",
+      "text": "When can I expect my card to arrive?",
+      "intent": "card_delivery_estimate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_delivery_estimate-5",
+      "text": "good afternoon i have a quick question [TURN] hey there i have an issue on my mobile app [TURN] i mean how long is us delivery",
+      "intent": "card_delivery_estimate",
+      "is_scenario": false
+    }
+  ],
+  "transfer_into_account": [
+    {
+      "id": "ex-transfer_into_account-1",
+      "text": "like i have money in a foreign account that i want to send to this account",
+      "intent": "transfer_into_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_into_account-2",
+      "text": "I want to op up my account by using bank transfer. How do I go about it?",
+      "intent": "transfer_into_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_into_account-3",
+      "text": "Can you tell me how transferring money into my account works?",
+      "intent": "transfer_into_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_into_account-4",
+      "text": "I want to do a bank transfer to this bank, from an account at another bank.",
+      "intent": "transfer_into_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_into_account-5",
+      "text": "well id like to know how transferring my money into my account works",
+      "intent": "transfer_into_account",
+      "is_scenario": false
+    }
+  ],
+  "charged_twice": [
+    {
+      "id": "ex-charged_twice-1",
+      "text": "I made a payment and it is showing up twice",
+      "intent": "charged_twice",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-charged_twice-2",
+      "text": "My account shows I have been charged twice for the same meal. How do I get the second payment voided and returned to me? I do not eat out much and my family is living paycheck to paycheck,  mostly. I cannot afford to spend more money than necessary, as is, so I must see to it that the cost be promptly credited back onto my card.",
+      "intent": "charged_twice",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-charged_twice-3",
+      "text": "There are duplicate transactions on my account",
+      "intent": "charged_twice",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-charged_twice-4",
+      "text": "My card is showing the same transaction over and over again.",
+      "intent": "charged_twice",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-charged_twice-5",
+      "text": "uh hi i noticed i have a duplicate charge which i have not made twice who should i talk to take care of this",
+      "intent": "charged_twice",
+      "is_scenario": false
+    }
+  ],
+  "direct_debit_payment_not_recognised": [
+    {
+      "id": "ex-direct_debit_payment_not_recognised-1",
+      "text": "There was a strange transaction made on my account a couple weeks ago by a seller I don't recognize. May you please check on this transaction for me.",
+      "intent": "direct_debit_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-direct_debit_payment_not_recognised-2",
+      "text": "I found a direct debit I would like to dispute",
+      "intent": "direct_debit_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-direct_debit_payment_not_recognised-3",
+      "text": "I notice a transaction a couple of weeks ago in my account, from a seller that I don't recognize. Is there a way we can trace back the information to make sure it was truly something I did?",
+      "intent": "direct_debit_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-direct_debit_payment_not_recognised-4",
+      "text": "I don't know where a direct debit payment came from",
+      "intent": "direct_debit_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-direct_debit_payment_not_recognised-5",
+      "text": "well there is a direct debit payment that i did not make",
+      "intent": "direct_debit_payment_not_recognised",
+      "is_scenario": false
+    }
+  ],
+  "card_payment_not_recognised": [
+    {
+      "id": "ex-card_payment_not_recognised-1",
+      "text": "i i have a charge for something i didnt buy",
+      "intent": "card_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_not_recognised-2",
+      "text": "im not recognizing the card payment",
+      "intent": "card_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_not_recognised-3",
+      "text": "If I see a payment in the app that I don't recognize, what should I do?",
+      "intent": "card_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_not_recognised-4",
+      "text": "I need to cancel my card.  There are a few charges from a couple days ago that I didn't make.  Can I get credit for these charges?",
+      "intent": "card_payment_not_recognised",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_payment_not_recognised-5",
+      "text": "There are a couple payments with my card shown in the app that i really didn't make myself. What's happenning with this, does someone has access to my card?!",
+      "intent": "card_payment_not_recognised",
+      "is_scenario": false
+    }
+  ],
+  "get_disposable_virtual_card": [
+    {
+      "id": "ex-get_disposable_virtual_card-1",
+      "text": "I'm not sure how disposable virtual cards work. Please help.",
+      "intent": "get_disposable_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_disposable_virtual_card-2",
+      "text": "Can I get a disposable virtual card?",
+      "intent": "get_disposable_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_disposable_virtual_card-3",
+      "text": "Is it possible to get a disposable virtual card as well?",
+      "intent": "get_disposable_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_disposable_virtual_card-4",
+      "text": "Will you tell me how I am supposed to use the disposable cards?",
+      "intent": "get_disposable_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-get_disposable_virtual_card-5",
+      "text": "How do I use disposable cards?",
+      "intent": "get_disposable_virtual_card",
+      "is_scenario": false
+    }
+  ],
+  "transfer_not_received_by_recipient": [
+    {
+      "id": "ex-transfer_not_received_by_recipient-1",
+      "text": "Why isn't the transfer I made to a friend showing?",
+      "intent": "transfer_not_received_by_recipient",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_not_received_by_recipient-2",
+      "text": "i accidentally entered in my retailers information, what should i do next",
+      "intent": "transfer_not_received_by_recipient",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_not_received_by_recipient-3",
+      "text": "I made a transfer the day before yesterday within this country. It is still not showing up at all. I have double-checked and the account number is certainly right. I've actually type this multiple times. can you look into what is going on here?",
+      "intent": "transfer_not_received_by_recipient",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_not_received_by_recipient-4",
+      "text": "I set up a payment to a new payee and sent some money but the person I'm sending it to has not received it.  Can you check where the money is?",
+      "intent": "transfer_not_received_by_recipient",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_not_received_by_recipient-5",
+      "text": "Why hasn't a transaction I did to my friend arrived yet?",
+      "intent": "transfer_not_received_by_recipient",
+      "is_scenario": false
+    }
+  ],
+  "order_physical_card": [
+    {
+      "id": "ex-order_physical_card-1",
+      "text": "What fees do you charge for the standard card?",
+      "intent": "order_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-order_physical_card-2",
+      "text": "where can i order a card",
+      "intent": "order_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-order_physical_card-3",
+      "text": "yes my name is on the account [TURN] hi i am calling about my account [TURN] I want to request a physical card",
+      "intent": "order_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-order_physical_card-4",
+      "text": "I would like a card please.",
+      "intent": "order_physical_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-order_physical_card-5",
+      "text": "good afternoon i have a quick question [TURN] hi i am calling about my account [TURN] like Help me order my card.",
+      "intent": "order_physical_card",
+      "is_scenario": false
+    }
+  ],
+  "reverted_card_payment?": [
+    {
+      "id": "ex-reverted_card_payment?-1",
+      "text": "I notice that I have a card payment that's been cancelled.",
+      "intent": "reverted_card_payment?",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-reverted_card_payment?-2",
+      "text": "Why have I received a rebate for my payment after a week?",
+      "intent": "reverted_card_payment?",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-reverted_card_payment?-3",
+      "text": "like my card payment might have been reverted",
+      "intent": "reverted_card_payment?",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-reverted_card_payment?-4",
+      "text": "i i used my card to make a payment and wondered why the payment was reverted",
+      "intent": "reverted_card_payment?",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-reverted_card_payment?-5",
+      "text": "What should I do if my card payment was cancelled?",
+      "intent": "reverted_card_payment?",
+      "is_scenario": false
+    }
+  ],
+  "unable_to_verify_identity": [
+    {
+      "id": "ex-unable_to_verify_identity-1",
+      "text": "yes my name is on the account [TURN] yes i was hoping you could help me with something [TURN] why am i unable verify my id",
+      "intent": "unable_to_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-unable_to_verify_identity-2",
+      "text": "why does it take so long to verify my id",
+      "intent": "unable_to_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-unable_to_verify_identity-3",
+      "text": "i will not be able to verify so basically my identity",
+      "intent": "unable_to_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-unable_to_verify_identity-4",
+      "text": "the the app does not know it is me",
+      "intent": "unable_to_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-unable_to_verify_identity-5",
+      "text": "good afternoon i have a quick question [TURN] wait I cant prove who I am",
+      "intent": "unable_to_verify_identity",
+      "is_scenario": false
+    }
+  ],
+  "top_up_reverted": [
+    {
+      "id": "ex-top_up_reverted-1",
+      "text": "How can I tell if my top-up has been cancelled?",
+      "intent": "top_up_reverted",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_reverted-2",
+      "text": "I tried to make a top-up and it was canceled, why is that?",
+      "intent": "top_up_reverted",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_reverted-3",
+      "text": "Why has my top up been returned?",
+      "intent": "top_up_reverted",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_reverted-4",
+      "text": "My money has disappeared. I had recently added money in, and saw it was there and went through. Now it's gone. What is happening?",
+      "intent": "top_up_reverted",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_reverted-5",
+      "text": "I went to top up my card and it was cancelled.",
+      "intent": "top_up_reverted",
+      "is_scenario": false
+    }
+  ],
+  "lost_or_stolen_card": [
+    {
+      "id": "ex-lost_or_stolen_card-1",
+      "text": "help, lost my card",
+      "intent": "lost_or_stolen_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_card-2",
+      "text": "Help!  I fear that my card was stolen,",
+      "intent": "lost_or_stolen_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_card-3",
+      "text": "hi i am calling about my account [TURN] hello thanks for taking my call [TURN] what um do i do if my card was stolen",
+      "intent": "lost_or_stolen_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_card-4",
+      "text": "Could you please freeze my card immediately?",
+      "intent": "lost_or_stolen_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-lost_or_stolen_card-5",
+      "text": "My card is missing!  Help!",
+      "intent": "lost_or_stolen_card",
+      "is_scenario": false
+    }
+  ],
+  "declined_cash_withdrawal": [
+    {
+      "id": "ex-declined_cash_withdrawal-1",
+      "text": "Hello, is there any way to double check my card? I have never had issues with withdraws in the past, but this morning on the way to work it was unexpectedly declined.",
+      "intent": "declined_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_cash_withdrawal-2",
+      "text": "This morning I wanted to make a withdrawal before work, but my card was declined! Please double check it for me as this is the first time it was declined.",
+      "intent": "declined_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_cash_withdrawal-3",
+      "text": "hello thanks for taking my call [TURN] what caused my cash withdrawal to be declined",
+      "intent": "declined_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_cash_withdrawal-4",
+      "text": "Why was my request for cash declined?",
+      "intent": "declined_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_cash_withdrawal-5",
+      "text": "Why can't I withdraw cash from this ATM?",
+      "intent": "declined_cash_withdrawal",
+      "is_scenario": false
+    }
+  ],
+  "automatic_top_up": [
+    {
+      "id": "ex-automatic_top_up-1",
+      "text": "I can't find the auto-top up option.",
+      "intent": "automatic_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-automatic_top_up-2",
+      "text": "I'm trying to activate the auto-top up function. Where is it?",
+      "intent": "automatic_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-automatic_top_up-3",
+      "text": "Is there such thing as an auto top-up option?",
+      "intent": "automatic_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-automatic_top_up-4",
+      "text": "hi i am calling about my account [TURN] Can Can i set up an auto top-up?",
+      "intent": "automatic_top_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-automatic_top_up-5",
+      "text": "Where can I located the auto-top up option?",
+      "intent": "automatic_top_up",
+      "is_scenario": false
+    }
+  ],
+  "card_linking": [
+    {
+      "id": "ex-card_linking-1",
+      "text": "help me link my card",
+      "intent": "card_linking",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_linking-2",
+      "text": "if i have a credit card with you how i get set up to link to it",
+      "intent": "card_linking",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_linking-3",
+      "text": "I received my new card.  Where is it in the app?",
+      "intent": "card_linking",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_linking-4",
+      "text": "how do i link actually an old card",
+      "intent": "card_linking",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_linking-5",
+      "text": "I finally got my card.  Now I want to link it.  Is that something you have to do or can I do that?",
+      "intent": "card_linking",
+      "is_scenario": false
+    }
+  ],
+  "getting_spare_card": [
+    {
+      "id": "ex-getting_spare_card-1",
+      "text": "Is there a fee for sending out more cards?",
+      "intent": "getting_spare_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_spare_card-2",
+      "text": "Can I order another card?",
+      "intent": "getting_spare_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_spare_card-3",
+      "text": "How many cards am I allowed?",
+      "intent": "getting_spare_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_spare_card-4",
+      "text": "I would like a second card.",
+      "intent": "getting_spare_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_spare_card-5",
+      "text": "good afternoon i have a quick question [TURN] can so basically i order another card",
+      "intent": "getting_spare_card",
+      "is_scenario": false
+    }
+  ],
+  "card_not_working": [
+    {
+      "id": "ex-card_not_working-1",
+      "text": "What do I do if my card is not working?",
+      "intent": "card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_not_working-2",
+      "text": "hi i am calling about my account [TURN] i havent been able uh to complete any transactions on my card today do you know whats wrong",
+      "intent": "card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_not_working-3",
+      "text": "Currently I can't get my card to work.",
+      "intent": "card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_not_working-4",
+      "text": "i think my card is broken or something i tried using it and it wouldnt go through please help",
+      "intent": "card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_not_working-5",
+      "text": "hey there i have an issue on my mobile app [TURN] hello thanks for taking my call [TURN] my card is broken",
+      "intent": "card_not_working",
+      "is_scenario": false
+    }
+  ],
+  "top_up_by_card_charge": [
+    {
+      "id": "ex-top_up_by_card_charge-1",
+      "text": "Does it cost anything to top up?",
+      "intent": "top_up_by_card_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_card_charge-2",
+      "text": "thanks for waiting i just logged in [TURN] hello thanks for taking my call [TURN] what is the fee for topping up a us card",
+      "intent": "top_up_by_card_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_card_charge-3",
+      "text": "Will there be any fees for top ups?",
+      "intent": "top_up_by_card_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_card_charge-4",
+      "text": "Are there any fees if I want to add money using an international card?",
+      "intent": "top_up_by_card_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_card_charge-5",
+      "text": "If I top up using a European card is there a charge?",
+      "intent": "top_up_by_card_charge",
+      "is_scenario": false
+    }
+  ],
+  "fiat_currency_support": [
+    {
+      "id": "ex-fiat_currency_support-1",
+      "text": "actually What fiat currencies are used for exchange?",
+      "intent": "fiat_currency_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fiat_currency_support-2",
+      "text": "hey there i have an issue on my mobile app [TURN] yes i was hoping you could help me with something [TURN] i need to know what flat currencies you support for holding and exchange",
+      "intent": "fiat_currency_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fiat_currency_support-3",
+      "text": "Can I exchange currency to Europe?",
+      "intent": "fiat_currency_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fiat_currency_support-4",
+      "text": "What are the currency types that I can keep money in.",
+      "intent": "fiat_currency_support",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-fiat_currency_support-5",
+      "text": "What fiduciary currencies are supported for tenure and exchange?",
+      "intent": "fiat_currency_support",
+      "is_scenario": false
+    }
+  ],
+  "wrong_amount_of_cash_received": [
+    {
+      "id": "ex-wrong_amount_of_cash_received-1",
+      "text": "I was not distributed all of cash that I requested",
+      "intent": "wrong_amount_of_cash_received",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_amount_of_cash_received-2",
+      "text": "Did a WD earlier at an ATM.  The amount showing in the App is more than I got though.",
+      "intent": "wrong_amount_of_cash_received",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_amount_of_cash_received-3",
+      "text": "good afternoon i have a quick question [TURN] thanks for waiting i just logged in [TURN] i withdrew actually 100 but only received 20",
+      "intent": "wrong_amount_of_cash_received",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_amount_of_cash_received-4",
+      "text": "I wanted to withdraw $100 from the ATM but I only got $20",
+      "intent": "wrong_amount_of_cash_received",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_amount_of_cash_received-5",
+      "text": "I haven't received my cash yet.",
+      "intent": "wrong_amount_of_cash_received",
+      "is_scenario": false
+    }
+  ],
+  "top_up_by_bank_transfer_charge": [
+    {
+      "id": "ex-top_up_by_bank_transfer_charge-1",
+      "text": "well does it cost anything to transfer money for a topup",
+      "intent": "top_up_by_bank_transfer_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_bank_transfer_charge-2",
+      "text": "What is the handling fee for transfer?",
+      "intent": "top_up_by_bank_transfer_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_bank_transfer_charge-3",
+      "text": "Will I be charged a fee for a SEPA transfer?",
+      "intent": "top_up_by_bank_transfer_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_bank_transfer_charge-4",
+      "text": "How much does it cost to top up by transfer?",
+      "intent": "top_up_by_bank_transfer_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_bank_transfer_charge-5",
+      "text": "How much would it cost me for a bank transfer to top up my account?",
+      "intent": "top_up_by_bank_transfer_charge",
+      "is_scenario": false
+    }
+  ],
+  "age_limit": [
+    {
+      "id": "ex-age_limit-1",
+      "text": "Could I open an account for children?",
+      "intent": "age_limit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-age_limit-2",
+      "text": "good afternoon i have a quick question [TURN] how how old do kids have to be to open an account",
+      "intent": "age_limit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-age_limit-3",
+      "text": "What is minimum age for an account?",
+      "intent": "age_limit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-age_limit-4",
+      "text": "Is there an age limit to open an account",
+      "intent": "age_limit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-age_limit-5",
+      "text": "How old do kids have to be to open an account?",
+      "intent": "age_limit",
+      "is_scenario": false
+    }
+  ],
+  "terminate_account": [
+    {
+      "id": "ex-terminate_account-1",
+      "text": "how to i close my account",
+      "intent": "terminate_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-terminate_account-2",
+      "text": "yes i was hoping you could help me with something [TURN] I I am upset with your service. Please delete my account.",
+      "intent": "terminate_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-terminate_account-3",
+      "text": "Your service is bad.  Close my account.",
+      "intent": "terminate_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-terminate_account-4",
+      "text": "hello thanks for taking my call [TURN] hi i am calling about my account [TURN] I am not happy with your company. Please delete my you know account asap.",
+      "intent": "terminate_account",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-terminate_account-5",
+      "text": "I want to close my account & I will never do business with you again.",
+      "intent": "terminate_account",
+      "is_scenario": false
+    }
+  ],
+  "exchange_rate": [
+    {
+      "id": "ex-exchange_rate-1",
+      "text": "Does the exchange rate change?",
+      "intent": "exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_rate-2",
+      "text": "I am travelling and I was wondering what your exchange rates are",
+      "intent": "exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_rate-3",
+      "text": "How is the exchange rate doing?",
+      "intent": "exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_rate-4",
+      "text": "good afternoon i have a quick question [TURN] thanks for waiting i just logged in [TURN] i need to know about exchange rates",
+      "intent": "exchange_rate",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_rate-5",
+      "text": "How's the exchange rate?",
+      "intent": "exchange_rate",
+      "is_scenario": false
+    }
+  ],
+  "pending_cash_withdrawal": [
+    {
+      "id": "ex-pending_cash_withdrawal-1",
+      "text": "what what is a pending cash withdrawal",
+      "intent": "pending_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_cash_withdrawal-2",
+      "text": "I tried to get some money but the machine was not working .The transaction still seems in progress! Can you please check what's going on.I don't want to be charged for money that I did not received.",
+      "intent": "pending_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_cash_withdrawal-3",
+      "text": "I didn't receive my money earlier and it says the transaction is still in progress. Can you fix it?",
+      "intent": "pending_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_cash_withdrawal-4",
+      "text": "My last ATM request did not go through due to a declined card. Please cancel the request on my account.",
+      "intent": "pending_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-pending_cash_withdrawal-5",
+      "text": "I am not seeing recent cash withdrawal on my account.",
+      "intent": "pending_cash_withdrawal",
+      "is_scenario": false
+    }
+  ],
+  "receiving_money": [
+    {
+      "id": "ex-receiving_money-1",
+      "text": "How do I get money from friends?",
+      "intent": "receiving_money",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-receiving_money-2",
+      "text": "Please show me how my friend can send me money.",
+      "intent": "receiving_money",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-receiving_money-3",
+      "text": "well can i transfer my payroll to the bank",
+      "intent": "receiving_money",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-receiving_money-4",
+      "text": "Can I receive payment in another currency?",
+      "intent": "receiving_money",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-receiving_money-5",
+      "text": "am i able to receive my salary this way?",
+      "intent": "receiving_money",
+      "is_scenario": false
+    }
+  ],
+  "why_verify_identity": [
+    {
+      "id": "ex-why_verify_identity-1",
+      "text": "What is the function of the identity check",
+      "intent": "why_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-why_verify_identity-2",
+      "text": "Why is there a verification to identity",
+      "intent": "why_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-why_verify_identity-3",
+      "text": "Is there anyway to bypass identity verification?",
+      "intent": "why_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-why_verify_identity-4",
+      "text": "Can I use my account although the identity verification has not been accepted yet?",
+      "intent": "why_verify_identity",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-why_verify_identity-5",
+      "text": "Am I supposed to verify my identity?",
+      "intent": "why_verify_identity",
+      "is_scenario": false
+    }
+  ],
+  "visa_or_mastercard": [
+    {
+      "id": "ex-visa_or_mastercard-1",
+      "text": "wait will i get a visa card or mastercard",
+      "intent": "visa_or_mastercard",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-visa_or_mastercard-2",
+      "text": "i would like a visa card",
+      "intent": "visa_or_mastercard",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-visa_or_mastercard-3",
+      "text": "What type of card can I get?",
+      "intent": "visa_or_mastercard",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-visa_or_mastercard-4",
+      "text": "I want to get a Visa",
+      "intent": "visa_or_mastercard",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-visa_or_mastercard-5",
+      "text": "yes i was hoping you could help me with something [TURN] thanks for waiting i just logged in [TURN] Can I choose from either Visa or Mastercard?",
+      "intent": "visa_or_mastercard",
+      "is_scenario": false
+    }
+  ],
+  "wrong_exchange_rate_for_cash_withdrawal": [
+    {
+      "id": "ex-wrong_exchange_rate_for_cash_withdrawal-1",
+      "text": "The cash withdrawal I took seems to be off. The exchange rate is wrong.",
+      "intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_exchange_rate_for_cash_withdrawal-2",
+      "text": "The exchange rate was wrong in the foreign country I got cash in.",
+      "intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_exchange_rate_for_cash_withdrawal-3",
+      "text": "I withdrew  money from the ATM and was overcharged.  It said nothing about an extra fee.",
+      "intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_exchange_rate_for_cash_withdrawal-4",
+      "text": "I don't think the exchange rate was right.",
+      "intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-wrong_exchange_rate_for_cash_withdrawal-5",
+      "text": "The exchange rate for case abroad is applied wrong.",
+      "intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "is_scenario": false
+    }
+  ],
+  "Refund_not_showing_up": [
+    {
+      "id": "ex-Refund_not_showing_up-1",
+      "text": "How can I investigate a missing refund?",
+      "intent": "Refund_not_showing_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-Refund_not_showing_up-2",
+      "text": "There is not a refund in my statement.",
+      "intent": "Refund_not_showing_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-Refund_not_showing_up-3",
+      "text": "I made a purchase a few weeks ago but wasn't happy with it so recently requested a refund from the supplier.  Can you check where the money is?",
+      "intent": "Refund_not_showing_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-Refund_not_showing_up-4",
+      "text": "My refund is not showing up in my account. Where is it?",
+      "intent": "Refund_not_showing_up",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-Refund_not_showing_up-5",
+      "text": "A refund is taking too long.",
+      "intent": "Refund_not_showing_up",
+      "is_scenario": false
+    }
+  ],
+  "top_up_failed": [
+    {
+      "id": "ex-top_up_failed-1",
+      "text": "Why would the app deny my top-up?",
+      "intent": "top_up_failed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_failed-2",
+      "text": "I really need to top-up my card today urgently but my card keeps getting declined!! Can you please resolve this problem or let me know if you have any alternatives",
+      "intent": "top_up_failed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_failed-3",
+      "text": "Why isn't my topup working?",
+      "intent": "top_up_failed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_failed-4",
+      "text": "I need information explaining why my top-up failed to go through",
+      "intent": "top_up_failed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_failed-5",
+      "text": "Why did the top-up fail?",
+      "intent": "top_up_failed",
+      "is_scenario": false
+    }
+  ],
+  "failed_transfer": [
+    {
+      "id": "ex-failed_transfer-1",
+      "text": "I couldnt transfer money from my account.",
+      "intent": "failed_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-failed_transfer-2",
+      "text": "I attemped a transfer and it didn't go through.",
+      "intent": "failed_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-failed_transfer-3",
+      "text": "i mean why was i not able to complete my transfer",
+      "intent": "failed_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-failed_transfer-4",
+      "text": "why actually did my transfer fail what can i do",
+      "intent": "failed_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-failed_transfer-5",
+      "text": "I have tried 5 times at this point to complete a transfer that's simply standard. What appears to be the problem? Is your system messed up?",
+      "intent": "failed_transfer",
+      "is_scenario": false
+    }
+  ],
+  "passcode_forgotten": [
+    {
+      "id": "ex-passcode_forgotten-1",
+      "text": "Where do I go to reset the passcode?",
+      "intent": "passcode_forgotten",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-passcode_forgotten-2",
+      "text": "Please help me.  I don't know my code to get into the app.",
+      "intent": "passcode_forgotten",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-passcode_forgotten-3",
+      "text": "I cannot remember my passcode.",
+      "intent": "passcode_forgotten",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-passcode_forgotten-4",
+      "text": "Need a new passcode.",
+      "intent": "passcode_forgotten",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-passcode_forgotten-5",
+      "text": "I lost the code and can not get into the app. Help!",
+      "intent": "passcode_forgotten",
+      "is_scenario": false
+    }
+  ],
+  "top_up_by_cash_or_cheque": [
+    {
+      "id": "ex-top_up_by_cash_or_cheque-1",
+      "text": "Is there anyway to use a cheque to top up?",
+      "intent": "top_up_by_cash_or_cheque",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_cash_or_cheque-2",
+      "text": "Can I top up my balance with a cheque?",
+      "intent": "top_up_by_cash_or_cheque",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_cash_or_cheque-3",
+      "text": "i have been trying to top up my account with a check but it won't work",
+      "intent": "top_up_by_cash_or_cheque",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_cash_or_cheque-4",
+      "text": "thanks for waiting i just logged in [TURN] Help me please, I need to top up cash.",
+      "intent": "top_up_by_cash_or_cheque",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-top_up_by_cash_or_cheque-5",
+      "text": "hey there i have an issue on my mobile app [TURN] how do uh you top up with a cheque",
+      "intent": "top_up_by_cash_or_cheque",
+      "is_scenario": false
+    }
+  ],
+  "declined_transfer": [
+    {
+      "id": "ex-declined_transfer-1",
+      "text": "well how do i contact customer support about my declined transfer",
+      "intent": "declined_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_transfer-2",
+      "text": "My transfer was not approved",
+      "intent": "declined_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_transfer-3",
+      "text": "What does the decline message mean",
+      "intent": "declined_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_transfer-4",
+      "text": "I've made more than one attempt to make a purchase and the card keeps getting declined. Why do you keep denying my transfers?",
+      "intent": "declined_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-declined_transfer-5",
+      "text": "Why does my card continually get declined? I thought I had enough money in there but I've tried several times now and it still isn't working.",
+      "intent": "declined_transfer",
+      "is_scenario": false
+    }
+  ],
+  "cancel_transfer": [
+    {
+      "id": "ex-cancel_transfer-1",
+      "text": "hi i am calling about my account [TURN] i mean How do I fix a transaction to the wrong account?",
+      "intent": "cancel_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cancel_transfer-2",
+      "text": "uh is there a way to revert a transaction",
+      "intent": "cancel_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cancel_transfer-3",
+      "text": "I used the wrong account number!",
+      "intent": "cancel_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cancel_transfer-4",
+      "text": "I inadvertently completed a transaction on a wrong account.",
+      "intent": "cancel_transfer",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-cancel_transfer-5",
+      "text": "I goofed up and used the wrong account.  Please help.",
+      "intent": "cancel_transfer",
+      "is_scenario": false
+    }
+  ],
+  "virtual_card_not_working": [
+    {
+      "id": "ex-virtual_card_not_working-1",
+      "text": "I cannot get my disposable virtual card to work",
+      "intent": "virtual_card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-virtual_card_not_working-2",
+      "text": "my disposable virtual card wouldnt process my payment",
+      "intent": "virtual_card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-virtual_card_not_working-3",
+      "text": "My disposable virtual card got rejected",
+      "intent": "virtual_card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-virtual_card_not_working-4",
+      "text": "My disposable virtual card well isn't working.",
+      "intent": "virtual_card_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-virtual_card_not_working-5",
+      "text": "I can't do any business with this virtual card.",
+      "intent": "virtual_card_not_working",
+      "is_scenario": false
+    }
+  ],
+  "change_pin": [
+    {
+      "id": "ex-change_pin-1",
+      "text": "I need to make my card PIN a different number",
+      "intent": "change_pin",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-change_pin-2",
+      "text": "Can I get a new pin number at any ATM using my card?",
+      "intent": "change_pin",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-change_pin-3",
+      "text": "Is it possible to change my pin if i am out of the country?",
+      "intent": "change_pin",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-change_pin-4",
+      "text": "I want to choose a new PIN.",
+      "intent": "change_pin",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-change_pin-5",
+      "text": "can um you tell me where can change my pin",
+      "intent": "change_pin",
+      "is_scenario": false
+    }
+  ],
+  "compromised_card": [
+    {
+      "id": "ex-compromised_card-1",
+      "text": "I think my account has been hacked there are charges on there I don't recognize.",
+      "intent": "compromised_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-compromised_card-2",
+      "text": "Please tell me how you can stop unauthorized payments from being made on my card since on this bill I see that this has happened. There are transactions that I never made from a place I've never been to.",
+      "intent": "compromised_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-compromised_card-3",
+      "text": "My statement shows charges for things I never purchased. Were my account details stolen?",
+      "intent": "compromised_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-compromised_card-4",
+      "text": "There are transactions that I don't recognize. What do I do if I think someone is using my card?",
+      "intent": "compromised_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-compromised_card-5",
+      "text": "What steps can I take if someone else is using my card?",
+      "intent": "compromised_card",
+      "is_scenario": false
+    }
+  ],
+  "contactless_not_working": [
+    {
+      "id": "ex-contactless_not_working-1",
+      "text": "I was trying to use contactless earlier, but it didn't work.",
+      "intent": "contactless_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-contactless_not_working-2",
+      "text": "I can't get a contactless payment to work.",
+      "intent": "contactless_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-contactless_not_working-3",
+      "text": "Any charges applicable for new card?",
+      "intent": "contactless_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-contactless_not_working-4",
+      "text": "how can i fix my card if the well contactless function didnt work this morning",
+      "intent": "contactless_not_working",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-contactless_not_working-5",
+      "text": "My contactless stopped working today no matter where I try to use it. How do I get it to start working again?",
+      "intent": "contactless_not_working",
+      "is_scenario": false
+    }
+  ],
+  "exchange_charge": [
+    {
+      "id": "ex-exchange_charge-1",
+      "text": "What are the charges if I exchange foreign currency?",
+      "intent": "exchange_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_charge-2",
+      "text": "Do you charge a fee on currency exchange?",
+      "intent": "exchange_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_charge-3",
+      "text": "My currencies needed to be exchanged often and I was wondering if there were any discounts available for this?",
+      "intent": "exchange_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_charge-4",
+      "text": "what what are the charges if i exchange foreign currency",
+      "intent": "exchange_charge",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-exchange_charge-5",
+      "text": "Can I be charged for exchanging foreign currency?",
+      "intent": "exchange_charge",
+      "is_scenario": false
+    }
+  ],
+  "edit_personal_details": [
+    {
+      "id": "ex-edit_personal_details-1",
+      "text": "can someone assist me with updating my account details with changing my last name",
+      "intent": "edit_personal_details",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-edit_personal_details-2",
+      "text": "Since I just got married I need to change my name.",
+      "intent": "edit_personal_details",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-edit_personal_details-3",
+      "text": "How like to modify my details.",
+      "intent": "edit_personal_details",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-edit_personal_details-4",
+      "text": "My details need to be changed, how can I do so?",
+      "intent": "edit_personal_details",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-edit_personal_details-5",
+      "text": "I am interested in changing my personal details.",
+      "intent": "edit_personal_details",
+      "is_scenario": false
+    }
+  ],
+  "card_swallowed": [
+    {
+      "id": "ex-card_swallowed-1",
+      "text": "The ATM did not give me my card back?",
+      "intent": "card_swallowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_swallowed-2",
+      "text": "Why did the ATM swallow my card?",
+      "intent": "card_swallowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_swallowed-3",
+      "text": "i mean the bank machine didnt give my card back how do i get a new one fast",
+      "intent": "card_swallowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_swallowed-4",
+      "text": "please send a new card the atm ate mine",
+      "intent": "card_swallowed",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_swallowed-5",
+      "text": "I can't get my card out of the ATM",
+      "intent": "card_swallowed",
+      "is_scenario": false
+    }
+  ],
+  "request_refund": [
+    {
+      "id": "ex-request_refund-1",
+      "text": "i i need this item refunded",
+      "intent": "request_refund",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-request_refund-2",
+      "text": "I would like to return my purchases",
+      "intent": "request_refund",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-request_refund-3",
+      "text": "actually i need a refund this is not what i wanted",
+      "intent": "request_refund",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-request_refund-4",
+      "text": "how do i get my refund back",
+      "intent": "request_refund",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-request_refund-5",
+      "text": "I no longer want this can i cancel my purchase?",
+      "intent": "request_refund",
+      "is_scenario": false
+    }
+  ],
+  "card_acceptance": [
+    {
+      "id": "ex-card_acceptance-1",
+      "text": "Where do I pay with my debit or credit card?",
+      "intent": "card_acceptance",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_acceptance-2",
+      "text": "What businesses accept my card?",
+      "intent": "card_acceptance",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_acceptance-3",
+      "text": "will this card work all over the world",
+      "intent": "card_acceptance",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_acceptance-4",
+      "text": "Are there limits as to where my card will be accepted?",
+      "intent": "card_acceptance",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-card_acceptance-5",
+      "text": "yes i was hoping you could help me with something [TURN] good afternoon i have a quick question [TURN] In what places can I use my card?",
+      "intent": "card_acceptance",
+      "is_scenario": false
+    }
+  ],
+  "apple_pay_or_google_pay": [
+    {
+      "id": "ex-apple_pay_or_google_pay-1",
+      "text": "Unable to use my American Express with Apple Pay to top up my account",
+      "intent": "apple_pay_or_google_pay",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-apple_pay_or_google_pay-2",
+      "text": "Does Google Pay offer a top up option?",
+      "intent": "apple_pay_or_google_pay",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-apple_pay_or_google_pay-3",
+      "text": "I can't get google pay to work right.",
+      "intent": "apple_pay_or_google_pay",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-apple_pay_or_google_pay-4",
+      "text": "yes my name is on the account [TURN] hello thanks for taking my call [TURN] i want to top up from my apple watch can i",
+      "intent": "apple_pay_or_google_pay",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-apple_pay_or_google_pay-5",
+      "text": "my google pay seems to be acting up.",
+      "intent": "apple_pay_or_google_pay",
+      "is_scenario": false
+    }
+  ],
+  "balance_not_updated_after_cheque_or_cash_deposit": [
+    {
+      "id": "ex-balance_not_updated_after_cheque_or_cash_deposit-1",
+      "text": "I attempted to deposit a cheque yesterday but the balance isn't showing today. Is it still pending?",
+      "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_cheque_or_cash_deposit-2",
+      "text": "I did a cash deposit to my account, but I am not seeing it on my statement.",
+      "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_cheque_or_cash_deposit-3",
+      "text": "How do I see my updated balance after I make a cheque or cash deposit?",
+      "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_cheque_or_cash_deposit-4",
+      "text": "why why isnt my cash deposit showing up in my account",
+      "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-balance_not_updated_after_cheque_or_cash_deposit-5",
+      "text": "I am still waiting for the cash to be returned from a cheque I deposited!",
+      "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "is_scenario": false
+    }
+  ],
+  "transfer_timing": [
+    {
+      "id": "ex-transfer_timing-1",
+      "text": "hello thanks for taking my call [TURN] you know What is the time period for money to be transferred?",
+      "intent": "transfer_timing",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_timing-2",
+      "text": "hello thanks for taking my call [TURN] thanks for waiting i just logged in [TURN] how long do i have to wait for a us transfer",
+      "intent": "transfer_timing",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_timing-3",
+      "text": "when when can i use money sent to my account",
+      "intent": "transfer_timing",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_timing-4",
+      "text": "Will I see the transfer in my account within the week?",
+      "intent": "transfer_timing",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-transfer_timing-5",
+      "text": "how how long does a european transfer take",
+      "intent": "transfer_timing",
+      "is_scenario": false
+    }
+  ],
+  "getting_virtual_card": [
+    {
+      "id": "ex-getting_virtual_card-1",
+      "text": "i need to order a new card can so basically you please direct me to the virtual cards",
+      "intent": "getting_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_virtual_card-2",
+      "text": "yes i was hoping you could help me with something [TURN] good afternoon i have a quick question [TURN] hello hello what is a virtual card and how do i get one",
+      "intent": "getting_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_virtual_card-3",
+      "text": "Do I get to have one of those virtual cards I've heard about?",
+      "intent": "getting_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_virtual_card-4",
+      "text": "Please tell me how I can get a virtual card.",
+      "intent": "getting_virtual_card",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-getting_virtual_card-5",
+      "text": "I'd like like to know where I can order a virtual card?",
+      "intent": "getting_virtual_card",
+      "is_scenario": false
+    }
+  ],
+  "travel_notice": [
+    {
+      "id": "ex-travel_notice-1",
+      "text": "hello thanks for taking my call [TURN] hi i am calling about my account [TURN] actually hi alex i am traveling to tokyo and seoul next thursday for two weeks and i want to put a travel notice on my credit card so it doesnt get blocked",
+      "intent": "travel_notice",
+      "is_scenario": false
+    },
+    {
+      "id": "ex-travel_notice-2",
+      "text": "I will be returning on November 15th. Does this also cover ATM cash withdrawals abroad?",
+      "intent": "travel_notice",
+      "is_scenario": true
+    },
+    {
+      "id": "ex-travel_notice-3",
+      "text": "Hi Alex, I am traveling to Tokyo and Seoul next Thursday for two weeks and I want to put a travel notice on my credit card so it doesn't get blocked. [TURN] I will be returning on November 15th. Does this also cover ATM cash withdrawals abroad?",
+      "intent": "travel_notice",
+      "is_scenario": true
+    },
+    {
+      "id": "ex-travel_notice-4",
+      "text": "Hi Alex, I am traveling to Tokyo and Seoul next Thursday for two weeks and I want to put a travel notice on my credit card so it doesn't get blocked.",
+      "intent": "travel_notice",
+      "is_scenario": true
+    },
+    {
+      "id": "ex-travel_notice-5",
+      "text": "Hi Alex, I am traveling to Tokyo and Seoul next Thursday for two weeks and I want to put a travel notice on my credit card so it doesn't get blocked.",
+      "intent": "travel_notice",
+      "is_scenario": true
+    }
+  ]
+}

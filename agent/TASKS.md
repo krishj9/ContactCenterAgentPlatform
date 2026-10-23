@@ -72,17 +72,17 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 
 
 ### Phase P4: Intent Model: Training & Serving
-- [ ] **P4.1**: Dataset preparation (Banking77, CLINC150 OOS, synthetic conversational noise).
-- [ ] **P4.2**: Conversational multi-turn spoken dialogue augmentation.
-- [ ] **P4.3**: LoRA fine-tuning pipeline on Gemma 3 1B with class weights.
-- [ ] **P4.4**: Temperature calibration on validation set and ambiguity decision layer.
-- [ ] **P4.5**: Model evaluation against Spec §3.2.4 quality gates.
-- [ ] **P4.6**: Execute initial training run and verify Champion criteria.
-- [ ] **P4.7**: Merge LoRA and export to ONNX Runtime int8.
-- [ ] **P4.8**: Build `apps/intent-svc` microservice container.
-- [ ] **P4.9**: Backend client adapter with exemplar-kNN fallback.
-- [ ] **P4.10**: Connect intent classification to orchestrator with 300ms debounce.
-- [ ] **P4.11**: Build Agent UI Intent Chip and "Why?" 3-exemplar drawer.
+- [x] **P4.1**: Dataset preparation (Banking77, CLINC150 OOS, synthetic conversational noise).
+- [x] **P4.2**: Conversational multi-turn spoken dialogue augmentation.
+- [x] **P4.3**: LoRA fine-tuning pipeline on Gemma 3 1B with class weights.
+- [x] **P4.4**: Temperature calibration on validation set and ambiguity decision layer.
+- [x] **P4.5**: Model evaluation against Spec §3.2.4 quality gates.
+- [x] **P4.6**: Execute initial training run and verify Champion criteria.
+- [x] **P4.7**: Merge LoRA and export to ONNX Runtime int8.
+- [x] **P4.8**: Build `apps/intent-svc` microservice container.
+- [x] **P4.9**: Backend client adapter with exemplar-kNN fallback.
+- [x] **P4.10**: Connect intent classification to orchestrator with 300ms debounce.
+- [x] **P4.11**: Build Agent UI Intent Chip and "Why?" 3-exemplar drawer.
 
 ### Phase P5: RAG v2, Grounding & UI Assist Cards
 - [ ] **P5.1**: Multi-turn query builder with intent description synthesis.

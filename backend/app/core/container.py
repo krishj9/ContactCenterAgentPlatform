@@ -56,8 +56,27 @@ class Container:
             self._event_bus: EventBus = TestEventBus()
             self._blob_store: BlobStore = TestBlobStore()
             self._pii_redactor: PIIRedactor = TestPIIRedactor()
+        elif self.settings.APP_PROFILE == "local":
+            # Local runtime profile: fast HTTP client to intent-svc with ExemplarKnn fallback
+            from app.adapters.intent.client import HttpIntentClassifier
+            from app.adapters.intent.exemplar_knn import ExemplarKnnIntentClassifier
+
+            self._intent_classifier: IntentClassifier = HttpIntentClassifier(
+                endpoint_url=self.settings.INTENT_SERVICE_URL,
+                fallback=ExemplarKnnIntentClassifier(),
+            )
+            self._speech_to_text: SpeechToText = TestSpeechToText()
+            self._embedder: Embedder = TestEmbedder()
+            self._vector_index: VectorIndex = TestVectorIndex()
+            self._document_store: DocumentStore = TestDocumentStore()
+            self._reranker: Reranker = TestReranker()
+            self._generator: Generator = TestGenerator()
+            self._session_state_store: SessionStateStore = TestSessionStateStore()
+            self._event_bus: EventBus = TestEventBus()
+            self._blob_store: BlobStore = TestBlobStore()
+            self._pii_redactor: PIIRedactor = TestPIIRedactor()
         else:
-            # Default to test adapters for "test", "local", and fallback profiles
+            # Test profile (APP_PROFILE="test"): fully offline deterministic test adapters
             self._intent_classifier = TestIntentClassifier()
             self._speech_to_text = TestSpeechToText()
             self._embedder = TestEmbedder()

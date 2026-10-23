@@ -61,4 +61,14 @@ ignore_missing_imports = true
 module = ["tests.*"]
 disallow_untyped_defs = false
 
+[tool.pyrefly]
+search-path = [
+    ".",
+    "backend",
+]
+site-package-path = [
+    ".venv/lib/python3.14/site-packages",
+]
+
+
 

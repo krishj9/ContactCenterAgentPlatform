@@ -155,6 +155,7 @@ export interface IssueUpdateEvent extends BaseEvent {
   intent_label: string;
   confidence: number;
   is_out_of_scope: boolean;
+  degraded?: boolean;
   candidates: IntentCandidatePayload[];
   exemplar_ids: string[];
   provenance: ProvenancePayload;
