@@ -29,6 +29,7 @@ dev = [
     "pytest-socket>=0.7.0",
     "mypy>=1.10.0",
     "ruff>=0.9.0",
+    "types-pyyaml>=6.0.12",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -43,7 +44,7 @@ select = ["E", "W", "F", "I", "B", "C4", "UP"]
 ignore = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["app", "eval"]
+known-first-party = ["app", "eval", "pipeline"]
 
 [tool.mypy]
 python_version = "3.14"
@@ -59,8 +60,14 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
-module = ["fastapi.*", "uvicorn.*", "asyncpg.*", "pgvector.*", "alembic.*", "redis.*"]
+module = ["fastapi.*", "uvicorn.*", "asyncpg.*", "pgvector.*", "alembic.*", "redis.*", "yaml.*", "sentence_transformers.*"]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+
+
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

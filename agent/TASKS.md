@@ -57,18 +57,19 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 - [x] **P2.10**: Developer Makefile commands (`make up`, `make up-mock`, `make seed`).
 
 ### Phase P3: Knowledge Pipeline & Policy Corpus
-- [ ] **P3.1**: Intent taxonomy registry (`taxonomy/intents.yaml`) and alias mappings.
-- [ ] **P3.2**: Policy authoring schema and CODEOWNERS compliance review workflow.
-- [ ] **P3.3**: Author initial POC policy corpus in Markdown.
-- [ ] **P3.4**: Heading-aware Markdown chunker.
-- [ ] **P3.5**: FAQ semantic intent tagging.
-- [ ] **P3.6**: Medallion pipeline layout (raw → normalized → chunks → embeddings).
-- [ ] **P3.7**: Corpus manifest generator and startup guard check.
-- [ ] **P3.8**: Local `EmbeddingGemma` adapter with query/document prefixes.
-- [ ] **P3.9**: PostgreSQL pgvector adapter with dense (HNSW) + full-text (`tsvector`) hybrid search and active version routing.
-- [ ] **P3.10**: Indexing jobs (`kb_build`, `kb_promote`, `kb_upsert`).
-- [ ] **P3.11**: Data quality assertion suite.
-- [ ] **P3.12**: Retrieval evaluation harness measuring Recall@k and nDCG@5.
+- [x] **P3.1**: Intent taxonomy registry (`taxonomy/intents.yaml`) and alias mappings.
+- [x] **P3.2**: Policy authoring schema and CODEOWNERS compliance review workflow.
+- [x] **P3.3**: Author initial POC policy corpus in Markdown.
+- [x] **P3.4**: Heading-aware Markdown chunker.
+- [x] **P3.5**: FAQ semantic intent tagging.
+- [x] **P3.6**: Medallion pipeline layout (raw → normalized → chunks → embeddings).
+- [x] **P3.7**: Corpus manifest generator and startup guard check.
+- [x] **P3.8**: Local `EmbeddingGemma` adapter with query/document prefixes.
+- [x] **P3.9**: PostgreSQL pgvector adapter with dense (HNSW) + full-text (`tsvector`) hybrid search and active version routing.
+- [x] **P3.10**: Indexing jobs (`kb_build`, `kb_promote`, `kb_upsert`).
+- [x] **P3.11**: Data quality assertion suite.
+- [x] **P3.12**: Retrieval evaluation harness measuring Recall@k and nDCG@5.
+
 
 ### Phase P4: Intent Model: Training & Serving
 - [ ] **P4.1**: Dataset preparation (Banking77, CLINC150 OOS, synthetic conversational noise).

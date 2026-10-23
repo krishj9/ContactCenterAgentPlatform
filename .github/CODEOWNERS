@@ -1,0 +1,12 @@
+# CODEOWNERS — Repository Governance & Compliance Enforcement
+#
+# Critical: Changes to corpora/policy/ require formal sign-off from compliance reviewers.
+# In accordance with Technical Specification Section 4.2:
+# "Change flow: PR, then compliance reviewer approval (CODEOWNERS), then CI schema validation..."
+
+# Global project owners
+*       @krishj9
+
+# Authoritative Banking Policy Store — Mandatory Compliance & Risk Review
+corpora/policy/     @compliance-lead @risk-management-reviewers
+taxonomy/           @taxonomy-governance-team

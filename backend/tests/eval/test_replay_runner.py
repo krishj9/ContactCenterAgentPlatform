@@ -70,7 +70,8 @@ async def test_replay_out_of_scope_chit_chat_weather():
         "chit_chat_recipe.json",
     ],
 )
-async def test_replay_all_remaining_scenarios(filename: str):
+async def test_replay_all_remaining_scenarios(filename: str) -> None:
+
     container = Container()
     runner = TranscriptReplayRunner(container)
 

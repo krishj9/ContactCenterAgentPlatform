@@ -1,0 +1,35 @@
+{
+  "corpus_version": "v1.0",
+  "taxonomy_version": "tx-14",
+  "generated_at": "2026-10-23T20:49:34.018004+00:00",
+  "embedder": {
+    "model_name": "EmbeddingGemma",
+    "dimension": 768,
+    "prefix_query": "task: search query | query: ",
+    "prefix_document": "task: search document | document: "
+  },
+  "stores": {
+    "policy": {
+      "file_count": 8,
+      "files": [
+        "card_declined.md",
+        "card_delivery_and_replacement.md",
+        "fee_waiver_and_dispute.md",
+        "fraud_and_disputed_charges.md",
+        "lost_stolen_compromised_card.md",
+        "pin_and_account_security.md",
+        "travel_notice.md",
+        "wire_and_transfer_cancellation.md"
+      ],
+      "content_hash": "3ebeb68eec713a93f8b09b4fb56fcd5ae34f9718f45b2efc1037a93a0b3d8f86"
+    },
+    "faq": {
+      "tags_csv": "corpora/faq_intent_tags.csv",
+      "tags_hash": "99b849d8b334f148e4ce21aa7e8478562f590c1321a5f815c11767bab6dd1086"
+    }
+  },
+  "taxonomy": {
+    "intents_count": 83,
+    "policy_required_count": 14
+  }
+}

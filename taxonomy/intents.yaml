@@ -1,0 +1,586 @@
+version: tx-14
+last_updated: '2026-10-23'
+intents:
+- label: card_declined
+  display_name: Card Declined (Point of Sale / Online)
+  description: Customer card was declined during an in-person or online transaction.
+  parent_category: cards
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: travel_notice
+  display_name: Travel Notice Registration
+  description: Customer notifying the bank of upcoming domestic or international travel.
+  parent_category: cards
+  risk_level: low
+  requires_policy: true
+  status: active
+- label: fee_dispute
+  display_name: Account / Card Fee Dispute
+  description: Customer requesting a reversal or waiver for an assessed banking fee.
+  parent_category: fees
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: fraud_report
+  display_name: Fraud & Unauthorized Transaction Report
+  description: Customer reporting unauthorized card or account transactions.
+  parent_category: disputes_and_fraud
+  risk_level: high
+  requires_policy: true
+  status: active
+- label: charged_twice
+  display_name: Duplicate / Charged Twice Dispute
+  description: Customer was billed multiple times for a single merchant purchase.
+  parent_category: disputes_and_fraud
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: out_of_scope
+  display_name: Out of Operational Scope / Chit-Chat
+  description: Customer inquiry unrelated to banking operations (weather, chit-chat,
+    recipes).
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: Refund_not_showing_up
+  display_name: Refund not showing up
+  description: Inquiry or request regarding refund not showing up.
+  parent_category: disputes_and_fraud
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: activate_my_card
+  display_name: Activate my card
+  description: Inquiry or request regarding activate my card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: age_limit
+  display_name: Age limit
+  description: Inquiry or request regarding age limit.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: apple_pay_or_google_pay
+  display_name: Apple pay or google pay
+  description: Inquiry or request regarding apple pay or google pay.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: atm_support
+  display_name: Atm support
+  description: Inquiry or request regarding atm support.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: automatic_top_up
+  display_name: Automatic top up
+  description: Inquiry or request regarding automatic top up.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: balance_not_updated_after_bank_transfer
+  display_name: Balance not updated after bank transfer
+  description: Inquiry or request regarding balance not updated after bank transfer.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: balance_not_updated_after_cheque_or_cash_deposit
+  display_name: Balance not updated after cheque or cash deposit
+  description: Inquiry or request regarding balance not updated after cheque or cash
+    deposit.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: beneficiary_not_allowed
+  display_name: Beneficiary not allowed
+  description: Inquiry or request regarding beneficiary not allowed.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: cancel_transfer
+  display_name: Cancel transfer
+  description: Inquiry or request regarding cancel transfer.
+  parent_category: transfers
+  risk_level: high
+  requires_policy: true
+  status: active
+- label: card_about_to_expire
+  display_name: Card about to expire
+  description: Inquiry or request regarding card about to expire.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_acceptance
+  display_name: Card acceptance
+  description: Inquiry or request regarding card acceptance.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_arrival
+  display_name: Card arrival
+  description: Inquiry or request regarding card arrival.
+  parent_category: cards
+  risk_level: low
+  requires_policy: true
+  status: active
+- label: card_delivery_estimate
+  display_name: Card delivery estimate
+  description: Inquiry or request regarding card delivery estimate.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_linking
+  display_name: Card linking
+  description: Inquiry or request regarding card linking.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_not_working
+  display_name: Card not working
+  description: Inquiry or request regarding card not working.
+  parent_category: cards
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: card_payment_fee_charged
+  display_name: Card payment fee charged
+  description: Inquiry or request regarding card payment fee charged.
+  parent_category: fees
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: card_payment_not_recognised
+  display_name: Card payment not recognised
+  description: Inquiry or request regarding card payment not recognised.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_payment_wrong_exchange_rate
+  display_name: Card payment wrong exchange rate
+  description: Inquiry or request regarding card payment wrong exchange rate.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: card_swallowed
+  display_name: Card swallowed
+  description: Inquiry or request regarding card swallowed.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: cash_withdrawal_charge
+  display_name: Cash withdrawal charge
+  description: Inquiry or request regarding cash withdrawal charge.
+  parent_category: fees
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: cash_withdrawal_not_recognised
+  display_name: Cash withdrawal not recognised
+  description: Inquiry or request regarding cash withdrawal not recognised.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: change_pin
+  display_name: Change pin
+  description: Inquiry or request regarding change pin.
+  parent_category: account_access
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: compromised_card
+  display_name: Compromised card
+  description: Inquiry or request regarding compromised card.
+  parent_category: disputes_and_fraud
+  risk_level: high
+  requires_policy: true
+  status: active
+- label: contactless_not_working
+  display_name: Contactless not working
+  description: Inquiry or request regarding contactless not working.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: country_support
+  display_name: Country support
+  description: Inquiry or request regarding country support.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: declined_card_payment
+  display_name: Declined card payment
+  description: Inquiry or request regarding declined card payment.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: declined_cash_withdrawal
+  display_name: Declined cash withdrawal
+  description: Inquiry or request regarding declined cash withdrawal.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: declined_transfer
+  display_name: Declined transfer
+  description: Inquiry or request regarding declined transfer.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: direct_debit_payment_not_recognised
+  display_name: Direct debit payment not recognised
+  description: Inquiry or request regarding direct debit payment not recognised.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: disposable_card_limits
+  display_name: Disposable card limits
+  description: Inquiry or request regarding disposable card limits.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: edit_personal_details
+  display_name: Edit personal details
+  description: Inquiry or request regarding edit personal details.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: exchange_charge
+  display_name: Exchange charge
+  description: Inquiry or request regarding exchange charge.
+  parent_category: fees
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: exchange_rate
+  display_name: Exchange rate
+  description: Inquiry or request regarding exchange rate.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: exchange_via_app
+  display_name: Exchange via app
+  description: Inquiry or request regarding exchange via app.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: extra_charge_on_statement
+  display_name: Extra charge on statement
+  description: Inquiry or request regarding extra charge on statement.
+  parent_category: fees
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: failed_transfer
+  display_name: Failed transfer
+  description: Inquiry or request regarding failed transfer.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: fiat_currency_support
+  display_name: Fiat currency support
+  description: Inquiry or request regarding fiat currency support.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: get_disposable_virtual_card
+  display_name: Get disposable virtual card
+  description: Inquiry or request regarding get disposable virtual card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: get_physical_card
+  display_name: Get physical card
+  description: Inquiry or request regarding get physical card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: getting_spare_card
+  display_name: Getting spare card
+  description: Inquiry or request regarding getting spare card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: getting_virtual_card
+  display_name: Getting virtual card
+  description: Inquiry or request regarding getting virtual card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: lost_or_stolen_card
+  display_name: Lost or stolen card
+  description: Inquiry or request regarding lost or stolen card.
+  parent_category: disputes_and_fraud
+  risk_level: high
+  requires_policy: true
+  status: active
+- label: lost_or_stolen_phone
+  display_name: Lost or stolen phone
+  description: Inquiry or request regarding lost or stolen phone.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: order_physical_card
+  display_name: Order physical card
+  description: Inquiry or request regarding order physical card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: true
+  status: active
+- label: passcode_forgotten
+  display_name: Passcode forgotten
+  description: Inquiry or request regarding passcode forgotten.
+  parent_category: account_access
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: pending_card_payment
+  display_name: Pending card payment
+  description: Inquiry or request regarding pending card payment.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: pending_cash_withdrawal
+  display_name: Pending cash withdrawal
+  description: Inquiry or request regarding pending cash withdrawal.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: pending_top_up
+  display_name: Pending top up
+  description: Inquiry or request regarding pending top up.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: pending_transfer
+  display_name: Pending transfer
+  description: Inquiry or request regarding pending transfer.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: pin_blocked
+  display_name: Pin blocked
+  description: Inquiry or request regarding pin blocked.
+  parent_category: account_access
+  risk_level: medium
+  requires_policy: true
+  status: active
+- label: receiving_money
+  display_name: Receiving money
+  description: Inquiry or request regarding receiving money.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: request_refund
+  display_name: Request refund
+  description: Inquiry or request regarding request refund.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: reverted_card_payment?
+  display_name: Reverted card payment?
+  description: Inquiry or request regarding reverted card payment?.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: supported_cards_and_currencies
+  display_name: Supported cards and currencies
+  description: Inquiry or request regarding supported cards and currencies.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: terminate_account
+  display_name: Terminate account
+  description: Inquiry or request regarding terminate account.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_by_bank_transfer_charge
+  display_name: Top up by bank transfer charge
+  description: Inquiry or request regarding top up by bank transfer charge.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_by_card_charge
+  display_name: Top up by card charge
+  description: Inquiry or request regarding top up by card charge.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_by_cash_or_cheque
+  display_name: Top up by cash or cheque
+  description: Inquiry or request regarding top up by cash or cheque.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_failed
+  display_name: Top up failed
+  description: Inquiry or request regarding top up failed.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_limits
+  display_name: Top up limits
+  description: Inquiry or request regarding top up limits.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: top_up_reverted
+  display_name: Top up reverted
+  description: Inquiry or request regarding top up reverted.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: topping_up_by_card
+  display_name: Topping up by card
+  description: Inquiry or request regarding topping up by card.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: transaction_charged_twice
+  display_name: Transaction charged twice
+  description: Inquiry or request regarding transaction charged twice.
+  parent_category: fees
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: transfer_fee_charged
+  display_name: Transfer fee charged
+  description: Inquiry or request regarding transfer fee charged.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: transfer_into_account
+  display_name: Transfer into account
+  description: Inquiry or request regarding transfer into account.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: transfer_not_received_by_recipient
+  display_name: Transfer not received by recipient
+  description: Inquiry or request regarding transfer not received by recipient.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: transfer_timing
+  display_name: Transfer timing
+  description: Inquiry or request regarding transfer timing.
+  parent_category: transfers
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: unable_to_verify_identity
+  display_name: Unable to verify identity
+  description: Inquiry or request regarding unable to verify identity.
+  parent_category: account_access
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: verify_my_identity
+  display_name: Verify my identity
+  description: Inquiry or request regarding verify my identity.
+  parent_category: account_access
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: verify_source_of_funds
+  display_name: Verify source of funds
+  description: Inquiry or request regarding verify source of funds.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: verify_top_up
+  display_name: Verify top up
+  description: Inquiry or request regarding verify top up.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: virtual_card_not_working
+  display_name: Virtual card not working
+  description: Inquiry or request regarding virtual card not working.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: visa_or_mastercard
+  display_name: Visa or mastercard
+  description: Inquiry or request regarding visa or mastercard.
+  parent_category: cards
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: why_verify_identity
+  display_name: Why verify identity
+  description: Inquiry or request regarding why verify identity.
+  parent_category: account_access
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: wrong_amount_of_cash_received
+  display_name: Wrong amount of cash received
+  description: Inquiry or request regarding wrong amount of cash received.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active
+- label: wrong_exchange_rate_for_cash_withdrawal
+  display_name: Wrong exchange rate for cash withdrawal
+  description: Inquiry or request regarding wrong exchange rate for cash withdrawal.
+  parent_category: general
+  risk_level: low
+  requires_policy: false
+  status: active

@@ -29,8 +29,17 @@ down:
 migrate:
 	CC_APP_PROFILE=local uv run alembic -c backend/alembic.ini upgrade head
 
-seed: migrate
-	@echo "Seeding baseline knowledge base..."
+seed:
+	@echo "Validating taxonomy..."
+	uv run python -m pipeline.taxonomy validate
+	@echo "Tagging FAQs..."
+	uv run python -m pipeline.jobs.tag_faq_intents
+	@echo "Generating corpus manifest..."
+	uv run python -m pipeline.manifest
+	@echo "Running quality assertions..."
+	uv run python -m pipeline.quality.coverage_check
+	uv run python -m pipeline.quality.pii_check
+	@echo "Running baseline intent evaluation..."
 	uv run python eval/baseline_intent_eval.py
 
 test:

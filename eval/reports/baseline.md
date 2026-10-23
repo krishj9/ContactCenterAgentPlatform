@@ -1,6 +1,6 @@
 # Baseline Intent Retrieval Evaluation Report (Phase P0)
 
-**Date:** 2026-10-23 19:29:22 UTC
+**Date:** 2026-10-23 20:49:37 UTC
 **Dataset:** Normalized Banking77 (13,071 indexed records)
 **Evaluator:** Lexical / TF-IDF Vector k-NN Baseline (POC Architecture Reference)
 
@@ -24,8 +24,8 @@ This evaluation establishes the empirical baseline for the legacy intent detecti
 | **Out-of-Scope (OOS) Rejection Rate** | **0.0%** | ≥ 85.0% | **Critical Flaw:** No OOS class in vector index |
 | **Banking77 Test Sample Top-1** | **100.0%** | ≥ 93.0% | -0.0% below target accuracy |
 | **Banking77 Test Sample Top-3** | **100.0%** | ≥ 98.0% | -0.0% below target recall |
-| **Latency p50** | **10.60 ms** | ≤ 100.0 ms | Met locally on in-memory index |
-| **Latency p95** | **21.51 ms** | ≤ 250.0 ms | Met locally on in-memory index |
+| **Latency p50** | **8.83 ms** | ≤ 100.0 ms | Met locally on in-memory index |
+| **Latency p95** | **17.14 ms** | ≤ 250.0 ms | Met locally on in-memory index |
 
 ---
 

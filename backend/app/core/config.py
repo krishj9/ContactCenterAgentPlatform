@@ -36,6 +36,15 @@ class Settings(BaseSettings):
         default=0,
         description="Maximum records to index per store (0 for unlimited).",
     )
+    # Embedding model configuration
+    EMBEDDER_MODEL: str = Field(
+        default="EmbeddingGemma",
+        description="Active dense embedding model name.",
+    )
+    EMBEDDING_DIM: int = Field(
+        default=768,
+        description="Dense vector dimensionality.",
+    )
     EMBEDDING_BATCH_SIZE: int = Field(
         default=50,
         description="Batch size for embedding generation.",

@@ -6,7 +6,7 @@ from app.core.config import Settings, get_settings
 from app.pipeline.paths import CorpusPaths
 
 
-def test_corpus_paths_directory_structure(tmp_path: Path):
+def test_corpus_paths_directory_structure(tmp_path: Path) -> None:
     """Test CorpusPaths resolves standard medallion directory structure."""
     paths = CorpusPaths(root_dir=tmp_path)
     assert paths.raw_dir == tmp_path / "raw"
@@ -23,7 +23,7 @@ def test_corpus_paths_directory_structure(tmp_path: Path):
     assert paths.quarantine_dir.is_dir()
 
 
-def test_corpus_paths_filenames(tmp_path: Path):
+def test_corpus_paths_filenames(tmp_path: Path) -> None:
     """Test CorpusPaths resolves specific store filenames."""
     paths = CorpusPaths(root_dir=tmp_path)
     raw_b77 = paths.raw_path("banking77", "train.csv")

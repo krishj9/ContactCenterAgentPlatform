@@ -1,0 +1,82 @@
+version: "tx-14"
+last_updated: "2026-10-23"
+
+# Normalized intent alias dictionary
+# Maps colloquial phrases, conversational variants, and legacy labels to canonical taxonomy labels
+aliases:
+  # Card Declined
+  card_declined:
+    - card_payment_declined
+    - declined_card
+    - card_rejected
+    - transaction_declined
+    - payment_declined
+    - pos_declined
+    - card_blocked_at_store
+    - restaurant_declined_card
+
+
+  # Travel Notice
+  travel_notice:
+    - traveling_abroad
+    - international_travel
+    - notify_travel
+    - foreign_travel_notice
+    - travel_notification
+    - going_overseas
+
+  # Fee Dispute
+  fee_dispute:
+    - annual_fee_dispute
+    - dispute_fee
+    - fee_waiver_request
+    - waive_fee
+    - reverse_fee
+    - monthly_fee_charge
+    - maintenance_fee_dispute
+
+  # Fraud Report
+  fraud_report:
+    - report_fraud
+    - unauthorized_transaction
+    - unauthorized_charge
+    - suspicious_activity
+    - fraudulent_charge
+    - stolen_identity
+    - card_compromised_fraud
+
+  # Charged Twice
+  charged_twice:
+    - double_charge
+    - duplicate_charge
+    - charged_two_times
+    - billed_twice
+    - multiple_charges_same_item
+
+  # Lost or Stolen Card
+  lost_or_stolen_card:
+    - lost_card
+    - stolen_card
+    - freeze_card
+    - block_card
+    - lost_wallet_with_card
+    - mislaid_card
+
+  # PIN Blocked
+  pin_blocked:
+    - locked_pin
+    - pin_locked
+    - reset_pin
+    - unblock_pin
+    - forgot_pin
+    - locked_out_of_atm_pin
+
+  # Out of Scope / Chit-chat
+  out_of_scope:
+    - weather_inquiry
+    - recipe_request
+    - small_talk
+    - chit_chat
+    - how_are_you
+    - tell_me_a_joke
+    - non_banking_question

@@ -29,7 +29,7 @@ def test_required_scenario_files_exist():
 
 
 @pytest.mark.parametrize("filename", REQUIRED_SCENARIO_FILES)
-def test_scenario_validates_against_schema(filename: str):
+def test_scenario_validates_against_schema(filename: str) -> None:
     """Validate each scenario JSON against Pydantic ScenarioFixture schema."""
     path = SCENARIOS_DIR / filename
     with path.open("r", encoding="utf-8") as f:

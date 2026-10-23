@@ -1,0 +1,1488 @@
+faq_id,question,category,assigned_intent,confidence,review_status
+bankfaqs-general-0,Do I need to enter ‘#’ after keying in my Card number/ Card expiry date/ CVV number,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1,What details are required when I want to perform a secure IVR transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-2,How should I get the IVR Password if I hold an add-on card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-3,How do I register my Mobile number for IVR Password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-4,How can I obtain an IVR Password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-5,Can I use the same IVR Password to perform multiple transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-6,Can I generate multiple IVR Passwords,general,out_of_scope,0.30,reviewed
+bankfaqs-general-7,How do I register for IVR password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-8,What is IVR Password and how does it work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-9,In how much time will the IVR Password be delivered to my mobile phone/email ID,general,out_of_scope,0.30,reviewed
+bankfaqs-general-10,Can the OTP be generated prior to the transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-11,Can I continue using the Verified by Visa/MasterCard SecureCode/Protectbuy password for online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-12,On which mobile number will I receive the OTP,general,out_of_scope,0.30,reviewed
+bankfaqs-general-13,Is it necessary to register the card for an OTP transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-14,Is this option available on all the online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-15,Can the OTP be used for multiple online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-16,How will the OTP be sent to the customers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-17,What is the validity period of the OTP,general,out_of_scope,0.30,reviewed
+bankfaqs-general-18,What happens if I shop at a Verified by Visa/ MasterCard SecureCode merchant website while I'm not registered for this feature,general,out_of_scope,0.30,reviewed
+bankfaqs-general-19,Where can I shop with Verified by Visa,general,out_of_scope,0.30,reviewed
+bankfaqs-general-20,How will the online store know that I have Verified by Visa/ MasterCard SecureCode,general,out_of_scope,0.30,reviewed
+bankfaqs-general-21,How can I register / re-set password for VBV/MSC if my mobile number/ email ID is not updated in the bank's records,general,out_of_scope,0.30,reviewed
+bankfaqs-general-22,"Once I have registered, how long does it take for Verified by Visa / MasterCard SecureCode to become active for my card",general,out_of_scope,0.30,reviewed
+bankfaqs-general-23,What will happen if I try to register again & generate an OTP within 2 hours,general,out_of_scope,0.30,reviewed
+bankfaqs-general-24,"If my account is blocked, how do I unblock it",general,out_of_scope,0.30,reviewed
+bankfaqs-general-25,"How do I use Verified by Visa / MasterCard SecureCode when I shop online, once I’m registered",general,out_of_scope,0.30,reviewed
+bankfaqs-general-26,How does Verified by Visa/ MasterCard SecureCode work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-27,I suspect someone has stolen my password or used it to make fraudulent purchases. What should I do,general,fraud_report,0.95,auto_accepted
+bankfaqs-general-28,My spouse and I both have the same card number. How does Verified by Visa/ MasterCard SecureCode work for both of us,general,out_of_scope,0.30,reviewed
+bankfaqs-general-29,What is Verified by Visa/MasterCard SecureCode,general,visa_or_mastercard,0.69,reviewed
+bankfaqs-general-30,How do I register my HDFC Bank Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-31,Can I register for Verified by Visa/MasterCard SecureCode with my existing HDFC Bank Card or do I need to apply for a new one,general,out_of_scope,0.30,reviewed
+bankfaqs-general-32,Can I register more than one HDFC Bank Credit/ Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-33,"If I have just received a renewed card, do I need to re-register",general,out_of_scope,0.30,reviewed
+bankfaqs-general-34,Can I register my non-Visa payment Cards with Verified by Visa and non- MasterCard payment Cards with MasterCard SecureCode,general,out_of_scope,0.30,reviewed
+bankfaqs-general-35,Can I use Verified by Visa/ MasterCard SecureCode from any other computer,general,out_of_scope,0.30,reviewed
+bankfaqs-general-36,Do I need any special equipment or software on my computer,general,out_of_scope,0.30,reviewed
+bankfaqs-general-37,What is a Personal Assurance Message or Personal Greeting,general,out_of_scope,0.30,reviewed
+bankfaqs-general-38,How can I register for VBV/SC if my mobile number / Email ID is not updated in my Credit Card records with the Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-39,How long does it take for the IVR Password to get delivered using Verified by Visa/Mastercard Secure Code,general,out_of_scope,0.30,reviewed
+bankfaqs-general-40,"If I have registered two email IDs, on which email ID will I receive the IVR Password",general,out_of_scope,0.30,reviewed
+bankfaqs-general-41,What is the validity of the IVR Password using Verified by Visa/Mastercard Secure Code,general,out_of_scope,0.30,reviewed
+bankfaqs-general-42,What are the other things that I need to keep in mind about the IVR Password using Verified by Visa/Mastercard Secure Code,general,out_of_scope,0.30,reviewed
+bankfaqs-general-43,In what transactions is the One Time Password (IVR Password ) process applicable,general,out_of_scope,0.30,reviewed
+bankfaqs-general-44,I don't see my Personal Assurance Message on the Secure page . What should I do,general,out_of_scope,0.30,reviewed
+bankfaqs-general-45,"If I forget my VBV/MSC password, how do I retrieve the same",general,out_of_scope,0.30,reviewed
+bankfaqs-general-46,"While trying to register my card, I am getting the error message stating mobile no. mismatch, what could be the reason",general,out_of_scope,0.30,reviewed
+bankfaqs-general-47,On which email id will I receive the OTP for Credit card registration or for password reset,general,out_of_scope,0.30,reviewed
+bankfaqs-general-48,"While trying to register I am getting error message Card already enrolled , what should I do",general,out_of_scope,0.30,reviewed
+bankfaqs-general-49,I don't remember my Verified by Visa / MasterCard Securecode login Id,general,out_of_scope,0.30,reviewed
+bankfaqs-general-50,Where do I find the CVV2,general,out_of_scope,0.30,reviewed
+bankfaqs-general-51,"I am unable to transact online as my card is de-registered status, how do I re-register my card",general,out_of_scope,0.30,reviewed
+bankfaqs-general-52,Is there a fee to register for Verified by Visa / MasterCard Securecode,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-53,What steps should I take to ensure that my VBV / MSC Password is strong and difficult to guess,general,out_of_scope,0.30,reviewed
+bankfaqs-general-54,Can I set my Personal Assurance Message to be the same as my VBV / MSC Password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-55,What happens if I try to make a purchase at a merchant that doesn't participate in the Verified by Visa / MasterCard Securecode service,general,out_of_scope,0.30,reviewed
+bankfaqs-general-56,Can I get the benefit of Verified by Visa/ MasterCard SecureCode security at online stores that are not participating in the service,general,out_of_scope,0.30,reviewed
+bankfaqs-general-57,What security do I need to provide to obtain a Business loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-58,What are the benefits of having a Current/Saving Account for my Business loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-59,How long will it take for me to get a Business Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-60,Can I repay the loan earlier for Business Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-61,How can I get my address changed in my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-62,What will be done with the post dated cheques if I request to change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-63,What are the charges I have to pay to change the mode of repayment/ account for my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-64,How can I change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-65,How do I obtain a Duplicate Repayment Schedule for my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-66,How much loan can I avail of Business Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-67,How do I repay my Business Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-68,What are the loan tenure options for Business Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-69,Do I need to pledge anything or give collateral to get a car loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-70,How long can the tenure of my loan be,general,out_of_scope,0.30,reviewed
+bankfaqs-general-71,What documents do I need to submit after the loan amount is disbursed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-72,What happens if the car meets with an accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-73,Can I get finance for insurance and registration,general,out_of_scope,0.30,reviewed
+bankfaqs-general-74,How much loan can I get,general,out_of_scope,0.30,reviewed
+bankfaqs-general-75,Can I sell my car before I repay my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-76,How much time will it take to change the mode of repayment/ account to repay my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-77,What is De-pledge,general,out_of_scope,0.30,reviewed
+bankfaqs-general-78,What is Guarantor,general,out_of_scope,0.30,reviewed
+bankfaqs-general-79,What is Amortization,general,out_of_scope,0.30,reviewed
+bankfaqs-general-80,What is Pledge,general,out_of_scope,0.30,reviewed
+bankfaqs-general-81,What is RTGS,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-82,What is NEFT,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-83,What is SI,general,out_of_scope,0.30,reviewed
+bankfaqs-general-84,What is CIBIL,general,out_of_scope,0.30,reviewed
+bankfaqs-general-85,Which documents should I carry at the time of visiting HDFC bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-86,Who can resolve my queries,general,out_of_scope,0.30,reviewed
+bankfaqs-general-87,How do I obtain a NOC from the bank for fitting an LPG/CNG kit on my vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-88,How do I obtain a NOC from the bank for settling a partial loss Insurance Claim for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-89,How can I get my address changed in my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-90,How do I obtain a NOC from the bank if my Registration Certificate is mutilated and I wish to apply for a duplicate Registration Certificate book for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-91,How do I obtain a NOC from the bank if I have lost my Registration Certificate book for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-92,How do I obtain a Duplicate Repayment Schedule for my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-93,What will be done with the post dated cheques if I request to change the mode of repayment/account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-94,How do I obtain a duplicate NOC/Form 35 for a vehicle loan that has been closed and fully repaid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-95,How can I change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-96,What are the tenure options available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-97,How much finance can I avail of on New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-98,Who can avail of HDFC Bank New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-99,What are the special privileges that HDFC Bank customers can avail of,general,out_of_scope,0.30,reviewed
+bankfaqs-general-100,Do I have the option to pre-pay the entire loan amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-101,Which cars can be financed for New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-102,What is the maximum amount I can borrow with an HDFC Bank New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-103,Do I need a guarantor for New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-104,"If I don't have an account with HDFC Bank, can I still avail of a New Car Loans",general,out_of_scope,0.30,reviewed
+bankfaqs-general-105,How long will it take to process loan for New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-106,Do I need a co-applicant for a New Car Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-107,Do I have the option of pre-paying the entire loan amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-108,So how do I get an HDFC Bank Car Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-109,What are the most important guidelines post disbursements for New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-110,Do I have an option to pay a skipped/ missed EMI for New Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-116,What are the charges I have to pay to change the mode of repayment/ account for my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-121,What are the tenure options for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-122,How many times of my annual salary can I borrow with HDFC Bank Auto Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-123,Do I need a guarantor for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-124,How much finance can I avail of on Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-125,What are the special privileges that HDFC Bank account holders can avail of,general,out_of_scope,0.30,reviewed
+bankfaqs-general-126,What are the most important guidelines post disbursements for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-127,Which cars can be financed for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-128,What is the maximum amount I can borrow with an HDFC Bank Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-129,How long will it take to process loan for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-130,"If I don't have an account with HDFC Bank, can I still avail of Pre-owned Car Loans",general,out_of_scope,0.30,reviewed
+bankfaqs-general-131,Who can avail of HDFC Bank Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-133,So how do I get an HDFC Bank Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-134,Do I have an option to pay a skipped/ missed EMI for Pre-owned Car Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-145,So how do I get the Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-146,How long will it take to process loan for Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-147,Does this require Car verification / Valuation,general,out_of_scope,0.30,reviewed
+bankfaqs-general-148,Which cars can be financed for Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-149,What are the tenure options for Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-150,Who can avail the Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-151,Do I need a guarantor for Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-152,How much finance can I avail of on Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-153,Do I have an option to pay a skipped/ missed EMI for Loan against Car,general,out_of_scope,0.30,reviewed
+bankfaqs-general-161,"If I don't have an account with HDFC Bank, can I still avail of loans",general,out_of_scope,0.30,reviewed
+bankfaqs-general-165,Whom do I contact in case of ay further queries regarding the loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-166,What are the tenures for which I can avail this loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-167,Which all locations HDFC Bank Consumer Durable Loan is available currently,general,out_of_scope,0.30,reviewed
+bankfaqs-general-168,What is the minimum loan value/product value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-169,How can I change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-171,How can I get my address changed in my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-175,How much time will it take to change the mode of repayment/ account for your loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-179,How can I change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-181,What are the charges I have to pay to change the mode of repayment/ account for my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-182,Do I need to provide collateral to avail of an education loan (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-183,What is the maximum loan amount I can get for studies in India,general,out_of_scope,0.30,reviewed
+bankfaqs-general-184,Is there moratorium/repayment holiday available (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-185,Which courses can I take an education loan for (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-186,How do I know if I am eligible for the education loan for Indian education,general,out_of_scope,0.30,reviewed
+bankfaqs-general-187,How long is the tenure of the loan (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-188,Do I need a co-applicant for the loan (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-189,what does 'Moratorium Period' mean (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-190,Do I have to pay any margin money - my own funding (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-191,Which course related expense does this loan cover (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-192,Will the loan be disbursed in favour of the Institute/college/university (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-193,Do I have to make any repayment during the moratorium period (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-195,What are the charges I have to pay to change the mode of repayment/ account for my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-196,What is the mode of repayment for student loan in India,general,out_of_scope,0.30,reviewed
+bankfaqs-general-200,Which courses can I take an Education Loan for,general,out_of_scope,0.30,reviewed
+bankfaqs-general-201,What all is the loan for – study and stay or just study,general,out_of_scope,0.30,reviewed
+bankfaqs-general-202,Why should I get loan sanction before admission,general,out_of_scope,0.30,reviewed
+bankfaqs-general-203,Is there a moratorium/ repayment holiday available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-204,What all is the loan for – study and stay or just study,general,out_of_scope,0.30,reviewed
+bankfaqs-general-205,Who can be my co-borrowers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-206,Do I need a co-borrower for the loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-207,Who can apply for Credila Education Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-208,Can I apply before confirmed admission,general,out_of_scope,0.30,reviewed
+bankfaqs-general-209,How much loan can I get from Credila,general,out_of_scope,0.30,reviewed
+bankfaqs-general-210,When do I start paying my EMI,general,out_of_scope,0.30,reviewed
+bankfaqs-general-211,Will we get tax benefit on the interest paid on education loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-212,Which course related expense does this loan cover (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-213,Will the loan be disbursed in favour of the Institute/college/university (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-214,Do I need to provide collateral to avail of an education loan (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-215,How long is the tenure of the loan (Education Loans For Indian Education),general,out_of_scope,0.30,reviewed
+bankfaqs-general-216,Do I have to make any repayment during the moratorium period (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-217,What is the mode of repayment (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-218,Which courses can I take an education loan for (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-219,Is there moratorium/repayment holiday available (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-220,What is the maximum loan amount I can get for studies abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-221,Do I need a co-applicant for the loan (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-222,What does 'Moratorium period' mean (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-223,What is the mode of repayment,general,out_of_scope,0.30,reviewed
+bankfaqs-general-224,Do I have to make any repayments during the moratorium period,general,out_of_scope,0.30,reviewed
+bankfaqs-general-225,What kind of collateral security is required,general,out_of_scope,0.30,reviewed
+bankfaqs-general-226,Who should opt for an education loan and why,general,out_of_scope,0.30,reviewed
+bankfaqs-general-227,Do I have to pay any margin money - my own funding (Education Loans For Foreign Education),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-228,How do I know if I am eligible for an education loan for foreign education,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-232,How long does it take to process Gold Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-233,How much loan amount can be availed at a time,general,out_of_scope,0.30,reviewed
+bankfaqs-general-234,Are there any benefits on Agricultural/Priority sector,general,out_of_scope,0.30,reviewed
+bankfaqs-general-235,How should the gold loan be repaid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-236,What security is required against the Gold Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-237,What will be the tenure of Gold loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-238,What are Benefits for HDFC Bank account holders,general,out_of_scope,0.30,reviewed
+bankfaqs-general-250,Are there any additional charges for loan repayment,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-251,Do I have the option to structure my loan as partly fixed or partly floating,general,out_of_scope,0.30,reviewed
+bankfaqs-general-252,Can I give standing instructions to repay my Home Loan EMIs directly from my HDFC Bank Savings Account,general,direct_debit_payment_not_recognised,0.85,auto_accepted
+bankfaqs-general-254,How will HDFC decide my home loan eligibility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-255,What is pre-EMI interest,general,out_of_scope,0.30,reviewed
+bankfaqs-general-256,Are my property documents safe with HDFC Ltd.,general,out_of_scope,0.30,reviewed
+bankfaqs-general-257,What Property can be considered as collateral for LAP,general,out_of_scope,0.30,reviewed
+bankfaqs-general-258,Are there any additional charges for loan Pre-payment,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-259,What are the fees & charges applicable,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-260,Can I avail an Overdraft against my Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-261,What is the maximum tenure to repay the Loan Against Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-262,What is the maximum loan I can get against my Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-263,How do I apply for a Loan Against Property (LAP),general,out_of_scope,0.30,reviewed
+bankfaqs-general-264,How can I make a request to foreclose my Loan Against Property account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-265,What is PDC,general,out_of_scope,0.30,reviewed
+bankfaqs-general-266,What are the documents required to avail of the Loan Against Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-269,How can I change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-271,What are the charges I need to pay to foreclose my Loan Against Property,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-272,What are the charges I need to pay to foreclose my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-273,How much time will it take to decision an application for Loan Against Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-286,How do I obtain a NOC from the bank for settling a partial loss Insurance Claim for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-287,How do I obtain a NOC from the bank for fitting an LPG/CNG kit on my vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-288,How can I get my address changed in my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-289,What are the different loan repayment modes,general,out_of_scope,0.30,reviewed
+bankfaqs-general-290,"If I have shares of one company only, can I get a limit against just one script",general,out_of_scope,0.30,reviewed
+bankfaqs-general-296,Can I repay my loan earlier than the due date,general,out_of_scope,0.30,reviewed
+bankfaqs-general-297,What are the other benefits that I can get from my Loan Against Securities Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-298,Is my overdraft limit fixed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-299,Is there any charge in the LAS Account if there are no limits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-300,How can I get my securities released,general,out_of_scope,0.30,reviewed
+bankfaqs-general-301,What is the procedure to get the TRF booklet,general,out_of_scope,0.30,reviewed
+bankfaqs-general-302,How would I pay the interest debited to my Loan Against Securities account each month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-303,Do I get statements for my account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-304,What is the minimum Loan value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-305,How frequently will my portfolio be re-valued,general,out_of_scope,0.30,reviewed
+bankfaqs-general-306,Would the shares be held in my name,general,out_of_scope,0.30,reviewed
+bankfaqs-general-307,What are the documents required to avail of the Loans Against Rental Receivables,general,out_of_scope,0.30,reviewed
+bankfaqs-general-308,How much loan can be offered against my Property,general,out_of_scope,0.30,reviewed
+bankfaqs-general-309,How do I apply for a Loan Against Rent Receivables (LARR),general,out_of_scope,0.30,reviewed
+bankfaqs-general-310,What are the Fees and Charges applicable,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-311,How much time will it take to decision an application for Loan Against Rental Receivables,general,out_of_scope,0.30,reviewed
+bankfaqs-general-312,What is EMI,general,out_of_scope,0.30,reviewed
+bankfaqs-general-313,Are there any additional charges for loan Prepayment,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-314,What are the charges I need to pay to foreclose my Loans Against Rental Receivable,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-315,How can I make a request to foreclose my Loans Against Rental Receivables account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-316,How should I apply for a duplicate NOC/ closure letter,general,out_of_scope,0.30,reviewed
+bankfaqs-general-317,What Property can be considered as collateral for LARR,general,out_of_scope,0.30,reviewed
+bankfaqs-general-318,What is the maximum tenure to repay the Loans Against Rental Receivables,general,out_of_scope,0.30,reviewed
+bankfaqs-general-319,How long will it take for my Professional loan to be processed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-320,Can I repay the loan earlier for Professionals Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-326,What security do I need to provide to obtain Professionals loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-327,What are the loan tenure options for Professionals Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-328,What are the benefits of having a Current/Saving Account for my Loan to Professionals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-329,How much loan can I avail of for Professionals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-330,How do I repay my Professionals loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-331,How long can I take to repay my personal loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-332,How much can I borrow,general,out_of_scope,0.30,reviewed
+bankfaqs-general-333,How can I repay my Personal Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-334,Is part-prepayment of a Personal Loan allowed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-335,How does a Salary Account help me get a personal loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-336,Do I need to provide any security or collateral to obtain a personal loan from HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-345,Can I repay the Personal loan earlier,general,out_of_scope,0.30,reviewed
+bankfaqs-general-354,How long will it take for my Personal loan to be processed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-368,How do I obtain a duplicate NOC/Form 35 for a vehicle loan that has been closed and fully repaid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-369,How can I get my address changed in my loan account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-372,Who is eligible for a tractor loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-373,Can I get a tractor loan for any tractor I want to purchase,general,out_of_scope,0.30,reviewed
+bankfaqs-general-374,What are the different modes of loan repayment,general,out_of_scope,0.30,reviewed
+bankfaqs-general-375,Can I pre-pay the entire loan amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-376,Do you want to repay the loan earlier than the due date,general,out_of_scope,0.30,reviewed
+bankfaqs-general-377,Is a guarantor required,general,out_of_scope,0.30,reviewed
+bankfaqs-general-378,What if I want to repay the loan earlier than the due date,general,out_of_scope,0.30,reviewed
+bankfaqs-general-379,What is the maximum loan amount I can take on a Tractor Loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-383,How do I obtain a NOC from the bank for settling a partial loss Insurance Claim for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-384,What are the charges I have to pay to change the mode of repayment/ account for my loan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-387,What will be done with the post-dated cheques if I request to change the mode of repayment/account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-388,How do I utilize this amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-389,How many salary credits are required in my existing account to qualify for SmartDraft,general,out_of_scope,0.30,reviewed
+bankfaqs-general-390,What is the amount I can get as an overdraft,general,out_of_scope,0.30,reviewed
+bankfaqs-general-391,When will my SmartDraft limit be renewed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-392,Which locations is SmartDraft available in,general,out_of_scope,0.30,reviewed
+bankfaqs-general-393,Am I eligible for SmartDraft,general,out_of_scope,0.30,reviewed
+bankfaqs-general-405,How do I obtain a duplicate NOC/Form 35 for a vehicle loan that has been closed and fully repaid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-406,How do I obtain a NOC from the bank for fitting an LPG/CNG kit on my vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-407,How do I obtain a NOC from the bank for settling a partial loss Insurance Claim for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-408,How do I obtain a NOC from the bank if I have lost my Registration Certificate book for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-409,How do I obtain a NOC from the bank if my Registration Certificate is mutilated and I wish to apply for a duplicate Registration Certificate book for a vehicle under finance with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-413,What will be done with the post-dated cheques if I request to change the mode of repayment/ account for my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-414,How much finance can I avail of,general,out_of_scope,0.30,reviewed
+bankfaqs-general-415,Do I have the option to pre-pay the entire loan amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-416,How long will it take to process the loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-417,How much time will it take to change the mode of repayment/ account for repayment of my loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-418,In which other ways can I get in touch with the bank for details on Two Wheeler Loans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-419,"If I don’t have an account with HDFC Bank, can I still avail of loans",general,out_of_scope,0.30,reviewed
+bankfaqs-general-420,What is Grahak Seva Kendra,general,out_of_scope,0.30,reviewed
+bankfaqs-general-421,Do I need a guarantor,general,out_of_scope,0.30,reviewed
+bankfaqs-general-432,What are the documents required for opening a Current Account of a sole proprietorship firm,general,out_of_scope,0.30,reviewed
+bankfaqs-general-433,Can I transfer my Current Account from one branch to another,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-434,My present status is NRI. What extra documents are required for opening a Sole Proprietorship Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-435,What are the documents required for opening a Current Account of Limited Liability Partnership,general,out_of_scope,0.30,reviewed
+bankfaqs-general-436,What documents are required to change the address of an entity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-437,What are the documents required for opening Current Account of a company,general,out_of_scope,0.30,reviewed
+bankfaqs-general-438,Who can be a partner in a partnership firm,general,out_of_scope,0.30,reviewed
+bankfaqs-general-439,What is the time taken to realize outstation cheques,general,out_of_scope,0.30,reviewed
+bankfaqs-general-440,Can an individual open a Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-441,Can EEFC Account be opened by Special Economic Zone (SEZ) Units,general,out_of_scope,0.30,reviewed
+bankfaqs-general-442,What should I do in case I am unable to access my Company's Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-443,What transactions are included as a part of the free inter-city clearing limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-444,How is HDFC Bank Premium CA different from a regular CA offered by most banks,general,out_of_scope,0.30,reviewed
+bankfaqs-general-445,Must I open Premium Current account in each location where I have my company office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-446,Can I access my Premium Current Account from any HDFC Bank branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-447,With Premium Current Account can I make payments to my suppliers at HDFC Bank Branches through Single Cheque Book,general,out_of_scope,0.30,reviewed
+bankfaqs-general-448,Can I access my account by telephone to conduct routine daily transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-449,What are included in Bulk Transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-450,What are the documents required for opening a Current Account of a partnership firm,general,out_of_scope,0.30,reviewed
+bankfaqs-general-452,How do I become eligible for an HDFC Bank Regular Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-454,Must I open Regular Current account in each location where I have my company office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-455,What is the initial deposit amount required to open the Flexi Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-456,What should I do in case I am unable to access my Company's Current Account using NetBanking,general,out_of_scope,0.30,reviewed
+bankfaqs-general-458,How is a Flexi Current account different from a regular current account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-460,What transactions are included as a part of the Free Anywhere Transactions limit for a month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-461,"How much cash can I deposit per month in my home branch, without being charged",general,out_of_scope,0.30,reviewed
+bankfaqs-general-462,Can I access my account from any HDFC Bank branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-463,What is the minimum balance that I need to maintain in a Flexi Current Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-464,What is the minimum balance required for an Apex Current account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-466,Is it necessary to open Apex Current Account in each location where my company has an office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-467,Can I make payments to my suppliers at HDFC Bank branches through a single cheque book,general,out_of_scope,0.30,reviewed
+bankfaqs-general-470,What should I do in case I am unable to access my Company's Current Account through Net Banking,general,out_of_scope,0.30,reviewed
+bankfaqs-general-471,How is an Apex Current account different from a regular Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-472,What transactions are included as a part of the Free Anywhere Transactions limit for a month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-473,What transactions are included as a part of the Free Anywhere Transactions limit for a month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-476,Is it necessary to open Max Current Account in each location where my company has an office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-479,What is the initial deposit amount required to open a Max Current account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-480,What is the minimum balance that I need to maintain in a Max Current Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-482,How is HDFC Bank's Max Current account different from a regular Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-483,Must I open an account in each location where I have my company office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-484,What is the minimum Average Monthly Balance required if I have a Merchant Advantage Current Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-486,Must I open an Merchant Advantage Current Account in each location where I have my company office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-488,Can I access my Merchant Advantage Plus Current Account from any HDFC Bank branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-489,With Merchant Plus Current Account can I make payments to my suppliers at HDFC Bank Branches through Single Cheque Book,general,out_of_scope,0.30,reviewed
+bankfaqs-general-492,How is a Merchant Advantage Plus Current Account different from a Regular Current Account offered by most banks,general,out_of_scope,0.30,reviewed
+bankfaqs-general-493,How is a Merchant Advantage Plus Current Account different from a Regular Current Account offered by most banks,general,out_of_scope,0.30,reviewed
+bankfaqs-general-494,What is the minimum Average Monthly Balance I have to maintain with a Merchant Advantage Plus Current Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-505,Is it necessary to open Ultima Current Account in each location where my company has an office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-506,Can I access my account by telephone to conduct routine daily transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-507,How is an Ultima Current account different from a Regular Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-508,What is the minimum balance required for an Ultima Current account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-509,What transactions are included as a part of the Free Anywhere Transactions limit for a month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-510,What should I do in case I am unable to access my Company's Current Account through Net Banking,general,out_of_scope,0.30,reviewed
+bankfaqs-general-511,What are the minimum docs required to open a Institutional current account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-512,How is an Institutional Current Account different from a Regular Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-513,What should I do in case I am unable to access my Institutional Current Account through Net Banking,general,out_of_scope,0.30,reviewed
+bankfaqs-general-515,Must I open Institutional Current Account in each location where I have my company office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-516,What is the minimum balance required for an Institutional Current Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-517,How do I become eligible for an HDFC Bank Institutional Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-518,Can I access my account by telephone to conduct routine daily transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-519,Is it necessary to open Institutional Current Account in each location where my company has an office,general,out_of_scope,0.30,reviewed
+bankfaqs-general-520,What transactions are included as a part of the Free Anywhere Transactions limit for a month,general,out_of_scope,0.30,reviewed
+bankfaqs-general-522,What are the permissible Debits from an RFC Domestic Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-524,Who can open an RFC Domestic Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-526,What are the permissible credits from an RFC Domestic Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-527,In what currencies can I open an RFC Domestic account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-528,Whether the EEFC balances can be covered against exchange risk,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-529,Is there any restriction on withdrawal in rupees of funds held in an EEFC account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-530,How much of foreign exchange earnings can be credited into an EEFC account,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-531,What are the permissible credits into EEFC account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-532,What are the permissible debits into this account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-533,What are benefits of Smartup Solutions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-534,What is the offer for Salary Account under Smartup programme,general,out_of_scope,0.30,reviewed
+bankfaqs-general-535,"If I have a query, do I need to visit the branch",general,out_of_scope,0.30,reviewed
+bankfaqs-general-536,What are the key features of CMS and eCMS of HDFC bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-537,What are Collection Solutions available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-538,What are the key features of current account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-539,What are the key features of Payment gateway of HDFC bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-540,What are benefits of Payzapp for business,general,out_of_scope,0.30,reviewed
+bankfaqs-general-541,Who all can open SmartUp Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-542,What is Smartup Solutions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-543,What are Payment Solutions available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-544,I have an existing bank account with other Bank. Can I still open SmartUp Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-545,I am not a technology Start-up. Can I still open SmartUp Current Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-546,Do I get access to all the services offered under Smartup programme once I start banking with HDFC BANK,general,out_of_scope,0.30,reviewed
+bankfaqs-general-547,Do I need to pay any penalty on premature closure of Fixed Deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-548,Where can I get Fixed Deposit advice from,general,out_of_scope,0.30,reviewed
+bankfaqs-general-549,Why is the principal amount and the fixed deposit maturity amount of my Fixed Deposit the same,general,out_of_scope,0.30,reviewed
+bankfaqs-general-550,Does HDFC Bank offer preferential rate of interest on Fixed Deposits for Senior Citizens,general,out_of_scope,0.30,reviewed
+bankfaqs-general-551,Where can I register for HDFC Bank’s NetBanking facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-552,How can I book a Fixed Deposit through NetBanking,general,out_of_scope,0.30,reviewed
+bankfaqs-general-553,"I have made a Fixed Deposit with HDFC Bank. I want to update my PAN details in the account, how should I update my new PAN details",general,out_of_scope,0.30,reviewed
+bankfaqs-general-555,Whom should I approach for any other service related to HDFC Bank Fixed Deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-556,How can I avail exemption from TDS on interest earned on Fixed Deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-557,How can I prematurely liquidate my Fixed Deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-558,How to Download TDS Certificate through Online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-559,How to change existing fixed deposit account tenure,general,out_of_scope,0.30,reviewed
+bankfaqs-general-560,How is TDS deducted,general,out_of_scope,0.30,reviewed
+bankfaqs-general-561,Can TDS be recovered from my principle of the FD,general,out_of_scope,0.30,reviewed
+bankfaqs-general-562,When does the Bank issue a TDS Certificate,general,out_of_scope,0.30,reviewed
+bankfaqs-general-563,Can TDS influence the maturity of my deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-564,What are the implications of booking an FD without PAN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-565,Will changes to my deposit portfolio affect my TDS liability,general,out_of_scope,0.30,reviewed
+bankfaqs-general-566,When is TDS deducted for Regular Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-567,What documents are required to open a senior citizen Regular Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-568,Can I open a joint account with a non-senior citizen for Regular Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-569,"As a Regular Fixed Deposit holder, How do I apply for an exemption on TDS",general,out_of_scope,0.30,reviewed
+bankfaqs-general-570,How to prematurely liquidate the Fixed Deposit Online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-571,What is the new policy with regards to PAN to book fixed deposit with our bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-572,When do I become liable for TDS,general,out_of_scope,0.30,reviewed
+bankfaqs-general-573,What documents are required to open a senior citizen 5 Year Tax Saving Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-574,Will the bank issue a TDS certificate,general,travel_notice,0.65,reviewed
+bankfaqs-general-575,"As a 5 Year Tax Saving Fixed Deposit holder, How do I apply for an exemption on TDS",general,out_of_scope,0.30,reviewed
+bankfaqs-general-576,When is TDS deducted for 5 Year Tax Saving Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-577,Does any change or enhancement in my deposit portfolio affect TDS liability,general,out_of_scope,0.30,reviewed
+bankfaqs-general-578,Do I need to visit branch to receive my 5 Year Tax Saving Fixed Deposit proceeds on maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-579,Can I open a joint account with a non-senior citizen for 5 Year Tax Saving Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-580,How to apply for 5 Year Tax Saving Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-581,When am I liable for TDS (Tax Deduction at Source),general,out_of_scope,0.30,reviewed
+bankfaqs-general-582,"If I have a joint Super Saver Account, can both account holders get an ATM/Debit card",general,out_of_scope,0.30,reviewed
+bankfaqs-general-583,Is the Super Saver Account a normal Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-584,What documents are required to open a senior citizen Super Saver Facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-585,I’m part of a Trust – can I open a Super Saver Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-586,Can I add on a Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-587,Will TDS be charged on the gross interest earned or the net interest earned,general,out_of_scope,0.30,reviewed
+bankfaqs-general-588,Can I have a Super Saver Facility and a Sweep-in Facility on the one Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-589,Can I have a Super Saver Facility and a Sweep-in Facility on the same Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-590,How can I apply for the Super Saver Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-591,Can a joint account be opened with a non-senior citizen,general,out_of_scope,0.30,reviewed
+bankfaqs-general-592,How does it work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-593,Can I get an overdraft facility on my fixed deposit funds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-594,What are the benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-595,How can I apply for the Sweep-in facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-596,Can I have both a Super Saver facility and a Sweep-In facility on the same Fixed Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-597,Will both the principal and interest amount of my Fixed Deposit be considered,general,out_of_scope,0.30,reviewed
+bankfaqs-general-598,Can I have a Super saver facility and a Sweep-in facility on the same Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-599,On what basis the Sweep-in facility gets triggered,general,out_of_scope,0.30,reviewed
+bankfaqs-general-600,Can a Fixed Deposit be linked to two different Savings Accounts for the Sweep-in,general,out_of_scope,0.30,reviewed
+bankfaqs-general-601,Can my Sweep-in facility have multiple deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-602,Can I link accounts held in different account titles to the same Savings Account for the Sweep-In facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-603,What is the Sweep-in facility all about,general,out_of_scope,0.30,reviewed
+bankfaqs-general-604,Is there a nomination facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-605,Is there a monthly or quarterly interest pay-out option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-606,"Can I change the tenure and installment due date, (auto debit date) of my Recurring Deposit",general,direct_debit_payment_not_recognised,0.85,auto_accepted
+bankfaqs-general-607,For what period can I open a Recurring Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-608,Can I choose my instalment date,general,out_of_scope,0.30,reviewed
+bankfaqs-general-609,Can partial Payments be made on Recurring Deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-610,What is the maximum deposit amount a Recurring Deposit account can be opened with,general,out_of_scope,0.30,reviewed
+bankfaqs-general-611,What if certain RD installments are not paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-612,How do Recurring Deposits work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-613,Can I pay more than one instalment at a time,general,out_of_scope,0.30,reviewed
+bankfaqs-general-614,How Interest Rate is calculated for premature withdrawal of Recurring Deposit,general,wrong_exchange_rate_for_cash_withdrawal,0.67,reviewed
+bankfaqs-general-615,Is an overdraft facility allowed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-616,How can I prematurely liquidate my recurring deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-617,What happens if I don’t pay an instalment,general,out_of_scope,0.30,reviewed
+bankfaqs-general-618,Can my Recurring Deposit be opened in joint names,general,out_of_scope,0.30,reviewed
+bankfaqs-general-619,Can the first applicant for a Recurring Deposit be a minor,general,out_of_scope,0.30,reviewed
+bankfaqs-general-620,Can I withdraw prematurely from my Recurring Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-621,I'm a senior citizen – are there any extra benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-622,How to open a Recurring Deposit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-623,Can you covert your existing saving account into a pension account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-624,Any minimum Balance need to be maintained in the account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-625,When can we open pension accounts,general,out_of_scope,0.30,reviewed
+bankfaqs-general-626,Is nomination required in the account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-627,Can a pension account be opened jointly,general,out_of_scope,0.30,reviewed
+bankfaqs-general-628,What are the charges for collection of outstation cheques,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-630,How do I know my beneficiary's details for a cheque issued in my name (Basic Savings Bank Deposit Account - Farmers),general,out_of_scope,0.30,reviewed
+bankfaqs-general-631,How can I get an International Debit Card with my Basic Savings Bank Deposit Account - Farmers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-632,What can I do with the NEFT facility,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-633,Are all IVR based calls free,general,out_of_scope,0.30,reviewed
+bankfaqs-general-634,How do I apply for a Basic Savings Bank Deposit Account - Farmers with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-635,How do I know my beneficiary's details for a cheque issued in my name (Kisan Club Savings account),general,out_of_scope,0.30,reviewed
+bankfaqs-general-636,Is a nomination facility available for lockers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-637,What are the timings for locker operations,general,out_of_scope,0.30,reviewed
+bankfaqs-general-638,How many nominees can be added to a single locker,general,out_of_scope,0.30,reviewed
+bankfaqs-general-639,Can I pay for the rent of a locker through my account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-640,What is the procedure to add / cancel / modify a nominee in my locker,general,out_of_scope,0.30,reviewed
+bankfaqs-general-641,What are the tenure options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-642,When can I open a salary account with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-643,I have not received the Welcome Letter and ATM/Debit Card PIN for my new account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-645,What to do if my Account becomes dormant,general,out_of_scope,0.30,reviewed
+bankfaqs-general-646,What are the documents required to open a salary account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-647,Can a salary account have a joint applicant,general,out_of_scope,0.30,reviewed
+bankfaqs-general-648,Is employment confirmation mandatory for me to open a Classic Salary Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-649,What is the time taken to realize outstation cheques,general,out_of_scope,0.30,reviewed
+bankfaqs-general-650,How can I stop a cheque payment,general,out_of_scope,0.30,reviewed
+bankfaqs-general-651,Can a Company ID card be accepted as a Photo ID document,general,out_of_scope,0.30,reviewed
+bankfaqs-general-652,What is the procedure to add/modify or delete a nominee for all my accounts and deposits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-653,How long will it take to update a change of address,general,out_of_scope,0.30,reviewed
+bankfaqs-general-654,Can I use my existing Salary Account if I have changed employers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-655,How do I know my beneficiary's details for a cheque issued in my name,general,out_of_scope,0.30,reviewed
+bankfaqs-general-656,From where can I enquire about the status of my request to change the residential address of my HDFC Bank account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-660,Is employment confirmation mandatory for me to open a Regular Salary Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-662,What are the eligibility criteria for Personal Accident Death Cover,general,out_of_scope,0.30,reviewed
+bankfaqs-general-671,Is employment confirmation mandatory to open a Premium Salary Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-677,What are the modes of accident covered under Personal Accidental Death Cover,general,out_of_scope,0.30,reviewed
+bankfaqs-general-680,Is employment confirmation mandatory for me to open a Defence Salary Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-683,Can a Defence ID card be accepted as a Photo ID document (Defense Salary Account),general,out_of_scope,0.30,reviewed
+bankfaqs-general-688,Can a Company ID card be accepted as a Photo ID document (Basic Savings Bank Deposit Account - Salary),general,out_of_scope,0.30,reviewed
+bankfaqs-general-689,Is address proof a mandatory requirement (Basic Savings Bank Deposit Account - Salary),general,out_of_scope,0.30,reviewed
+bankfaqs-general-691,Can I use my existing Basic Savings Bank Deposit Account - Salary if I have changed employers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-693,Is employment confirmation mandatory for me to open a Basic Savings Bank Deposit Account - Salary,general,out_of_scope,0.30,reviewed
+bankfaqs-general-701,What do I need to do to open a joint account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-702,Will I be able to access both my accounts at all establishments/ATMs through a single Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-703,Will I earn interest on the Reimbursement Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-704,Why do I need a Reimbursement Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-705,Will I be entitled to the same kind of benefits on this account as my Salary account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-709,Can I use this account for regular cheque/ cash deposits & withdrawals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-710,Can I have multiple Zero Balance Salary Account with your Bank,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-711,What is the rate of interest I will earn on the balance in my Savings Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-712,What happens if I don't use my savings account for a very long time,general,out_of_scope,0.30,reviewed
+bankfaqs-general-713,How do I register for Email Statement/s,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-714,How can I change / add the email ID in my account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-715,How do I update my PAN number,general,out_of_scope,0.30,reviewed
+bankfaqs-general-717,How can I request for Physical Statement/s,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-718,Reissuance of ATM/Debit Card PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-719,How can I change / update the address for my account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-720,How do I activate a 'Dormant' Savings Account,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-721,How Do I Change / Add my Mobile Number,general,out_of_scope,0.30,reviewed
+bankfaqs-general-722,How can you transfer your Savings Account from one branch to another,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-723,What are the documents required to open a New Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-724,What is the frequency of interest payout for a Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-725,Can I get a Debit Card linked to my Institutional Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-726,What is the general documentation requirement to open an Institutional Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-727,Can unregistered institutions open an Institutional Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-728,Can transactions be done at any HDFC Bank branches,general,out_of_scope,0.30,reviewed
+bankfaqs-general-729,My institution will start receiving foreign contribution. Can I receive the same in the Institutional Savings Account,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-730,Can funds be credited to an FCRA account simply after the account is opened,general,out_of_scope,0.30,reviewed
+bankfaqs-general-731,Is there an AMB (Average Monthly Balance) declaration required to be submitted along with the documents for an Institutional Savings Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-732,Can NetBanking facility (financial rights) be enjoyed by authorized signatories in the Institutional Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-733,What is the AMB (Average Monthly Balance) requirement of the Institutional Savings Account,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-734,Do I need to close my account when my kid attains majority,general,out_of_scope,0.30,reviewed
+bankfaqs-general-735,How long the Standing Instruction given will be valid,general,direct_debit_payment_not_recognised,0.85,auto_accepted
+bankfaqs-general-736,Is the primary Customer ID of the Kids Advantage account will be same as my Customer ID,general,out_of_scope,0.30,reviewed
+bankfaqs-general-737,What are the documents required to open a Women's Savings Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-738,What do you mean by exclusions under the Accidental Protection Plan - Hospital Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-739,Can I include my spouse in this the Accidental Protection Plan - Hospital Cash policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-740,How do I make a claim,general,out_of_scope,0.30,reviewed
+bankfaqs-general-741,When does my Revive Policy for Personal Accident start,general,out_of_scope,0.30,reviewed
+bankfaqs-general-742,What plans are available under the Revive Policy for Personal Accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-743,What benefit do I get from the Revive Policy for Personal Accident if I break my bones,general,out_of_scope,0.30,reviewed
+bankfaqs-general-744,Is there an age limit to buy an Accidental Protection Plan - Hospital Cash policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-745,Who can be a beneficiary under the Accidental Protection Plan - Hospital Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-746,How do I renew my Accidental Protection Plan - Hospital Cash policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-747,Will I get a renewed Revive Policy for Personal Accident policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-748,What is the definition of a dependent child,general,out_of_scope,0.30,reviewed
+bankfaqs-general-749,Does the Accidental Protection Plan - Hospital Cash policy cover natural death and daily sickness as well,general,out_of_scope,0.30,reviewed
+bankfaqs-general-750,Does this the Revive Policy for Personal Accident cover natural death and daily sickness,general,out_of_scope,0.30,reviewed
+bankfaqs-general-751,What benefit do I get from the Accidental Protection Plan - Hospital Cash policy if I break my bones,general,out_of_scope,0.30,reviewed
+bankfaqs-general-752,How do I make my premium payments for my Accidental Protection Plan - Hospital Cash policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-753,What is an accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-754,When does my Accidental Protection Plan - Hospital Cash policy start,general,out_of_scope,0.30,reviewed
+bankfaqs-general-756,Does the Accidental Protection Plan - Hospital Cash policy have a hospital cash benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-757,What is the cancellation procedure,general,out_of_scope,0.30,reviewed
+bankfaqs-general-758,Does this the Revive Policy for Personal Accident have hospital cash benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-759,What do you mean by exclusions under the Revive Policy for Personal Accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-760,How many members can be included under the Family Plan of the Revive Policy for Personal Accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-761,Is there an age limit to opt for a Revive Policy for Personal Accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-762,Why should I purchase Critical Illness Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-763,What is Critical Illness Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-764,Can I make multiple claims for the same or any other listed Critical Illness,general,out_of_scope,0.30,reviewed
+bankfaqs-general-765,What is meant by disease under the Critical Illness - Platinum Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-766,What are the available plans under the Critical Illness policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-767,Who do I contact in the case of a claim under the Critical Illness policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-768,What are the benefits under the Critical Illness - Platinum Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-769,What is a Benefit Policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-770,What are the medical tests that I need to undergo to enrol myself for the - Platinum Plan policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-771,What documents are required at the time of a claim,general,out_of_scope,0.30,reviewed
+bankfaqs-general-772,How do I make a claim under the Accidental Protection Plan - Hospital Cash policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-773,What do you mean by pre-existing diseases not covered under the Critical Illness plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-774,Is there any tax exemption under the Health Suraksha policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-775,Is there any eligibility criterion to purchase this the Critical Illness policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-778,Are there any eligibility criteria to purchase this the Critical Illness - Platinum Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-779,What is Critical Illness insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-780,Why should I buy Critical Illness insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-783,Who do I contact in the case of a claim under the Critical Illness - Platinum Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-788,What do you mean by pre-existing diseases not covered under the Critical Illness - Platinum plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-789,What is cumulative bonus,general,out_of_scope,0.30,reviewed
+bankfaqs-general-790,What is meant by Day Care Procedures,general,out_of_scope,0.30,reviewed
+bankfaqs-general-791,What are Pre and Post hospitalisation expenses,general,out_of_scope,0.30,reviewed
+bankfaqs-general-792,What are the benefits of a health card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-793,Do I need to pay for hospitalisation,general,out_of_scope,0.30,reviewed
+bankfaqs-general-794,What are the medical tests that I need to undergo to enrol myself for the Critical Illness policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-795,What is Family Floater and what are its features,general,out_of_scope,0.30,reviewed
+bankfaqs-general-796,What is meant by disease,general,out_of_scope,0.30,reviewed
+bankfaqs-general-797,What are domiciliary hospitalisation expenses under the Health Suraksha policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-799,What is meant by Network Hospitals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-800,Are there any special discounts available under the Health Suraksha policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-801,What do you mean by pre-existing diseases,general,out_of_scope,0.30,reviewed
+bankfaqs-general-802,What is a hospital/nursing home,general,out_of_scope,0.30,reviewed
+bankfaqs-general-803,Are all Health Suraksha policy holders eligible for a health card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-804,Why do I need health insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-805,What is covered under the Ayush benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-806,What are the benefits under the Health Suraksha policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-807,What is an injury or injuries,general,out_of_scope,0.30,reviewed
+bankfaqs-general-808,What is meant by non-network hospitals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-809,What is meant by Organ Donor Expense,general,out_of_scope,0.30,reviewed
+bankfaqs-general-811,Who do I contact to submit a claim under Health Suraksha policy in case of hospitalisation,general,out_of_scope,0.30,reviewed
+bankfaqs-general-813,What are the plans available under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-814,Is there any eligibility criterion to purchase this the Health Suraksha policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-815,What is the benefit of broken bones under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-816,How do I make a claim,general,out_of_scope,0.30,reviewed
+bankfaqs-general-817,How do I renew my policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-818,Will my accident policy cover me even if I am out of the country,general,out_of_scope,0.30,reviewed
+bankfaqs-general-819,Does this policy have hospital cash benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-820,Does this policy cover natural death and daily sickness also,general,out_of_scope,0.30,reviewed
+bankfaqs-general-821,What is the definition of a dependent child,general,out_of_scope,0.30,reviewed
+bankfaqs-general-822,Who can be the beneficiary,general,out_of_scope,0.30,reviewed
+bankfaqs-general-823,How many members can be included under the Family Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-824,What kind of documentation is required,general,out_of_scope,0.30,reviewed
+bankfaqs-general-825,What do you mean by exclusions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-826,When does my policy start,general,out_of_scope,0.30,reviewed
+bankfaqs-general-827,Is there an age limit for opting Individual Personal Accident Plan 2 policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-828,What are the benefits payable under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-829,How do I make my premium payments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-830,Can I include my parents in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-831,What kind of benefits is my spouse and children entitled to,general,out_of_scope,0.30,reviewed
+bankfaqs-general-832,What are the available plans with under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-833,Will I get a renewed policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-834,What is the Cancellation procedure,general,out_of_scope,0.30,reviewed
+bankfaqs-general-835,How do I make my premium payments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-836,What is an accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-837,Can I include my parents in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-838,How do I renew my policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-839,What is an accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-841,How do I make my premium payments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-843,Is there an age limit for opting HDFC Ergo Personal Accident Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-844,Till what age the HDFC Ergo Personal Accident Insurance policy can be renewed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-848,Will my accident policy cover me even if I am out of the country,general,out_of_scope,0.30,reviewed
+bankfaqs-general-849,Does the threshold/deductible limit consist of single claim or multiple claims,general,out_of_scope,0.30,reviewed
+bankfaqs-general-850,Is there any co-payment applied on this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-851,Do I need to undergo medical test for buying this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-852,What are the Medical test charges,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-853,What is the minimum and maximum deductible in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-854,What is the entry & exit age for this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-855,Can I also include my parents and parent- in-laws in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-856,Is it mandatory to inform change in health condition in writing while renewing Super Top Up plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-857,"If the claim amount is 6 lakhs, how much will be paid by HDFC Ergo General Insurance",general,out_of_scope,0.30,reviewed
+bankfaqs-general-858,What are the documents required,general,out_of_scope,0.30,reviewed
+bankfaqs-general-859,Will the continuity benefit (2years) be given on Super Top Up plan as well,general,out_of_scope,0.30,reviewed
+bankfaqs-general-860,Does pre-existing cover start after 4 years or 3 years,general,out_of_scope,0.30,reviewed
+bankfaqs-general-861,Chemo & dialysis does not required local or general anesthesia will it be cover under day care,general,out_of_scope,0.30,reviewed
+bankfaqs-general-862,Do we have any loading on pre-existing ailments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-863,A person undergoes for dialysis 4 times in a week will it be covered if the basic deductible is exhausted,general,out_of_scope,0.30,reviewed
+bankfaqs-general-864,Can I cover my family members in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-865,Will I get tax benefit if I cover my family on individual Sum Insured basis,general,out_of_scope,0.30,reviewed
+bankfaqs-general-866,What will be the start date of my insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-867,"If I have a home insurance policy with two different companies, will I benefit from both",general,out_of_scope,0.30,reviewed
+bankfaqs-general-868,Is there an age limit on the property for it to be insured,general,out_of_scope,0.30,reviewed
+bankfaqs-general-869,What are the documents required to be submitted in case of a home burglary claim,general,out_of_scope,0.30,reviewed
+bankfaqs-general-870,What happens to the home insurance policy if the insured house is sold,general,out_of_scope,0.30,reviewed
+bankfaqs-general-871,"What is the difference between burglary, theft and larceny",general,out_of_scope,0.30,reviewed
+bankfaqs-general-872,Can a HUF/ Leased (Mhada/Cidco) property be insured,general,out_of_scope,0.30,reviewed
+bankfaqs-general-873,When is an FIR necessary in a Home Insurance claim,general,out_of_scope,0.30,reviewed
+bankfaqs-general-874,What happens after the Home Insurance claim is registered,general,out_of_scope,0.30,reviewed
+bankfaqs-general-875,How will I know my Home Insurance policy is due for renewal,general,out_of_scope,0.30,reviewed
+bankfaqs-general-876,What is the Home Insurance premium charged for fire and special peril cover and burglary and theft cover,general,out_of_scope,0.30,reviewed
+bankfaqs-general-877,Do you offer any discounts for Home Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-878,Can a laptop be covered under a Home Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-879,How do we value the property under home insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-880,Is an FIR necessary for a property damage claim under the Home Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-881,Can an entire society or building be covered under your Home Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-882,What property is not covered under home insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-883,What are the eligibility criteria to avail a Home Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-884,Why do I need a Children’s Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-885,Will I also be able to save tax through a Children’s Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-886,What are the factors to consider while buying a Children’s Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-887,Does HDFC SL offer Unit Linked plans within its entire range of Children’s Plans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-888,Should I buy a plan in my Child’s name or in my own name,general,out_of_scope,0.30,reviewed
+bankfaqs-general-889,What is the surrender benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-890,Can I take any loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-891,What are the exclusions available under the Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-892,What are the fund choices,general,out_of_scope,0.30,reviewed
+bankfaqs-general-893,What are the Plan option available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-894,What is the Settlement Option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-895,What is the min-max age at entry/maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-896,What is the Maturity Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-897,What is the premium frequency available under the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-898,Can the plan be offered under limited underwriting,general,out_of_scope,0.30,reviewed
+bankfaqs-general-899,Do I have an option to avail of loans under the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-900,When does the plan acquire Guaranteed Surrender value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-901,What is the limited pay term available under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-902,What is the Death-Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-903,What is the exclusion in the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-904,What is a retirement plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-905,Will automatic conversion of vesting benefit to annuity happen,general,out_of_scope,0.30,reviewed
+bankfaqs-general-906,What are the additional servicing charges,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-907,What type of bonuses is this plan eligible for,general,out_of_scope,0.30,reviewed
+bankfaqs-general-908,What are the conditions on revival,general,out_of_scope,0.30,reviewed
+bankfaqs-general-909,Why can't I have liquidity of complete amount on surrender,general,out_of_scope,0.30,reviewed
+bankfaqs-general-910,Can the vesting age be post-poned or pre-poned,general,out_of_scope,0.30,reviewed
+bankfaqs-general-911,Are all additions guaranteed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-912,Is sum assured a death benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-913,What are the conditions on revival,general,out_of_scope,0.30,reviewed
+bankfaqs-general-914,Will sum assured be used to calculate any benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-915,Should I choose a Unit Linked or a non – Unit Linked plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-916,What do you mean by ‘switching funds’,general,out_of_scope,0.30,reviewed
+bankfaqs-general-917,What are the different types of Savings Plans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-918,How can a policyholder track the performance of a policy fund,general,out_of_scope,0.30,reviewed
+bankfaqs-general-919,Can I take this plan without going for medicals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-920,What is the premium frequency available under the Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-921,What is the surrender benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-923,What are the fund choices,general,out_of_scope,0.30,reviewed
+bankfaqs-general-927,What happens if premiums are not paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-933,What happens if premiums are not paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-935,What are the different types of Savings Plans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-936,What is meant by a ‘With Profits’ plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-938,What are the benefits of a retirement plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-939,What is an Retirement Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-940,What is HDFC Life New Immediate Annuity Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-941,Why do I need Health Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-942,Is Health Insurance the same as Life Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-943,What is the policy term of the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-944,Will the policyholder get a premium discount in cases where there is no claim submitted in the previous year,general,out_of_scope,0.30,reviewed
+bankfaqs-general-945,Who all can be covered under the Family Floater Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-946,Which are the factors one should consider while choosing a Health Insurance Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-947,Can the policyholder get cashless services in case of hospitalization in a non-network hospital,general,out_of_scope,0.30,reviewed
+bankfaqs-general-948,What are Tax Benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-949,Why should I buy HDFC Life Health Assure Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-950,What is the amount of tax that can be saved,general,out_of_scope,0.30,reviewed
+bankfaqs-general-951,Will a policyholder's premium increase in the next year if he makes a claim in the current year,general,out_of_scope,0.30,reviewed
+bankfaqs-general-952,Where can the policyholder get the list of Network Hospitals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-953,Can I insure my children in the Family Floater Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-954,What is the difference between fixed benefit health insurance plans and reimbursement health insurance plans,general,out_of_scope,0.30,reviewed
+bankfaqs-general-955,What are the services offered by TPA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-956,What is Health Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-957,What is the co pay that will need to be borne by the Life Insured in case of hospitalization in non network hospitals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-958,What is the maximum age limit for buying this Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-959,What is the Maturity Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-960,What is the min-max age at entry/maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-961,What is the premium frequency available under policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-962,Can the plan be offered under limited underwriting,general,out_of_scope,0.30,reviewed
+bankfaqs-general-963,What is the exclusion in the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-964,Do I have the option to avail a loan under the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-965,Can I withdraw before maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-966,What is the Surrender Benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-967,What happens if Premiums are not paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-968,What is the Death-Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-969,What is the exclusion in the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-970,When does the plan acquire Guaranteed Surrender value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-971,Do I have option to avail loan under the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-972,Is there any option available for monthly payout,general,out_of_scope,0.30,reviewed
+bankfaqs-general-973,What is the Guaranteed Base Income under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-974,What is the Death Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-975,What is the premium frequency available under policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-976,What is the premium frequency available under policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-977,What is the minimum/maximum Policy term/Premium payment term,general,out_of_scope,0.30,reviewed
+bankfaqs-general-978,What is the minimum/maximum age at entry/maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-979,What is the exclusion in the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-980,What is the Maturity Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-981,When does the plan acquire Guaranteed Surrender value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-982,Can the plan be offered under limited underwriting,general,out_of_scope,0.30,reviewed
+bankfaqs-general-983,What is the Death-Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-984,When does the plan acquire Guaranteed Surrender value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-985,What is the premium frequency available under policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-986,How do I choose from options available under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-988,Can I take monthly payouts instead of annual payouts,general,out_of_scope,0.30,reviewed
+bankfaqs-general-990,Will the basic death benefit amount be reduced by the survival benefits already paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-991,What payouts will I get under different plan options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-992,Can I change my maturity/death benefit options during the policy term,general,out_of_scope,0.30,reviewed
+bankfaqs-general-993,What are Guaranteed Additions under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-994,What is the Death-Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-995,What is the Policy term/Premium payment term,general,out_of_scope,0.30,reviewed
+bankfaqs-general-997,Do I have option to avail loan under the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-998,What happens in case of me wanting to surrender my policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-999,What is the min-max age at entry/maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1001,What are the charges under this policy,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1002,What is the Death-Benefit under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1003,What is the policy term available under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1004,Is this plan only available online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1005,Why is HDFC Life C2P+ Extra Life Cover important,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1006,Does this plan offer tax benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1007,How long will my family get the monthly income for,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1008,What is the difference between Income and Income Plus Option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1009,I am a NRI. Can I Invest in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1010,What is the limited mode of premium pay,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1011,Is there a loan facility in my policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1012,Can I do a partial withdraw from my fund,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1013,Can I terminate my policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1014,For how many years can I stay invested in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1015,Why is this plan good for me,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1016,What are the charges applicable for this plan,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1017,What is the maximum amount I can invest,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1018,What is the minimum premium that needs to be paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1019,Can I surrender this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1020,How is this plan different from other ULIPs,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1021,What kind of returns will I get by investing in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1022,Are there medicals involved to buy this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1023,What is the frequency in which I can invest my money,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1024,What are the various fund options in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1025,Can I save tax by investing in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1026,Can I buy more than one policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1027,What is a settlement option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1028,How is the Fund Value calculated,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1029,What do I get at the end of the policy term,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1030,What will my family receive in case of my unfortunate demise,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1031,Is there any protection cover in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1032,What are the different plan options under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1033,What will I be getting on maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1034,What is the exclusion in the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1035,What is the limited premium payment term available under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1036,What are the guaranteed benefits that are there in the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1037,What is the death benefit under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1038,Is there any Accidental Death Benefit in the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1039,What are the premium paying frequencies that are available under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1041,What is the duration of the policy term in case I choose 'Endowment' or 'Endowment with Whole Life' option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1042,When does the plan acquire Guaranteed Surrender value,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1043,What is the HDFC Life Cancer Care Policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1044,What are the Plan Options available for this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1045,What is the discounted Premium on higher Sum Assured,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1046,Would I have to go for any medicals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1047,Can I opt for this plan if I have a pre existing Cancer,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1048,Is there any death benefit for this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1049,Is there any maturity benefit for this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1050,Is there any Surrender benefit for this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1052,What is Extra Life Option in the policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1053,What are the Plan options available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1054,What are the exclusions available under the Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1055,Can I do any free switch or premium redirection under the plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1056,What are the fund options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1057,Can I take any loan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1058,How is the Fund Value calculated,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1059,What is the surrender benefit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1060,What is the minimum premium that needs to be paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1061,What is the death benefit under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1062,What is the maximum amount I can invest,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1063,What are the premium paying frequencies that are available under this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1064,For how many years can I stay invested in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1065,Is there any Loyalty Additions under the Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1066,What do I receive on Maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1067,What happens if premiums are not paid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1069,Can I buy more than one policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1070,Can I do a partial withdraw from my fund,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1071,What are the features that are available with HDFC Life Uday,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1072,What is the minimum premium that I need to pay in order to take an HDFC Life Uday Policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1073,What if I miss one of my due premiums,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1074,When does my policy acquire a Guaranteed Surrender Value (GSV),general,out_of_scope,0.30,reviewed
+bankfaqs-general-1075,Can I take a loan under HDFC Life Uday in case I need money during any emergencies,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1076,What are the minimum and maximum age limits for investing in HDFC Life Uday,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1077,What is the rate of Guaranteed Additions that s available in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1078,What is the death benefit that I receive if I choose HDFC Life Uday,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1079,What is the maturity benefit that I receive if I invest in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1080,Is there any discount if I choose higher premiums,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1081,What are the Policy Terms and Premium Payment Term options available under HDFC Life Uday,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1082,What if I need the money for an emergency,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1083,What is so special about this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1084,What would be the annuity rates at the time of maturity,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1085,I have 30 years to my retirement. Why do I need to plan now,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1086,Are top-ups allowed in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1087,What are the steps involved to purchase this policy quickly in case I am travelling and do not have much time,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1088,I don’t want to wait till 60 years for retirement. Is there a way out,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1089,What is the HDFC Life Assured Pension Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1090,Why should I buy HDFC Life Assured Pension Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1091,HDFC Life APP is a ULIP Plan. Why don’t I get to choose the funds in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1092,Are there any tax benefits available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1093,I have other sources of income. Do I still need to plan for retirement,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1094,How would you utilise my funds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1095,Do I get a life cover from this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1096,Can I exercise the freelook option in this policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1097,Can I get a loan or partial withdrawal on this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1098,When do I get to choose the annuity option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1099,What is HDFC Life Easy Health Plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1100,What are the different plan options available under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1101,Would I have to go for any medicals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1102,What are the different Sum Insured options available underthis product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1103,Are there any Tax benefits with this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1104,Are there any exclusions under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1105,What if I don’t/miss to pay premiums,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1106,What if I don’t/miss to pay premiums even in the Grace period,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1107,Can I reinstate the policy if it is lapsed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1108,Is there any death benefit under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1109,Is there any Surrender benefit under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1110,What are the different benefits available under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1111,Are there any other terms and Conditions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1112,Is there any maturity benefit under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1113,How will the Pay Out happen for this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1114,What is the policy term available under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1115,What are the premium payment frequencies available under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1116,Is there any eligibility criteria under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1117,What are the minimum and maximum premiums available under this product,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1118,What is HDFC Life Capital Shield,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1119,What is the Policy Term available in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1120,What is the Death Benefit this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1121,What is the Maturity Benefit available under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1122,Are there any exclusions in this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1123,What are the age limits for this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1124,What are the key features of this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1125,What is the difference between Life and Extra Life options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1126,What are the benefits available under Income option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1127,What is the difference between Income and Extra Life Income options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1128,What is the difference between 3D Life and 3D Life Long Protection options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1129,What is Life Stage Protection feature,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1130,What is Accidental Total Permanent Disability (ATPD),general,out_of_scope,0.30,reviewed
+bankfaqs-general-1131,How many Critical Illnesses are covered under 3D Life & 3D Life Long Protection options and what is the benefit associated with them,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1132,What is Top up option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1133,What is the Policy Term available under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1134,How many plan options are available under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1135,Is this plan only available online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1136,What is the difference between Life and 3D Life options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1137,What is the difference between Life and Return of Premium options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1138,What is the difference between Life and Life Long Protection options,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1139,Are there any alterations allowed under this plan,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1140,Does this plan offer tax benefits,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1141,What are the benefits available under Life Option,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1142,What does 3D stand for in HDFC Life Click 2 Protect 3D Plus,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1143,Do I need to have Auto Insurance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1144,Do I need to lodge an FIR in case of an accident,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1145,"During the policy period, if I add accessories like a music system in my vehicle, are they also covered",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1146,What is IDV (Insured’s Declared Value),general,out_of_scope,0.30,reviewed
+bankfaqs-general-1147,What is salvage and what happens to it,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1148,What documents do I need to submit when buying Insurance for my vehicle,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1149,Are there any specific exclusions under a Motor Policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1150,Can I buy a Motor Insurance policy online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1151,Can I pay the premium for my Auto Insurance in instalments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1152,Can I renew my Motor policy online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1153,Can I renew other insurer policies with HDFC ERGO online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1154,How is the premium for Motor Insurance calculated,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1155,What is a Motor Insurance cover note,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1156,What documents need to be submitted when I make a claim under my Motor Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1157,Will HDFC ERGO General Insurance give me an advance on the basis of a damage estimate under the Motor Insurance policies,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1158,What if I misplace my Motor Insurance policy document,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1159,What is meant by total loss under the Motor Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1160,What is a No Claim Bonus (NCB) under a Motor Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1161,What is HDFC ERGO General Insurance role in a third party injury/property damage suit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1162,What are the different classes of vehicles which can be insured by HDFC ERGO,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1163,How do I renew my Commercial Vehicle Insurance policy,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1164,What are the different types of Personal Accident Covers available for drivers and passengers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1165,What are the different types of Commercial Vehicle Insurance available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1170,Can HDFC Ergo Student Travel insurance suraksha policy be extended,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1171,Cab sum assured be extended,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1172,Can the policy be cancelled,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1173,Where one can avail the claim form,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1174,What does “deductables” means,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1175,For how many days policy can be extended,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1176,How Do I extend my HDFC Ergo Student Travel insurance surakshapolicy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1177,When do I have to submit a medical exam,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1178,What is the benefit under Hijack Distress Allowance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1179,Is travel insurance mandatory,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1180,What are the various HDFC ERGO Travel Insurance policies,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1181,What is covered under Delay of Checked Baggage,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1182,What is covered under the benefit Loss of Checked Baggage,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1183,Are ambulance charges covered under a Travel Policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1184,Can a foreign national be covered under a Travel Policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1185,Why do I require Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1186,Will a claim in a Travel Insurance policy be settled on return to India,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1187,Do I have to go through a medical exam for a Travel Insurance policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1188,Can I claim under both Loss of Checked Baggage and Delay of Checked Baggage,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1189,What are the medical reports that need to be submitted to avail of Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1190,What does Medical Repatriation and Evacuation cover under Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1191,Can I avail of a cashless facility for hospitalisation under Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1192,Is loss of passport covered under Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1193,Can be the Travel Insurance policy be cancelled,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1194,Where can I get a claim form for Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1195,Does the Travel Insurance policy cover loss of cash/Credit Card,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1196,Can I be insured for a trip of any duration under the Travel Insurance policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1197,Does the Travel Insurance policy cover pre-existing diseases,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1198,Can a Travel Insurance policy be extended,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1199,Can the Travel Insurance plan coverage period be reduced,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1200,Who do I contact in the case of hospitalization when covered under Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1201,Who do I contact in the case of hospitalization,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1202,Where can I get the list of hospitals extending the cash facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1203,For how many days can the Travel Insurance policy be extended,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1204,What are the eligibility criteria for a Travel Insurance policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1205,Who do I contact for a claim on the Travel Insurance policy,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1206,Is emergency financial assistance provided under Travel Insurance,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1207,Which Mutual Funds are ISA enabled,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1208,How can I close my Online Mutual Fund Account as well as the Bank account linked with it,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1209,I am an NRI residing outside India. How do I get myself KYC Compliant,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1210,"If I change my address/Bank account /Nomination, what do I need to do",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1211,"In case of existing investors, when and how will the KYC norms be introduced",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1212,How do I buy Mutual Funds over the Net,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1213,How can I use Mobile Banking to manage my Mutual Funds account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1214,What is the process of application for Rights Issue under ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1215,What about a Minor becoming a Major,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1216,How can I Buy/Sell Mutual Funds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1217,How can I change the default Bank Account that is linked to my HDFC Bank Online Mutual Funds Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1218,What is the procedure to close my Investment Service account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1219,How much am I charged for this service,general,charged_twice,0.65,reviewed
+bankfaqs-general-1220,Can I cancel a transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1221,Is the KYC acknowledgement a separate form or is it a part of the Mutual Fund application. Which of the forms require being time-stamped,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1222,How do I transact in Mutuals Fund after completing the KYC process,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1223,Can I sell/redeem schemes bought offline through online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1224,How do I buy Mutual Fund over the Net,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1225,How can I register for this service,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1226,"As an NRI, can I buy Mutual Fund Units in the Portfolio Investment Schemes (PIS) account",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1227,When will I be able to view the unit holdings in my account from the time of purchase,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1228,Are there any special requirements for an NRI to invest in Mutual Funds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1229,Will I get an online confirmation of my transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1230,"After the First purchase, can I invest in the same AMC again on the same day",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1231,What is a KYC Application Form,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1232,What if I have already obtained a MIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1233,Who can open an Investment Services account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1234,What are the advantages of investing in SIP,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1235,What happens if I have multiple folios/accounts with a Mutual Fund,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1236,What if I forget my customer ID/ IPIN number,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1237,What are the schemes available to the customers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1238,Do I need to inform about my change of Income status,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1239,What are the KYC requirements for a Mutual Fund Investor,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1240,How do I convert my existing portfolio of Mutual Fund units to an Online Mutual Fund portfolio,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1241,Is there any special requirement for a PIO (Person of Indian Origin),general,out_of_scope,0.30,reviewed
+bankfaqs-general-1242,Should I visit a PoS personally to obtain KYC Compliance,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1243,What are the consequences of KYC cancellation/rejection,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1244,"I do not have an account with HDFC Bank, but would like to invest in Mutual Funds. What do I do",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1245,"Who do I inform about change of name/address/status/signature, etc.",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1246,How is online investing more convenient,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1247,Is there a minimum transaction amount for each scheme,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1248,Is there a charge I need to pay to get myself KYC Compliant,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1249,Does the KYC Acknowledgement have an expiry date,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1250,Why should I invest in SIP's right now,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1251,From what date is it mandatory for me to be KYC Compliant,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1252,Is there any transaction charge for placing the transaction offline or online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1253,Can I transact anytime during the day,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1254,Can I transact on a holiday,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1255,How will I receive the redemption amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1256,How will I receive the Dividend Pay amount,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1257,How do I redeem Mutual Fund units over the Net,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1258,"Whom do I inform about change of name/address/status/signature, etc.",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1259,Can an investor give a COA (Change of Address) along with a redemption request,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1260,How can I update my E-mail ID in my Online Mutual Fund Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1261,What is FATCA/CRS/KYC,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1262,What Is KYC,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1263,What are the cut-off timings for the Investment Services Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1264,How can I open an Online Mutual Fund Account with HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1265,Can I cancel/ modify my bid placed under ASBA during the bidding period,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1266,What products can I trade in using my trading account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1267,"I have sent in my application, what happens next",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1268,What is ASBA option while applying for an IPO,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1269,Who can open a Securities Trading account with HDFC securities,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1270,Which are the various channels through which I can trade or invest,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1271,Can I withdraw the amount blocked for ASBA bid application,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1272,What do I need to submit to place an IPO/NCD order through my HDFC Securities Trading Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1273,Who can trade in derivatives with an HDFC Securities Trading Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1274,What is the difference between the Non-ASBA IPO process and the ASBA IPO process,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1275,Who can trade in derivatives with an HDFC Securities Trading Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1276,What are the call charges applicable if I use the Call ‘N Trade facility to trade in securities,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1277,What are the call charges for offline customers of an HDFC Securities Trading Account,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1278,How many bank and depository accounts can I link to a trading account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1279,What do I need to submit to place an IPO/NCD order with my HDFC Securities Trading Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1280,How do I know my application has been accepted,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1281,Can I cancel or withdraw my IPO application (or bid) submitted using ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1282,Can I revise the bid,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1283,How many ASBA applications can be made by blocking a single Bank Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1284,What is the difference between the Non-ASBA IPO process and the ASBA process,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1285,Who can apply for ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1286,"If I made an application through ASBA and money in my Savings Account is blocked, will I get interest for that period",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1287,Is it possible to bid for an IPO under ASBA as well as under non-ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1288,What is the time limit to submit the form at a designated HDFC Bank branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1289,Can I still approach my broker to apply for an IPO,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1290,Can I bid at multiple rates under ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1291,When will the Bank lock money in my Account for ASBA payments,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1292,What is ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1293,What happens when the issue fails/is withdrawn,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1294,What will be the benefit to me if I apply for an IPO under ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1295,"If I am a NRE/NRO customer, can I apply for ASBA",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1296,Is priority in allotment given to applications bid under ASBA facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1297,Is it possible to withdraw the amount blocked for IPO applications through ASBA,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1298,Will the bank charge any additional fees if I choose the ASBA Payment Option,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1299,Is any additional documentation required for availing the ASBA facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1300,"If I want to apply physically for an IPO through ASBA, what should I do",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1301,I do not have a Bank account with HDFC Bank. Can I still apply through your Bank for IPOs using HDFC Bank`s ASBA process,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1302,The gold rate in the newspaper is lower than HDFC Bank’s gold rate. Why are the gold bar sold by HDFC bank more expensive that those sold in the market,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1303,Are there any taxes applicable on Mudra Pure Gold Bars,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1304,How are Mudra Pure Gold Bars different from 24 carat gold available in market,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1305,What form is Gold being sold,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1306,Will HDFC Bank buy back the gold sold by them,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1307,What is the authenticity proof,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1308,What is the Assay Certification about,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1309,What are the features of HDFC Bank Mudra Pure Gold Bars,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1310,How will HDFC Bank sell the gold,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1311,Will you buy back Gold Bars purchased from your bank / branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1312,Will you give me a bill when I purchase Mudra Pure Gold Bars from HDFC Bank,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1313,Do the bars have authenticity proof,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1314,From where can I get today’s price of Mudra Pure Gold Bars,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1315,Is HDFC Bank venturing into gold/bullion market,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1316,Is the gold imported,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1317,What is the price that the gold will be sold at,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1318,In what size and shape are the Mudra pure Gold Bars available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1319,In what weight are the gold bars available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1320,What are the different weights Mudra Pure Gold Bars are available in,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1321,What is the price that the silver will be sold at,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1322,Is HDFC Bank venturing into silver/bullion market,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1323,What is the authenticity proof,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1324,Will HDFC Bank buy back the silver sold by them,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1325,In what weight are the silver bars available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1326,What is the Assay Certification about,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1327,What is the purity factor of silver,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1328,What form is silver being sold in,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1329,How will HDFC Bank sell the silver,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1330,In what form are these bonds issued,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1331,Is a nomination facility available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1332,What bond options are available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1333,How much tax do I have to pay,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1334,What is the minimum and maximum limit for investment in the 8% Savings (Taxable) Bonds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1335,What is the tenure of the 8% Savings (Taxable) Bonds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1336,Are the 8% Savings (Taxable) Bonds transferable,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1337,How much interest will the 8% Savings (Taxable) Bonds bear,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1338,Can I claim exemption under exemption under 54C with the exemption 54 and 54EC,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1339,What is the rate of interest for these bonds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1340,What is the block period for the investment,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1341,Which bonds are eligible under the Section 54 EC,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1342,Can I take a loan on these bonds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1343,What is the maximum investment limit for the Section 54 EC- Capital Gain Bonds,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1344,What are the benefits of InvestTrack,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1345,What is the requirement to avail of the InvestTrack facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1346,Who can avail of the InvestTrack facility,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1347,Can I use e-Monies NEFT for foreign remittances,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1348,Is the e-Monies NEFT system better than the existing RBI-EFT system,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1349,What information is required to use the e-monies NEFT service,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1350,"If the money is not credited to the beneficiary’s account while using the e-monies NEFT service, will I get it back",general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1351,How does the e-monies NEFT service differ from RGTS and EFT,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1352,What are the charges for the e-monies National Electronic Funds Transfer service,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1353,How do I check the IFSC of the receiving branch,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1354,How is RTGS different from National Electronic Funds Transfer (NEFT),general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1355,What is RTGS Funds Transfer,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1356,Are there minimum or maximum limits for RTGS transfers,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1357,What information do I need to provide when using the RTGS funds transfer service,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1358,What are the charges for the RTGS funds transfer service,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1359,How long does it take for funds to be transferred from one account to another,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1360,"If the money is not credited successfully, will the remitting customer get the funds back",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1361,What is the procedure to follow if my Debit Card PIN is blocked,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1362,Why is 2nd Level authentication made mandatory for all Card related online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1363,Can I use my Debit Card to pay online,general,card_declined,0.65,reviewed
+bankfaqs-general-1364,What should I do if my Debit Card is not working,general,card_not_working,0.78,reviewed
+bankfaqs-general-1365,How do I enable International Usage on my HDFC Bank Rewards Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1366,What are the Debit Card transaction fees if I swipe my card at Petrol pumps or Railway stations,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1367,What is the procedure to replace a damaged Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1368,Why is the customer required to fill a cardholder dispute form (CDF) to report transaction dispute,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1369,What is the time frame to resolve Domestic ATM transaction disputes,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1370,What is the time frame to report Debit Card transaction dispute,general,fraud_report,0.67,reviewed
+bankfaqs-general-1371,Which documents are to be submitted with respect to the failed/ disputed transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1372,How do I report such service/merchant related transaction dispute incurred using my Debit Card transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1373,What is a service dispute,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1374,What is the time frame to resolve Purchase/ Online & International ATM transaction disputes,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1375,Are there charges I should know about Imperia Platinum Chip Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1376,What should I do in the case of a void transaction Imperia Platinum Chip Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1377,Where can I use my EasyShop Platinum Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1378,Are there any transaction limits for Imperia Platinum Chip Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1379,What should I do in the case of a void transaction for Platinum Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1381,Are there transaction limits for Platinum Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1382,Are there charges I should know about Platinum Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1383,What should I do in the case of a void transaction for Titanium Royale Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1384,Where can I use my EasyShop Titanium Royale Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1385,Are there charges I should know about Titanium Royale Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1386,Are there transaction limits for Titanium Royale Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1387,What should I do in the case of a void transaction for Gold Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1388,How do I claim Personal Accident Death Cover for Gold Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1389,Where can I use my EasyShop Gold Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1390,Are there extra charges for Gold Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1391,Are there transaction limits for Gold Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1392,Where can I use my EasyShop Titanium Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1393,Are there any charges to be aware of for Titanium Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1394,What are the transaction limits for Titanium Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1395,What should I do in the case of a void transaction for Titanium Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1396,What should I do in the case of a void transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1397,What should I do in the case of a void transaction for International Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1398,Are there charges I should know about International Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1399,Where can I use my EasyShop International Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1400,Are there transaction limits for Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1401,Are there extra charges for International Business Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1402,Where can I use my EasyShop Business Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1403,What should I do in the case of a void transaction for International Business Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1404,Are there transaction limits for Business Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1405,What should I do in the case of a void transaction for Womans Advantage Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1406,Where can I use my EasyShop Woman’s Advantage Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1407,Are there extra charges for Womans Advantage Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1408,What if Womans Advantage Debit Card is lost or stolen,general,lost_or_stolen_card,0.73,reviewed
+bankfaqs-general-1409,Are there transaction limits for Womans Advantage Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1410,Are there extra charges NRO Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1411,Where can I use my EasyShop NRO Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1412,What should I do in the case of a void transaction for NRO Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1413,Are there transaction limits for NRO Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1414,Can the JetPrivilege HDFC Bank World Debit Card be taken by public / private / partnership firm,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1415,How will I earn the JPMiles on my JetPrivilege HDFC Bank World Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1416,When will I get my Enrollment Benefits on the JetPrivilege – HDFC Bank World Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1417,Can a chip card be used for online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1418,Will the Rs.750 discount voucher be applicable only on booking done on jetairways.com,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1419,What if I want to use my Debit Card internationally,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1420,Can I use the RuPay Platinum Debit Card to pay online,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1421,Where can the RuPay Platinum Debit Card be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1422,Can I use the RuPay ATM card at Merchant outlets or on Ecom website,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1423,What should I do in the case of a void transaction for Rewards Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1424,What are the transaction limits for Rewards Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1425,Are there charges I should know about HDFC Bank Rewards Debit Card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1426,Can a chip card be used for online transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1427,What is Times Points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1428,Where should I contact or write to know about the existing offers on my cards,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1429,Where should I contact or write for my doubts or queries,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1430,How Can I get my Times Points Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1431,"Except for digital media consumption, what is the other medium of earning Times Points",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1432,"If I hotlist my card, will I get deregister from the Times points program",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1433,How do I reset my password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1434,Why Should I take this card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1435,How much of Times points will I earn for each activity on TIL,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1436,Where can I burn my accumulated Times points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1437,When will I get my enrollment Times points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1438,How long can I keep my earned Times points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1439,What are the Terms and Conditions for the offers at my disposal,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1440,What is the validity of the offers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1441,"I am already member of Times points, do I need to register again",general,out_of_scope,0.30,reviewed
+bankfaqs-general-1442,Which all Times group digital properties offer times points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1443,Does customer need to log-in to every Times Internet Limited page for earning Times Points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1444,Where can I check the Times points earned for my transactions,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1445,What do I do if I have an issue related to the product using Times points from portal/link,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1446,How much am I going to be charged yearly for Times Points Debit Card,general,charged_twice,0.65,reviewed
+bankfaqs-general-1447,How can I earn Times Points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1448,"If I get a new card (reissue), will my Times point carry forward",general,order_physical_card,0.90,auto_accepted
+bankfaqs-general-1449,What are the benefits of Times Points Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1450,Will I get notification about the expiry of my Times points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1451,I am not registered for times points program; can I apply for Times Point Debit card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1452,How do I register for Times Points,general,charged_twice,0.69,reviewed
+bankfaqs-general-1453,Where do I redeem Times Points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1454,Is there any Times points Apps which I can download on my mobile,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1455,If I am having two member Id can I merge both the IDs and points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1456,Which are the offers I am eligible as a Times Debit Card holder,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1457,Do I need to mandatorily register,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1458,Is there any Personal Accidental Death Cover for Times Point Debit Card holders,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1459,What should I share while calling TIL to identify myself,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1460,What do I do if I am not able to avail merchant offers,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1461,Are there any exclusive benefits that come with the Times Points Debit Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1462,I am already registered for Times Points program; what happens to my existing Times Points ID if I apply for Times point debit card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1463,What if I forget my ATM PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1464,How can I check the balance on my HDFC Bank ForexPlus Card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1465,Who can purchase ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1466,Can I load ForexPlus card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1467,How do I know if an ATM will accept my ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1468,What documents should I submit when I purchase the HDFC Bank ForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1469,How does this card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1470,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1471,Do I need to pay additional amount over and above Cash withdrawal Charges levied by the HDFC Bank for ATM transaction,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1472,What currencies are available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1473,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1474,How soon can the card be used after it is purchased,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1475,How can I cancel my Forex Plus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1476,How do I activate e-commerce on my card,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1477,How do I top-up the value of my card when I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1478,Whom should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1479,What is the HDFC Bank ForexPlus card,general,travel_notice,0.65,reviewed
+bankfaqs-general-1480,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1481,I have renewed my passport with new number. Do I need to update my new Passport number in my ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1482,What does DCC/ MCC stand for,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1483,Do I need to have HDFC Bank account to purchase the HDFC Bank ForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1484,What happens if my card is lost,general,lost_or_stolen_card,0.73,reviewed
+bankfaqs-general-1485,How many days in advance can I purchase foreign exchange,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1486,How much foreign exchange can I retain after the foreign trip,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1487,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1488,What if I Forget my Activation Code / IPIN,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1489,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1490,"How much is the currency conversion service tax applicable at the time of Load, Reload and Refund",general,Refund_not_showing_up,0.90,auto_accepted
+bankfaqs-general-1491,What currencies are available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1492,How do I know if an ATM will accept my ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1493,What documents should I submit when I purchase the HDFC Bank ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1494,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1495,How soon can the card be used after it is purchased,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1496,I have renewed my passport with new number. Do I need to update my new Passport number in my ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1497,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1498,Are there any transactions for which this Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1499,Can a non Traveller purchase ForexPlus Chip Card,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1500,Can I load ForexPlus Chip card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1501,Whom should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1502,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1503,Can I issue Cheque for loading of ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1504,Can the ATM PIN be changed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1505,What is HDFC Bank ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1507,How do I activate e-commerce,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1508,How can I cancel my ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1509,How do I top-up the value of my card when I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1510,How can I check the balance on my HDFC Bank ForexPlus Chip Card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1511,Do I need to have HDFC Bank account to purchase the HDFC Bank ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1514,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1515,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1516,What happens if my card is lost,general,lost_or_stolen_card,0.73,reviewed
+bankfaqs-general-1517,How can I cancel my Forex Plus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1518,"I'm not a traveller, can I still benefit from the ForexPlus Chip Card",general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1520,Can I load ForexPlus Chip Card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1521,I have renewed my passport with new number. Do I need to update my new Passport number in my ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1522,What currencies are available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1523,What is HDFC Bank ForexPlus Platinum (Chip) card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1524,How do I top-up the value of my card when I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1526,Do I need to pay additional amount over and above Cash withdrawal Charges levied by the HDFC Bank for ATM transaction,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1528,Whom should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1529,What are the currencies available for HDFC Bank ForexPlus Platinum card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1530,Do I need to have HDFC Bank account to purchase the HDFC Bank ForexPlus Platinum card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1531,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1532,What do I need to know about the HDFC Bank ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1533,Can a non-traveller purchase ForexPlus Card,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1534,How can I check the balance on my HDFC Bank ForexPlus Platinum Card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1535,Whom should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1536,Do I need to pay any charges for availing GCAS,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1537,How can I cancel my ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1538,How does this card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1539,Are there any transactions for which this Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1540,Can I issue Cheque for loading of ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1542,What services I can avail on GCAS,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1543,Can the ATM PIN be changed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1544,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1545,How will I know which ATMs accept the HDFC Bank ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1546,How can I avail of Global Customer Assistance Services (GCAS) for my ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1547,How do I know if an ATM will accept my ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1548,Can I load Forex card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1549,What documents should I submit when I purchase the HDFC Bank ForexPlus Platinum card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1550,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1551,What happens if my card is lost,general,lost_or_stolen_card,0.73,reviewed
+bankfaqs-general-1553,Can I load ForexPlus Platinum card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1554,Who can purchase ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1556,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1557,How is the value topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1558,How do I purchase HDFC Bank GiftPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1559,Can I load GiftPlus card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1560,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1561,How soon can I get a GitfPlus card,general,get_disposable_virtual_card,0.65,reviewed
+bankfaqs-general-1562,Can Gift plus card used outside India,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1563,Is there a fee levied for the use of the card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1564,How soon can I use the card after I have purchased it,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1565,What documents should I submit when I purchase an HDFC Bank Giftplus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1566,Is there a load amount limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1567,What are the charges on the card,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1568,What if I forget my ATM PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1569,Who should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1570,Can the ATM PIN be changed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1571,Do I need to have an HDFC Bank account to purchase an HDFC Bank Giftplus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1572,Are there any transactions for which I cannot use the Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1573,What is the HDFC Bank Giftplus card,general,travel_notice,0.65,reviewed
+bankfaqs-general-1574,How soon can I get a FoodPlus card,general,get_disposable_virtual_card,0.65,reviewed
+bankfaqs-general-1575,Will I be able to Transfer money to Food plus card from my account or from any other account,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1576,What happens if the PIN is forgotten,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1577,What is HDFC Bank's FoodPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1578,What do I need to know about the HDFC Bank FoodPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1579,Can I use the card to withdraw cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1580,How can I load/reload my FoodPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1581,Is there a load amount limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1582,Is there a usage limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1583,How soon can I get a MoneyPlus card,general,get_disposable_virtual_card,0.65,reviewed
+bankfaqs-general-1584,Is there a load amount limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1585,What is the HDFC Bank MoneyPlus Card,general,travel_notice,0.65,reviewed
+bankfaqs-general-1586,How do I top up the value a card,general,top_up_by_card_charge,0.69,reviewed
+bankfaqs-general-1587,How to set the ATM PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1588,What options should I choose to withdraw cash from the ATM,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1589,What services can I avail on GCAS,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1590,Do I need to load all currencies on the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1591,How can I avail of Global Customer Assistance Services (GCAS) for my HDFC Bank Multi Currency ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1592,Do I need to pay an additional amount over and above the Cash withdrawal Charges levied by HDFC Bank for ATM transactions,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1593,What if I don’t have sufficient balance in the wallet corresponding to currency of transaction,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1594,What if I forget or lose the activation code,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1595,Do I need to have an HDFC Bank account to purchase HDFC Bank Multi Currency ForexPlus Platinum Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1596,What is activation code,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1597,What is the validity period of my Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1598,Which currencies can I carry on the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1599,Whom should I contact if my Card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1600,Can the value of the Card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1601,Can this Card be used in India,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1602,How much Foreign exchange can I load into the card,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1603,How does this Card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1604,How do I get the activation code,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1605,How do I get the NetBanking PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1606,How many currencies can I carry on the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1607,Are there any transactions for which the Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1608,Can I get a refund towards residual Forex on my return,general,Refund_not_showing_up,0.90,auto_accepted
+bankfaqs-general-1609,Can I reload my Card while I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1610,Can I transfer currency on my Card from one wallet to other,general,transfer_into_account,0.85,auto_accepted
+bankfaqs-general-1611,Can I use the Card to pay in any currency,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1612,What if I Forget my Activation Code,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1613,How can I cancel my Multicurrency Platinum ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1614,Do I need to have HDFC Bank account to purchase the Multicurrency Platinum ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1615,What documents should I submit when I purchase the HDFC Bank Multicurrency Platinum ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1616,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1617,Is Multicurrency Platinum ForexPlus Chip card enabled for Verified by VISA (VBV),general,out_of_scope,0.30,reviewed
+bankfaqs-general-1619,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1620,Can I use the card to pay in any currency,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1621,Do I need to activate Multicurrency Platinum ForexPlus Chip card for Ecommerce transactions,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1622,Can I issue cheques to load the Multicurrency Platinum ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1623,Are there extra charges to be aware of,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1624,"I'm not a traveller, can I still benefit from the Multicurrency Card",general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1625,What if the customer is passing by a terminal and a Contactless transaction takes place,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1626,Is there any difference in the process for ATM and Internet transaction for this Contactless Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1627,What services can I avail on GCAS,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1628,What if I forget my ATM PIN,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1629,Which are the currencies that can be loaded on the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1631,How to set Prepaid NetBanking Login User ID / Password for the first time,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1632,What are the authorization scenarios,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1633,How can I check the balance on my HDFC Bank Multicurrency ForexPlus Chip card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1634,Are there any transactions for which this Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1635,Do I need to pay additional amount over and above Cash withdrawal Charges levied by the HDFC Bank for ATM transaction,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1637,How to use Contactless Mutlicurrency ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1638,What is the HDFC Bank Contactless MulticurrencyForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1640,How do I know if an ATM will accept my Multicurrency Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1641,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1642,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1643,How can I avail of Global Customer Assistance Services (GCAS) for my Multicurrency Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1644,What are the exchange rates applicable when I use my Travel Card for transactions (Cash withdrawal at ATMs and point of sale transactions at Merchant Outlets),general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1645,How does Contactless MultiCurrency ForexPlus card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1646,Can I load multiple currencies on one Multicurrency Platinum ForexPlus Chip card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1647,What should I do if my Multicurrency Platinum ForexPlus Chip card has expired but there is an unutilised balance on the card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1648,What if the balance in the currency of transaction goes down,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1649,How does this card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1650,What are the charges towards availing GCAS services,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1651,What should I do and whom to contact if my card is lost,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1652,Can I load Hajj Umrah ForexPlus card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1653,"I'm not a traveller, can I still benefit from the Hajj Umrah ForexPlus Card",general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1654,Are there any transactions for which this card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1655,Can I issue cheques to load the Hajj Umrah ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1656,What is the HDFC Bank Hajj Umrah ForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1657,What documents should I submit when I purchase the HDFC Bank Hajj Umrah ForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1658,Do I need to have HDFC Bank account to purchase the Hajj Umrah ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1659,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1660,How does this card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1661,What currencies are available,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1662,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1663,What is the HDFC Bank Apollo Medical Benefits Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1664,Where can I contact for offers/service related issues,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1665,Where can I contact for any card or transaction related issue,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1666,How soon can I get the HDFC Bank Apollo Medical Benefits Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1667,Is there a usage limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1668,Is there a load amount limit,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1669,How do I top up the value of the card,general,top_up_by_card_charge,0.69,reviewed
+bankfaqs-general-1670,In case the card is lost or stolen or misused where I can hotlist my card,general,lost_or_stolen_card,0.67,reviewed
+bankfaqs-general-1671,Can I use my Medical benefit card outside India,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1672,Where I can use the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1673,Where I can view my card balance and card history,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1674,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1675,Whom should I contact if my card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1676,How can I check the balance on my HDFC Bank ISIC ForexPlus Chip Card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1678,What happens if my card is lost,general,lost_or_stolen_card,0.73,reviewed
+bankfaqs-general-1679,How do I top-up the value of my card when I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1680,What documents should I submit when I purchase the ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1681,I have renewed my passport with new number. Do I need to update my new Passport number in my ISIC ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1682,Can I issue Cheque for loading of ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1683,How do I know if an ATM will accept my ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1684,What is the validity of the ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1685,Do I need to have HDFC Bank account to purchase the ISIC HDFC Bank ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1688,How do i get my card reissued post the expiry of the ISIC ForexPlus Chip Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1689,Can the ATM PIN be changed,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1691,How can I cancel my ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1692,How does this card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1693,What is ISIC HDFC Bank ForexPlus card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1695,How do I top-up the value of my card when I am abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1696,Can a non Traveller purchase ISIC ForexPlus Card,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1697,Can I load ISIC ForexPlus card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1698,What do I need to know about ISIC HDFC Bank ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1699,Are there any transactions for which this Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1702,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1704,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1705,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1706,What is the VBV Password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1707,Can I load the HDFC Bank eGiftPlus Card by making payments in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1708,How soon can I get an eGiftPlus Card,general,get_disposable_virtual_card,0.65,reviewed
+bankfaqs-general-1709,Why should I buy the eGiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1710,What is the maximum amount I can load on the HDFC Bank eGiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1711,How the HDFC Bank eGiftPlus Card is different from the GiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1712,What documents should I submit when I purchase an HDFC Bank eGiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1713,Do I need to have an account HDFC Bank account to purchase the HDFC Bank eGiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1714,Whom should I contact if my Card is lost or stolen,general,lost_or_stolen_card,0.78,reviewed
+bankfaqs-general-1715,Can I change the ATM PIN,general,change_pin,0.69,reviewed
+bankfaqs-general-1716,Are there any transactions for which I cannot use the Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1717,Who can purchase the HDFC Bank eGiftPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1718,Where do I get this card,general,get_disposable_virtual_card,0.73,reviewed
+bankfaqs-general-1719,How can I check the balance on my HDFC Bank Regalia ForexPlus Card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1720,Do I need to have HDFC Bank account to purchase the Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1721,Do I need to pay additional amount over and above Cash Withdrawal Charges levied by the HDFC Bank for ATM transaction,general,fee_dispute,0.90,auto_accepted
+bankfaqs-general-1722,What should I do if my Regalia ForexPlus Card has expired but there is an unutilised balance on the card,general,balance_not_updated_after_cheque_or_cash_deposit,0.80,auto_accepted
+bankfaqs-general-1723,When will my rewards be credited to my member account with my Participating Reward Provider,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1724,Do I need to register for program,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1725,Where I can earn ‘Thanks Again’ Reward Points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1726,Where I can redeem my ‘Thanks Again’ Reward points,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1727,Where can the Regalia ForexPlus Card be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1728,Which are the currencies that can be loaded on the card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1729,Which Rewarding Merchants participate,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1730,How can I cancel my Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1731,How close does the ‘tap/ wave’ have to be to the reader,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1732,How do I know if an ATM will accept my Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1733,How does Regalia ForexPlus Card work,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1734,How is My Reward Calculated,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1735,How many days in advance can I purchase foreign exchange,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1736,What is the Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1737,"How much is the Service Tax on Cross Currency Conversion, applicable at the time of Load, Reload and Refund",general,Refund_not_showing_up,0.90,auto_accepted
+bankfaqs-general-1739,Are there any transactions for which this Card should not be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1740,Can I issue cheques to load the Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1741,Can I load multiple currencies on one Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1742,Can I load Regalia ForexPlus Card by making payment in Cash,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1743,Can I Login to Check My Account,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1744,Can I redeem my reward points abroad,general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1745,Can I use the card to pay in any currency,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1746,Can I use the DCC/ MCC option at the time of transaction,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1747,Can the value of the card be topped up,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1748,Do I need to activate Regalia ForexPlus Card for Ecommerce transactions,general,activate_my_card,0.90,auto_accepted
+bankfaqs-general-1749,How secure is making payment through Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1750,How to set Prepaid NetBanking Login User ID / Password for the first time,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1751,How to use the card at contactless terminals,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1752,How will I know if the transaction is successful,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1753,"I'm not a traveller, can I still benefit from the Regalia ForexPlus Card",general,travel_notice,0.95,auto_accepted
+bankfaqs-general-1754,Is Regalia ForexPlus Card enabled for MasterCard Secure Pass,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1756,What documents should I submit when I purchase the Regalia ForexPlus Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1757,What does DCC/ MCC stand for,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1758,What if I Already Earn Rewards with My Card,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1759,What if I forget my Prepaid NetBanking login Password,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1760,What is the maximum value for which the Card can be used,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1761,What options should I choose to withdraw cash from the ATM,general,out_of_scope,0.30,reviewed
+bankfaqs-general-1762,What should I do and whom to contact if my card is lost,general,out_of_scope,0.30,reviewed

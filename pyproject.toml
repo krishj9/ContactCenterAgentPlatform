@@ -28,7 +28,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["app", "eval"]
+known-first-party = ["app", "eval", "pipeline"]
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests", "eval"]
@@ -38,3 +38,27 @@ markers = [
     "integration: marks tests as integration tests that require network or external services",
 ]
 addopts = "--disable-socket --allow-unix-socket -m 'not integration'"
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+mypy_path = "backend"
+
+[[tool.mypy.overrides]]
+module = ["fastapi.*", "pgvector.*", "redis.*", "yaml.*", "sentence_transformers.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+
+

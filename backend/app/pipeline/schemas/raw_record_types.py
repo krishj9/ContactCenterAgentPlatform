@@ -30,3 +30,17 @@ class CFPBRawRow(TypedDict, total=False):
     company: str
     submitted_via: str
     state: str
+
+
+class PolicyRawRecord(TypedDict, total=False):
+    policy_id: str
+    version: str
+    title: str
+    intent_labels: list[str]
+    risk_level: str
+    owner: str
+    effective_from: str
+    effective_to: str | None
+    status: str
+    content: str
+    file_path: str
