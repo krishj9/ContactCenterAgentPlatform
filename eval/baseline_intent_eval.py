@@ -10,13 +10,21 @@ from __future__ import annotations
 import json
 import math
 import re
+import sys
 import time
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from app.core.config import get_settings
-from eval.schema import ScenarioFixture
+# Ensure workspace root and backend directory are on sys.path when executed directly
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+_BACKEND_DIR = _REPO_ROOT / "backend"
+for _p in (str(_REPO_ROOT), str(_BACKEND_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
+from app.core.config import get_settings  # noqa: E402
+from eval.schema import ScenarioFixture  # noqa: E402
 
 
 def tokenize(text: str) -> list[str]:

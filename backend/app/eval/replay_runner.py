@@ -12,8 +12,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from eval.schema import ScenarioFixture
-
 from app.contracts.events_v1 import (
     AssistRecommendationEvent,
     CustomerContextPayload,
@@ -34,6 +32,7 @@ from app.contracts.events_v1 import (
 )
 from app.core.container import Container, get_container
 from app.domain.evidence import EvidenceChunk
+from eval.schema import ScenarioFixture
 
 
 @dataclass
@@ -67,24 +66,27 @@ class TranscriptReplayRunner:
         start_time = time.perf_counter()
 
         # Load scenario fixture if path provided
-        if isinstance(scenario, str | Path):
+        fixture: ScenarioFixture
+        if isinstance(scenario, (str, Path)):
             with open(scenario, encoding="utf-8") as f:
-                scenario = ScenarioFixture.model_validate(json.load(f))
+                fixture = ScenarioFixture.model_validate(json.load(f))
+        else:
+            fixture = scenario
 
-        sid = session_id or f"sess_{scenario.scenario_id}"
+        sid = session_id or f"sess_{fixture.scenario_id}"
         events: list[WebSocketEvent] = []
         predicted_intents: list[str] = []
         grounding_states: list[GroundingStatus] = []
 
         # 1. Emit session.ready with Customer Context
         customer_ctx = CustomerContextPayload(
-            customer_id=scenario.customer_profile.customer_id,
-            name=scenario.customer_profile.name,
-            account_type=scenario.customer_profile.account_type,
-            relationship_tier=scenario.customer_profile.relationship_tier,
-            account_number_masked=scenario.customer_profile.account_number_masked,
-            context_summary=scenario.customer_profile.context_summary,
-            extra=scenario.customer_profile.extra,
+            customer_id=fixture.customer_profile.customer_id,
+            name=fixture.customer_profile.name,
+            account_type=fixture.customer_profile.account_type,
+            relationship_tier=fixture.customer_profile.relationship_tier,
+            account_number_masked=fixture.customer_profile.account_number_masked,
+            context_summary=fixture.customer_profile.context_summary,
+            extra=fixture.customer_profile.extra,
         )
         session_ready = SessionReadyEvent(
             session_id=sid,
@@ -99,7 +101,7 @@ class TranscriptReplayRunner:
         all_turns: list[dict[str, Any]] = []
 
         # 2. Iterate through turns
-        for turn in scenario.turns:
+        for turn in fixture.turns:
             role = EventRole(turn.speaker.value)
             all_turns.append({"turn_id": turn.turn_id, "speaker": role.value, "text": turn.text})
 
@@ -203,7 +205,7 @@ class TranscriptReplayRunner:
                         evidence=[
                             EvidenceItemPayload(
                                 chunk_id=c.chunk_id,
-                                store_type=c.store_type,  # type: ignore[arg-type]
+                                store_type=c.store_type,
                                 title=c.title,
                                 snippet=c.text,
                                 similarity_score=c.similarity_score,
@@ -231,8 +233,8 @@ class TranscriptReplayRunner:
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
 
         return ReplayResult(
-            scenario_id=scenario.scenario_id,
-            turns_replayed=len(scenario.turns),
+            scenario_id=fixture.scenario_id,
+            turns_replayed=len(fixture.turns),
             events_emitted=events,
             predicted_intents=predicted_intents,
             grounding_states=grounding_states,

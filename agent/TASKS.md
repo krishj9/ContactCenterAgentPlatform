@@ -10,8 +10,8 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 |---|---|---|---|---|
 | **P0** | Hygiene & Baseline | App + ML | ✅ COMPLETED | Security tooling (gitleaks/ruff), Python 3.14.8, baseline setup, golden scenarios |
 | **P1** | Contracts, Ports & Dependency Injection | App | ✅ COMPLETED | Pydantic v2 / TypeScript event contracts, DI container |
-| **P2** | Local Platform, UI Scaffold & Persistence | App | ⬜ READY TO START | Docker Compose, PostgreSQL 16, Vite + React + shadcn/ui scaffold |
-| **P3** | Knowledge Pipeline & Policy Corpus | App | ⬜ TODO | Markdown policy corpus, PostgreSQL pgvector index, manifest guard |
+| **P2** | Local Platform, UI Scaffold & Persistence | App | ✅ COMPLETED | Docker Compose, PostgreSQL 16 (pgvector), Vite + React 19 + shadcn/ui |
+| **P3** | Knowledge Pipeline & Policy Corpus | App | ⬜ READY TO START | Markdown policy corpus, PostgreSQL pgvector index, manifest guard |
 | **P4** | Intent Model: Training & Serving | ML | ⬜ TODO | Fine-tuned Gemma 3 1B LoRA classifier, ONNX Runtime int8 serving |
 | **P5** | RAG v2, Grounding & UI Assist Cards | App + ML | ⬜ TODO | Router, reranker, NLI verifier, NBA & Suggested Response cards |
 | **P6** | Realtime Voice, Security & Cockpit Polish | App | ⬜ TODO | AudioWorklet PCM 16kHz, JWT signed tokens, 3-column cockpit |
@@ -45,16 +45,16 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 - [x] **P1.9**: Strict mypy setup and `pytest-socket` offline isolation.
 
 ### Phase P2: Local Platform, UI Scaffold & Persistence
-- [ ] **P2.1**: Docker Compose `core` (api, web, postgres:16 with pgvector, redis, fake-gcs).
-- [ ] **P2.2**: Scaffold Vite 6 + React 19 + TypeScript SPA in `apps/web/`.
-- [ ] **P2.3**: Install and configure Tailwind CSS v4 + shadcn/ui component library.
-- [ ] **P2.4**: Client routing (`/customer` and `/agent`) and shell layouts.
-- [ ] **P2.5**: Alembic database schema migrations for all entities.
-- [ ] **P2.6**: PostgreSQL repositories (SQLAlchemy 2.0 async + asyncpg).
-- [ ] **P2.7**: Redis session state store (turn window, task cancellation locks).
-- [ ] **P2.8**: Structured audit event logger persisting to database.
-- [ ] **P2.9**: Production Dockerfiles for `apps/api` and `apps/web`.
-- [ ] **P2.10**: Developer Makefile commands (`make up`, `make up-mock`, `make seed`).
+- [x] **P2.1**: Docker Compose `core` (api, web, postgres:16 with pgvector, redis, fake-gcs).
+- [x] **P2.2**: Scaffold Vite 6 + React 19 + TypeScript SPA in `apps/web/`.
+- [x] **P2.3**: Install and configure Tailwind CSS v4 + shadcn/ui component library.
+- [x] **P2.4**: Client routing (`/customer` and `/agent`) and shell layouts.
+- [x] **P2.5**: Alembic database schema migrations for all entities.
+- [x] **P2.6**: PostgreSQL repositories (SQLAlchemy 2.0 async + asyncpg).
+- [x] **P2.7**: Redis session state store (turn window, task cancellation locks).
+- [x] **P2.8**: Structured audit event logger persisting to database.
+- [x] **P2.9**: Production Dockerfiles for `apps/api` and `apps/web`.
+- [x] **P2.10**: Developer Makefile commands (`make up`, `make up-mock`, `make seed`).
 
 ### Phase P3: Knowledge Pipeline & Policy Corpus
 - [ ] **P3.1**: Intent taxonomy registry (`taxonomy/intents.yaml`) and alias mappings.

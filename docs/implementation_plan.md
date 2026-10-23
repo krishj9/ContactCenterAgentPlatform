@@ -255,8 +255,8 @@ flowchart LR
 | P2.10| **Developer Makefile:** `make up`, `make up-mock`, `make down`, `make seed`, `make test`, `make lint` | `Makefile` |
 
 **Exit Criteria:**
-- [ ] `make up-mock` starts all containers healthy; browser opens `http://localhost:3000` showing shadcn/ui interface.
-- [ ] Database migrations execute cleanly; sessions, audit logs, and pgvector extension persist across container restarts.
+- [x] `make up-mock` starts all containers healthy; browser opens `http://localhost:3000` showing shadcn/ui interface.
+- [x] Database migrations execute cleanly; sessions, audit logs, and pgvector extension persist across container restarts.
 
 ---
 

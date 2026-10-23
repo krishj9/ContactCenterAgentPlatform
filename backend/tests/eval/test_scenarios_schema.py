@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from eval.schema import ScenarioFixture
 
 SCENARIOS_DIR = Path("eval/scenarios")

@@ -14,6 +14,12 @@ dependencies = [
     "pydantic-settings>=2.6.0",
     "pyyaml>=6.0.2",
     "python-dotenv>=1.0.1",
+    "sqlalchemy>=2.0.36",
+    "asyncpg>=0.30.0",
+    "pgvector>=0.3.6",
+    "alembic>=1.14.0",
+    "redis>=5.2.0",
+    "greenlet>=3.1.0",
 ]
 
 [project.optional-dependencies]
@@ -37,7 +43,7 @@ select = ["E", "W", "F", "I", "B", "C4", "UP"]
 ignore = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["app"]
+known-first-party = ["app", "eval"]
 
 [tool.mypy]
 python_version = "3.14"
@@ -53,7 +59,7 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
-module = ["fastapi.*", "uvicorn.*"]
+module = ["fastapi.*", "uvicorn.*", "asyncpg.*", "pgvector.*", "alembic.*", "redis.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
@@ -64,3 +70,16 @@ markers = [
     "integration: marks tests as integration tests that require network or external services",
 ]
 addopts = "--disable-socket --allow-unix-socket -m 'not integration'"
+
+[tool.pyright]
+pythonVersion = "3.14"
+pythonPlatform = "Darwin"
+extraPaths = [
+    ".",
+    "..",
+]
+venvPath = ".."
+venv = ".venv"
+typeCheckingMode = "standard"
+
+
