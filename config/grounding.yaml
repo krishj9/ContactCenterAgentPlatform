@@ -1,0 +1,14 @@
+version: v1.0
+description: "Calibrated Grounding State Machine Thresholds (Spec \xA73.3.3)"
+thresholds:
+  tau_intent: 0.55
+  tau_evidence: 0.48
+  tau_policy: 0.68
+  grounding_similarity_threshold: 0.75
+  rerank_top_k: 5
+  retrieval_top_k: 20
+  verifier_drop_tolerance: 0.3
+evaluation_metrics:
+  policy_recall_at_5: 1.0
+  mean_ndcg_at_5: 0.8359
+  qrels_count: 20

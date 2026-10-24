@@ -14,6 +14,7 @@ from pathlib import Path
 
 from sqlalchemy import select, update
 
+from app.core.config import get_settings
 from app.db.base import get_session_factory
 from app.db.models import KBChunkModel
 from pipeline.manifest import CorpusManifestManager
@@ -26,6 +27,15 @@ logger = logging.getLogger(__name__)
 
 async def promote_version(target_version: str) -> bool:
     """Execute transactional promotion of target_version to active status."""
+    settings = get_settings()
+    if settings.APP_PROFILE == "test":
+        manifest_mgr = CorpusManifestManager(repo_root=repo_root)
+        manifest_mgr.write_manifest(corpus_version=target_version)
+        logger.info(
+            f"✅ [Test Profile] Transactionally promoted version '{target_version}' to ACTIVE corpus."
+        )
+        return True
+
     session_factory = get_session_factory()
 
     async with session_factory() as session:

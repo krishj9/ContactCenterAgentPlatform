@@ -1,0 +1,15 @@
+intent_label: "lost_card"
+title: "Lost or Stolen Card Lock and Replacement Workflow"
+action_type: "escalate"
+default_citations:
+  - "pol_card_security_01_s4_c1"
+  - "pol_card_security_01_s2_c1"
+steps:
+  - "Immediately apply temporary security lock on lost card credential in Card Security Console."
+  - "Review recent authorization activity with customer to identify any unauthorized or fraudulent charges."
+  - "Initiate replacement card issuance with standard 3-5 business day delivery (or expedited 24h courier)."
+  - "Issue emergency digital wallet token to Apple Pay or Google Pay if cardholder is traveling."
+suggested_response:
+  text: "I have immediately locked your card to prevent unauthorized activity, and an expedited replacement card has been ordered for your account."
+  citations:
+    - "pol_card_security_01_s4_c1"

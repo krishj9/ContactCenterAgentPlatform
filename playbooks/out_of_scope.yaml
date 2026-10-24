@@ -1,0 +1,10 @@
+intent_label: "out_of_scope"
+title: "Polite Out-of-Scope Redirection"
+action_type: "inform"
+default_citations: []
+steps:
+  - "Politely acknowledge customer chit-chat or non-banking inquiry."
+  - "Pivot conversation back to card or account management assistance."
+suggested_response:
+  text: "I am happy to assist you with any questions regarding your Premier card, accounts, or transactions today. Is there anything specific on your account I can help resolve?"
+  citations: []

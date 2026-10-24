@@ -1,0 +1,50 @@
+# Configuration for intent-conditioned hybrid retrieval and store routing (Spec §3.3.2)
+version: "v1.0"
+
+stores:
+  policy:
+    enabled: true
+    description: "Authored operational & compliance guidance with mandatory procedures"
+    top_k: 20
+    rerank_top_k: 5
+    filter_by_intent: true
+    allow_filter_relax_retry: true
+    similarity_threshold: 0.70
+
+  faq:
+    enabled: true
+    description: "BankFAQs customer-facing question and answer pairs"
+    top_k: 10
+    rerank_top_k: 5
+    filter_by_intent: true
+    allow_filter_relax_retry: true
+    similarity_threshold: 0.65
+
+  intent_exemplars:
+    enabled: true
+    description: "Banking77 training exemplars for explainability (k=3)"
+    top_k: 3
+    rerank_top_k: 3
+    filter_by_intent: false
+    similarity_threshold: 0.80
+
+routing_rules:
+  policy_required:
+    stores:
+      - policy
+      - faq
+    parallel_dispatch: true
+    require_policy_for_grounded: true
+    fallback_playbook_enabled: true
+
+  faq_only:
+    stores:
+      - faq
+    parallel_dispatch: false
+    require_policy_for_grounded: false
+    fallback_playbook_enabled: true
+
+  out_of_scope:
+    stores: []
+    suppress_nba: true
+    grounding_state: "LOW_CONFIDENCE"

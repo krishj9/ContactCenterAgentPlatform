@@ -1,0 +1,15 @@
+intent_label: "fee_dispute"
+title: "Fee Waiver Evaluation and Courtesy Credit Procedure"
+action_type: "verify"
+default_citations:
+  - "pol_fee_dispute_01_s4_c1"
+  - "pol_fee_dispute_01_s2_c1"
+steps:
+  - "Inspect fee history in Card Billing Console to verify no courtesy waiver within last 12 rolling months."
+  - "Confirm account tenure is at least 6 months and current standing is positive."
+  - "Apply one-time courtesy credit up to $50.00 directly to current billing statement."
+  - "Advise customer that courtesy waiver is processed and appears on statement within 1-2 business days."
+suggested_response:
+  text: "I reviewed your account standing and fee history. As a valued customer, I have submitted a courtesy waiver request to credit this fee back to your balance within 1-2 business days."
+  citations:
+    - "pol_fee_dispute_01_s4_c1"

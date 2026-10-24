@@ -1,7 +1,7 @@
 {
-  "corpus_version": "v1.0",
+  "corpus_version": "v_test_promote",
   "taxonomy_version": "tx-14",
-  "generated_at": "2026-10-23T20:49:34.018004+00:00",
+  "generated_at": "2026-10-24T02:05:36.489746+00:00",
   "embedder": {
     "model_name": "EmbeddingGemma",
     "dimension": 768,

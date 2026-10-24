@@ -58,7 +58,9 @@ class InstanceItem(BaseModel):
 
 class ClassifyRequest(BaseModel):
     instances: list[InstanceItem] = Field(..., description="Batch of customer turn instances.")
-    top_k: int = Field(default=3, ge=1, le=10, description="Number of candidate hypotheses to return.")
+    top_k: int = Field(
+        default=3, ge=1, le=10, description="Number of candidate hypotheses to return."
+    )
 
 
 class ScoredLabel(BaseModel):
@@ -118,7 +120,9 @@ async def classify(request: ClassifyRequest, model_name: str | None = None) -> C
         pred = eng.classify_turns(instance.turns, top_k=request.top_k)
         predictions.append(
             PredictionItem(
-                labels=[ScoredLabel(label=item["label"], score=item["score"]) for item in pred.labels],
+                labels=[
+                    ScoredLabel(label=item["label"], score=item["score"]) for item in pred.labels
+                ],
                 is_oos=pred.is_oos,
                 exemplar_ids=pred.exemplar_ids,
             )
@@ -139,9 +143,21 @@ async def get_exemplars(intent_label: str) -> dict[str, Any]:
     if not exemplars:
         # Fallback to generic formatted exemplars
         exemplars = [
-            {"id": f"ex-{intent_label}-1", "text": f"Customer reporting {intent_label} issue", "intent": intent_label},
-            {"id": f"ex-{intent_label}-2", "text": f"Inquiry regarding {intent_label} procedure", "intent": intent_label},
-            {"id": f"ex-{intent_label}-3", "text": f"Assistance needed with {intent_label}", "intent": intent_label},
+            {
+                "id": f"ex-{intent_label}-1",
+                "text": f"Customer reporting {intent_label} issue",
+                "intent": intent_label,
+            },
+            {
+                "id": f"ex-{intent_label}-2",
+                "text": f"Inquiry regarding {intent_label} procedure",
+                "intent": intent_label,
+            },
+            {
+                "id": f"ex-{intent_label}-3",
+                "text": f"Assistance needed with {intent_label}",
+                "intent": intent_label,
+            },
         ]
     return {
         "intent_label": intent_label,

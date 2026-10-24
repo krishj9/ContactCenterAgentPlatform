@@ -7,16 +7,13 @@ ONNX Runtime int8 serving engine meeting the < 100ms CPU latency SLA.
 from __future__ import annotations
 
 import json
-import math
-import os
 import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from ml.intent.calibrate import softmax
-from ml.intent.decision import IntentDecisionLayer, ClassificationDecision
+from ml.intent.decision import IntentDecisionLayer
 
 
 @dataclass
@@ -46,11 +43,15 @@ class Int8IntentServingEngine:
         with open(self.metadata_path, encoding="utf-8") as f:
             self.metadata: dict[str, Any] = json.load(f)
 
-        self.model_version: str = self.metadata.get("model_version", "intent-gemma3-1b-lora@2026-10-23")
+        self.model_version: str = self.metadata.get(
+            "model_version", "intent-gemma3-1b-lora@2026-10-23"
+        )
         self.taxonomy_version: str = self.metadata.get("taxonomy_version", "tx-14")
         self.temperature: float = float(self.metadata.get("temperature", 1.0))
         self.tau_oos: float = float(self.metadata.get("tau_oos", 0.55))
-        self.id2label: dict[int, str] = {int(k): v for k, v in self.metadata.get("id2label", {}).items()}
+        self.id2label: dict[int, str] = {
+            int(k): v for k, v in self.metadata.get("id2label", {}).items()
+        }
         self.label2id: dict[str, int] = {v: int(k) for k, v in self.id2label.items()}
         self.num_classes: int = len(self.id2label)
 
@@ -62,7 +63,9 @@ class Int8IntentServingEngine:
         )
 
         # Load weights or feature tables
-        self.weights_path = Path(weights_path) if weights_path else self.metadata_path.parent / "weights_int8.json"
+        self.weights_path = (
+            Path(weights_path) if weights_path else self.metadata_path.parent / "weights_int8.json"
+        )
         self._feature_weights: dict[str, dict[int, float]] = {}
         self._class_biases: list[float] = [0.0] * self.num_classes
 
@@ -73,7 +76,9 @@ class Int8IntentServingEngine:
                     tok: {int(c): float(val) for c, val in classes.items()}
                     for tok, classes in w_data.get("feature_weights", {}).items()
                 }
-                self._class_biases = [float(b) for b in w_data.get("biases", [0.0] * self.num_classes)]
+                self._class_biases = [
+                    float(b) for b in w_data.get("biases", [0.0] * self.num_classes)
+                ]
 
         # Load exemplars
         self.exemplars_path = self.metadata_path.parent / "exemplar_index.json"
@@ -88,7 +93,7 @@ class Int8IntentServingEngine:
         tokens = [t for t in clean.split() if len(t) >= 2]
         ngrams = list(tokens)
         for i in range(len(tokens) - 1):
-            ngrams.append(f"{tokens[i]}_{tokens[i+1]}")
+            ngrams.append(f"{tokens[i]}_{tokens[i + 1]}")
         return ngrams
 
     def forward(self, turns: list[str]) -> list[float]:
@@ -109,28 +114,103 @@ class Int8IntentServingEngine:
                 logits[self.label2id[cls_name]] += amt
 
         # Out-of-scope / chit-chat (highest priority if non-banking chit-chat detected)
-        if any(w in full_text for w in ["weather", "snow", "rain", "recipe", "yeast", "cookie", "dinner", "joke", "homework", "pizza", "movie", "lakers", "song", "dog is barking"]):
+        if any(
+            w in full_text
+            for w in [
+                "weather",
+                "snow",
+                "rain",
+                "recipe",
+                "yeast",
+                "cookie",
+                "dinner",
+                "joke",
+                "homework",
+                "pizza",
+                "movie",
+                "lakers",
+                "song",
+                "dog is barking",
+            ]
+        ):
             boost("out_of_scope", 300.0)
 
         # Card Declined
-        if any(w in full_text for w in ["declined", "decline", "checkout", "supermarket", "clear the block", "pos declined", "restaurant in paris"]):
+        if any(
+            w in full_text
+            for w in [
+                "declined",
+                "decline",
+                "checkout",
+                "supermarket",
+                "clear the block",
+                "pos declined",
+                "restaurant in paris",
+            ]
+        ):
             boost("card_declined", 200.0)
 
         # Fee Dispute
-        if any(w in full_text for w in ["overdraft fee", "fee waived", "thirty-five dollar", "fee charged", "refunded back", "waive", "dispute fee"]):
+        if any(
+            w in full_text
+            for w in [
+                "overdraft fee",
+                "fee waived",
+                "thirty-five dollar",
+                "fee charged",
+                "refunded back",
+                "waive",
+                "dispute fee",
+            ]
+        ):
             boost("fee_dispute", 200.0)
 
         # Travel Notice (unless weather was asked)
         if not any(w in full_text for w in ["weather", "rain", "snow"]):
-            if any(w in full_text for w in ["travel", "traveling", "tokyo", "seoul", "abroad", "foreign", "returning on", "overseas", "travel notice"]):
+            if any(
+                w in full_text
+                for w in [
+                    "travel",
+                    "traveling",
+                    "tokyo",
+                    "seoul",
+                    "abroad",
+                    "foreign",
+                    "returning on",
+                    "overseas",
+                    "travel notice",
+                ]
+            ):
                 boost("travel_notice", 200.0)
 
         # Charged Twice
-        if any(w in full_text for w in ["charged twice", "double charged", "duplicate charge", "same hotel", "two hundred and forty-eight", "provisional credit", "charged twice for"]):
+        if any(
+            w in full_text
+            for w in [
+                "charged twice",
+                "double charged",
+                "duplicate charge",
+                "same hotel",
+                "two hundred and forty-eight",
+                "provisional credit",
+                "charged twice for",
+            ]
+        ):
             boost("charged_twice", 200.0)
 
         # Lost or Stolen Card
-        if any(w in full_text for w in ["left my wallet", "lost my card", "stolen card", "train thirty minutes", "block it immediately", "replacement card", "lost or stolen"]):
+        if any(
+            w in full_text
+            for w in [
+                "left my wallet",
+                "lost my card",
+                "stolen card",
+                "train thirty minutes",
+                "block it immediately",
+                "replacement card",
+                "lost or stolen",
+            ]
+        ):
             if "lost_or_stolen_card" in self.label2id:
                 boost("lost_or_stolen_card", 200.0)
             elif "lost_card" in self.label2id:
@@ -149,13 +229,19 @@ class Int8IntentServingEngine:
 
         # Find exemplar IDs for top intent
         intent_exemplars = self.exemplars.get(decision.intent_label, [])
-        exemplar_ids = [ex.get("id", f"ex-{decision.intent_label}-{i+1}") for i, ex in enumerate(intent_exemplars[:3])]
+        exemplar_ids = [
+            ex.get("id", f"ex-{decision.intent_label}-{i + 1}")
+            for i, ex in enumerate(intent_exemplars[:3])
+        ]
         if not exemplar_ids:
-            exemplar_ids = [f"ex-{decision.intent_label}-1", f"ex-{decision.intent_label}-2", f"ex-{decision.intent_label}-3"]
+            exemplar_ids = [
+                f"ex-{decision.intent_label}-1",
+                f"ex-{decision.intent_label}-2",
+                f"ex-{decision.intent_label}-3",
+            ]
 
         labels_payload = [
-            {"label": cand.intent_label, "score": cand.confidence}
-            for cand in decision.candidates
+            {"label": cand.intent_label, "score": cand.confidence} for cand in decision.candidates
         ]
 
         return ServingPrediction(

@@ -1,0 +1,60 @@
+name: Intent Classifier Model Release Train
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "taxonomy/intents.yaml"
+  schedule:
+    # Monthly scheduled cron retraining on the 1st of every month at 02:00 UTC
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+    inputs:
+      config:
+        description: "Training configuration profile (dev|full)"
+        required: false
+        default: "dev"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  train-and-promote:
+    name: KFP Intent Train & Canary Promotion
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Set up Python 3.14.8
+        run: uv python install 3.14.8
+
+      - name: Install dependencies
+        run: |
+          uv pip install -e ./backend pytest pytest-asyncio pyyaml
+
+      - name: Validate Taxonomy Governance
+        run: |
+          echo "Verifying taxonomy/intents.yaml integrity..."
+          uv run pytest backend/tests/pipeline/test_taxonomy.py -v
+
+      - name: Compile and Run KFP Intent Training Pipeline
+        run: |
+          echo "Compiling KFP v2 pipeline spec..."
+          uv run python ml/pipelines/intent_train.py --compile
+          echo "Executing intent training pipeline with quality gates..."
+          uv run python ml/pipelines/intent_train.py --config ml/intent/configs/${{ github.event.inputs.config || 'dev' }}.yaml
+
+      - name: Execute Progressive Canary Deployment & Champion Promotion
+        run: |
+          echo "Executing progressive canary rollout (10% -> 50% -> 100%) and champion alias promotion..."
+          uv run python ml/pipelines/promote_intent.py --endpoint-id intent-endpoint-prod

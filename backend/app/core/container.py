@@ -43,17 +43,43 @@ class Container:
 
         # Profile-driven resolution (local | gcp | test)
         if self.settings.APP_PROFILE == "gcp":
-            # Cloud Run / GCP profile (Vertex AI, Cloud SQL, Memorystore)
-            # In Phase P1 test baseline, fallback to test adapters until P7 deployment
-            self._intent_classifier: IntentClassifier = TestIntentClassifier()
-            self._speech_to_text: SpeechToText = TestSpeechToText()
-            self._embedder: Embedder = TestEmbedder()
-            self._vector_index: VectorIndex = TestVectorIndex()
+            # Cloud Run / GCP profile (Vertex AI, Cloud SQL pgvector, Memorystore)
+            from app.adapters.gcp.embedder import VertexAIEmbedder
+            from app.adapters.gcp.generator import VertexAIGeminiGenerator
+            from app.adapters.gcp.pgvector_index import CloudSQLPgVectorIndex
+            from app.adapters.gcp.reranker import VertexAIReranker
+            from app.adapters.gcp.speech_to_text import GoogleCloudSTT
+            from app.adapters.intent.client import HttpIntentClassifier
+            from app.adapters.intent.exemplar_knn import ExemplarKnnIntentClassifier
+            from app.adapters.redis.event_bus import RedisEventBus
+
+            self._intent_classifier: IntentClassifier = HttpIntentClassifier(
+                endpoint_url=self.settings.VERTEX_INTENT_ENDPOINT_URL,
+                fallback=ExemplarKnnIntentClassifier(),
+            )
+            self._speech_to_text: SpeechToText = GoogleCloudSTT(
+                project_id=self.settings.GCP_PROJECT,
+                location=self.settings.GCP_REGION,
+            )
+            self._embedder: Embedder = VertexAIEmbedder(
+                project_id=self.settings.GCP_PROJECT,
+                location=self.settings.GCP_REGION,
+                dimension=self.settings.EMBEDDING_DIM,
+            )
+            self._vector_index: VectorIndex = CloudSQLPgVectorIndex(
+                connection_url=self.settings.POSTGRES_URL,
+                store_type="policy",
+            )
             self._document_store: DocumentStore = TestDocumentStore()
-            self._reranker: Reranker = TestReranker()
-            self._generator: Generator = TestGenerator()
+            self._reranker: Reranker = VertexAIReranker(
+                project_id=self.settings.GCP_PROJECT,
+            )
+            self._generator: Generator = VertexAIGeminiGenerator(
+                project_id=self.settings.GCP_PROJECT,
+                location=self.settings.GCP_REGION,
+            )
             self._session_state_store: SessionStateStore = TestSessionStateStore()
-            self._event_bus: EventBus = TestEventBus()
+            self._event_bus: EventBus = RedisEventBus(redis_url=self.settings.REDIS_URL)
             self._blob_store: BlobStore = TestBlobStore()
             self._pii_redactor: PIIRedactor = TestPIIRedactor()
         elif self.settings.APP_PROFILE == "local":

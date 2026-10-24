@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./routes/LandingPage";
-import CustomerPage from "./routes/CustomerPage";
-import AgentPage from "./routes/AgentPage";
+import CustomerView from "./routes/CustomerView";
+import AgentCockpit from "./routes/AgentCockpit";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/customer" element={<CustomerPage />} />
-      <Route path="/agent" element={<AgentPage />} />
+      <Route path="/customer" element={<CustomerView />} />
+      <Route path="/agent" element={<AgentCockpit />} />
     </Routes>
   );
 }

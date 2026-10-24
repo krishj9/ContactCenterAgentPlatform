@@ -1,0 +1,77 @@
+{
+  "pipelineInfo": {
+    "name": "intent-classifier-training-pipeline",
+    "description": "Fine-tunes Gemma 3 1B LoRA intent classifier with quality gates and challenger registration"
+  },
+  "root": {
+    "dag": {
+      "tasks": {
+        "data-prep": {
+          "componentRef": {
+            "name": "data-prep-component"
+          },
+          "taskInfo": {
+            "name": "data-prep"
+          }
+        },
+        "validate-data": {
+          "componentRef": {
+            "name": "validate-data-component"
+          },
+          "dependentTasks": [
+            "data-prep"
+          ],
+          "taskInfo": {
+            "name": "validate-data"
+          }
+        },
+        "train-lora": {
+          "componentRef": {
+            "name": "train-lora-component"
+          },
+          "dependentTasks": [
+            "validate-data"
+          ],
+          "taskInfo": {
+            "name": "train-lora"
+          }
+        },
+        "calibrate-temperature": {
+          "componentRef": {
+            "name": "calibrate-component"
+          },
+          "dependentTasks": [
+            "train-lora"
+          ],
+          "taskInfo": {
+            "name": "calibrate-temperature"
+          }
+        },
+        "evaluate-gates": {
+          "componentRef": {
+            "name": "evaluate-gates-component"
+          },
+          "dependentTasks": [
+            "calibrate-temperature"
+          ],
+          "taskInfo": {
+            "name": "evaluate-gates"
+          }
+        },
+        "register-challenger": {
+          "componentRef": {
+            "name": "register-challenger-component"
+          },
+          "dependentTasks": [
+            "evaluate-gates"
+          ],
+          "taskInfo": {
+            "name": "register-challenger"
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "2.1.0",
+  "sdkVersion": "kfp-2.7.0"
+}

@@ -6,15 +6,12 @@ OOS precision/recall curve, and p95 latency benchmark.
 
 from __future__ import annotations
 
-import json
 import math
 import time
 from collections import defaultdict
-from pathlib import Path
 from typing import Any
 
 from ml.intent.calibrate import compute_ece
-from ml.intent.decision import IntentDecisionLayer
 
 
 def calculate_metrics(

@@ -54,7 +54,9 @@ class TemperatureScaler:
                 # d(temp)/d(log_temp) = temp
                 # d(NLL)/d(log_temp) = sum_j (p_j * (z_j - z_y)) / temp
                 true_logit = logits[true_label] if true_label < len(logits) else 0.0
-                sample_grad = sum(p * (z - true_logit) for p, z in zip(probs, logits, strict=False)) / max(1e-3, temp)
+                sample_grad = sum(
+                    p * (z - true_logit) for p, z in zip(probs, logits, strict=False)
+                ) / max(1e-3, temp)
                 grad += sample_grad
 
             grad /= n_samples
@@ -107,23 +109,27 @@ def compute_ece(
             abs_diff = abs(avg_acc - avg_conf)
             total_weighted_diff += (count / n) * abs_diff
 
-            bins_data.append({
-                "bin_index": i,
-                "bin_range": [round(bin_lower, 2), round(bin_upper, 2)],
-                "count": count,
-                "avg_confidence": round(avg_conf, 4),
-                "avg_accuracy": round(avg_acc, 4),
-                "calibration_gap": round(abs_diff, 4),
-            })
+            bins_data.append(
+                {
+                    "bin_index": i,
+                    "bin_range": [round(bin_lower, 2), round(bin_upper, 2)],
+                    "count": count,
+                    "avg_confidence": round(avg_conf, 4),
+                    "avg_accuracy": round(avg_acc, 4),
+                    "calibration_gap": round(abs_diff, 4),
+                }
+            )
         else:
-            bins_data.append({
-                "bin_index": i,
-                "bin_range": [round(bin_lower, 2), round(bin_upper, 2)],
-                "count": 0,
-                "avg_confidence": 0.0,
-                "avg_accuracy": 0.0,
-                "calibration_gap": 0.0,
-            })
+            bins_data.append(
+                {
+                    "bin_index": i,
+                    "bin_range": [round(bin_lower, 2), round(bin_upper, 2)],
+                    "count": 0,
+                    "avg_confidence": 0.0,
+                    "avg_accuracy": 0.0,
+                    "calibration_gap": 0.0,
+                }
+            )
 
     return {
         "ece": round(total_weighted_diff, 5),

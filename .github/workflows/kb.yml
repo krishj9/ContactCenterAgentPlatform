@@ -1,0 +1,76 @@
+name: Knowledge Base Release Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "corpora/policy/**"
+      - "corpora/faq/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "corpora/policy/**"
+      - "corpora/faq/**"
+  workflow_dispatch:
+    inputs:
+      force_full_rebuild:
+        description: "Force full corpus index rebuild instead of incremental upsert"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  validate-and-upsert:
+    name: Knowledge Base Verification & Incremental Upsert
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Set up Python 3.14.8
+        run: uv python install 3.14.8
+
+      - name: Install dependencies
+        run: |
+          uv pip install -e ./backend pytest pytest-asyncio pyyaml
+
+      - name: Run Corpus Quality & PII Checks
+        run: |
+          uv run python -m pipeline.quality.pii_check
+          uv run python -m pipeline.quality.coverage_check
+
+      - name: Process Changed Policy Markdown Files (Incremental Upsert)
+        id: incremental_upsert
+        run: |
+          echo "Detecting modified policy files..."
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '^corpora/policy/.*\.md$' || true)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No policy markdown changes detected in this commit."
+            exit 0
+          fi
+          echo "Files changed:"
+          echo "$CHANGED_FILES"
+
+          for file in $CHANGED_FILES; do
+            echo "Executing incremental upsert for $file..."
+            uv run python -m pipeline.jobs.kb_upsert upsert "$file"
+          done
+
+      - name: Run Retrieval Quality Gate Verification
+        run: |
+          echo "Verifying retrieval quality gates after upsert..."
+          uv run pytest backend/tests/pipeline/test_policy_loader_and_chunker.py -v

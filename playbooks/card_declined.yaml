@@ -1,0 +1,16 @@
+intent_label: "card_declined"
+title: "Point-of-Sale & International Card Decline Resolution"
+action_type: "verify"
+default_citations:
+  - "pol_card_decline_01_s4_c1"
+  - "pol_card_decline_01_s2_c1"
+steps:
+  - "Confirm POS merchant name, currency, and exact amount of the declined purchase with the cardholder."
+  - "In the Fraud Management Portal, select the specific transaction and click 'Authorize Legitimate Transaction'."
+  - "Check the box 'Apply 24-Hour Geographic Bypass' for the country or merchant location."
+  - "Advise customer that the restriction is removed and ask them to retry the payment within 15 minutes."
+  - "If traveling internationally for multiple days, register a 30-day Travel Notice immediately."
+suggested_response:
+  text: "I see the automated security trigger on your card from this transaction. I have verified your identity and can lift this geographic restriction immediately so you can complete your payment."
+  citations:
+    - "pol_card_decline_01_s4_c1"

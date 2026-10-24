@@ -1,0 +1,5 @@
+project_id  = "cc-agent-platform-dev"
+region      = "us-central1"
+environment = "dev"
+api_image   = "us-central1-docker.pkg.dev/cc-agent-platform-dev/cc-platform-docker/api:latest"
+db_password = "DevDatabaseSecurePassword2026!"

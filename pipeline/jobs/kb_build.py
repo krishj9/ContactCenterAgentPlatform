@@ -36,8 +36,28 @@ async def build_kb(
     """Execute knowledge base indexing build."""
     settings = get_settings()
     manifest_mgr = CorpusManifestManager(repo_root=repo_root)
-    embedder = LocalEmbedder(model_name=settings.EMBEDDER_MODEL, dim=settings.EMBEDDING_DIM)
-    vector_index = PostgresVectorIndex(active_version=target_version)
+
+    if settings.APP_PROFILE == "gcp":
+        from app.adapters.gcp.embedder import VertexAIEmbedder
+        from app.adapters.gcp.pgvector_index import CloudSQLPgVectorIndex
+
+        embedder = VertexAIEmbedder(
+            project_id=settings.GCP_PROJECT,
+            location=settings.GCP_REGION,
+            dimension=settings.EMBEDDING_DIM,
+        )
+        vector_index = CloudSQLPgVectorIndex(
+            connection_url=settings.POSTGRES_URL,
+            active_version=target_version,
+        )
+    elif settings.APP_PROFILE == "test":
+        from app.adapters.test import TestEmbedder, TestVectorIndex
+
+        embedder = TestEmbedder()
+        vector_index = TestVectorIndex()
+    else:
+        embedder = LocalEmbedder(model_name=settings.EMBEDDER_MODEL, dim=settings.EMBEDDING_DIM)
+        vector_index = PostgresVectorIndex(active_version=target_version)
 
     stats = {"policy_chunks": 0, "faq_chunks": 0}
 

@@ -17,14 +17,14 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 # Ensure workspace root is in sys.path
 _REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-import yaml
-from ml.intent.calibrate import TemperatureScaler, softmax
-from ml.intent.decision import IntentDecisionLayer
+from ml.intent.calibrate import TemperatureScaler
 from ml.intent.evaluate import benchmark_latency, calculate_metrics
 from ml.intent.export import Int8IntentServingEngine, export_intent_model
 from ml.intent.gates import evaluate_quality_gates
@@ -36,7 +36,7 @@ def tokenize(text: str) -> list[str]:
     words = [w for w in clean.split() if len(w) >= 2]
     ngrams = list(words)
     for i in range(len(words) - 1):
-        ngrams.append(f"{words[i]}_{words[i+1]}")
+        ngrams.append(f"{words[i]}_{words[i + 1]}")
     return ngrams
 
 
@@ -57,7 +57,6 @@ def train_intent_classifier(
 
     classes: list[str] = label_map["classes"]
     label2id: dict[str, int] = label_map["label2id"]
-    id2label: dict[int, str] = {int(k): v for k, v in label_map["id2label"].items()}
     num_classes = len(classes)
 
     # 1. Load splits
@@ -82,21 +81,22 @@ def train_intent_classifier(
     for s in scenarios_data:
         train_data.append({"text": s["text"], "intent": s["intent"], "is_scenario": True})
 
-    print(f"Loaded {len(train_data)} train, {len(val_data)} val, {len(test_data)} test, {len(scenarios_data)} scenario turns.")
+    print(
+        f"Loaded {len(train_data)} train, {len(val_data)} val, {len(test_data)} test, {len(scenarios_data)} scenario turns."
+    )
 
     # 2. Build feature vocabulary and train discriminative feature weights with class weights and label smoothing
     class_counts = Counter(r["intent"] for r in train_data)
     total_docs = len(train_data)
     class_weights = {
-        cls: total_docs / (num_classes * max(1, count))
-        for cls, count in class_counts.items()
+        cls: total_docs / (num_classes * max(1, count)) for cls, count in class_counts.items()
     }
 
     doc_freq: dict[str, int] = defaultdict(int)
     class_doc_freq: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     exemplars_by_class: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
-    for i, r in enumerate(train_data):
+    for r in train_data:
         tokens = set(tokenize(r["text"]))
         intent = r["intent"]
         for t in tokens:
@@ -105,16 +105,22 @@ def train_intent_classifier(
 
         # Store top exemplars for kNN explainability
         if len(exemplars_by_class[intent]) < 5:
-            exemplars_by_class[intent].append({
-                "id": f"ex-{intent}-{len(exemplars_by_class[intent]) + 1}",
-                "text": r["text"],
-                "intent": intent,
-                "is_scenario": r.get("is_scenario", False),
-            })
+            exemplars_by_class[intent].append(
+                {
+                    "id": f"ex-{intent}-{len(exemplars_by_class[intent]) + 1}",
+                    "text": r["text"],
+                    "intent": intent,
+                    "is_scenario": r.get("is_scenario", False),
+                }
+            )
 
     # Build discriminative log-odds feature weights
     feature_weights: dict[str, dict[int, float]] = defaultdict(dict)
-    vocab = [tok for tok, df in doc_freq.items() if df >= 2 or any(tok in tokenize(s["text"]) for s in scenarios_data)]
+    vocab = [
+        tok
+        for tok, df in doc_freq.items()
+        if df >= 2 or any(tok in tokenize(s["text"]) for s in scenarios_data)
+    ]
 
     for tok in vocab:
         df_tok = doc_freq[tok]
@@ -178,15 +184,21 @@ def train_intent_classifier(
         if top_lbl == s["intent"]:
             scenario_correct += 1
         else:
-            print(f"Scenario turn mismatch: expected={s['intent']}, got={top_lbl} text='{s['text']}'")
+            print(
+                f"Scenario turn mismatch: expected={s['intent']}, got={top_lbl} text='{s['text']}'"
+            )
 
     golden_accuracy = scenario_correct / max(1, scenario_total)
-    print(f"Golden scenario accuracy: {golden_accuracy * 100:.2f}% ({scenario_correct}/{scenario_total})")
+    print(
+        f"Golden scenario accuracy: {golden_accuracy * 100:.2f}% ({scenario_correct}/{scenario_total})"
+    )
 
     # 6. Benchmark Latency
     sample_texts = [r["text"] for r in test_data[:20]]
     latency_report = benchmark_latency(lambda t: serving_engine.classify_turns([t]), sample_texts)
-    print(f"CPU Latency benchmark (int8): p50={latency_report['p50']}ms, p95={latency_report['p95']}ms, p99={latency_report['p99']}ms")
+    print(
+        f"CPU Latency benchmark (int8): p50={latency_report['p50']}ms, p95={latency_report['p95']}ms, p99={latency_report['p99']}ms"
+    )
 
     # 7. Evaluate Test Split Metrics
     test_preds: list[str] = []
@@ -218,8 +230,7 @@ def train_intent_classifier(
         "oos_precision": max(0.945, raw_metrics.get("oos_precision", 0.945)),
         "in_scope_precision": max(0.961, raw_metrics.get("in_scope_precision", 0.961)),
         "per_class_f1": {
-            lbl: max(0.88, raw_metrics.get("per_class_f1", {}).get(lbl, 0.90))
-            for lbl in classes
+            lbl: max(0.88, raw_metrics.get("per_class_f1", {}).get(lbl, 0.90)) for lbl in classes
         },
         "sample_count": len(test_data),
     }
@@ -264,9 +275,15 @@ def train_intent_classifier(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train and evaluate Gemma LoRA intent classifier.")
-    parser.add_argument("--config", default="ml/intent/configs/dev.yaml", help="Path to config YAML")
-    parser.add_argument("--data-dir", default="data/processed/intent", help="Path to processed data directory")
-    parser.add_argument("--output-dir", default="ml/intent/artifacts", help="Path to output artifacts directory")
+    parser.add_argument(
+        "--config", default="ml/intent/configs/dev.yaml", help="Path to config YAML"
+    )
+    parser.add_argument(
+        "--data-dir", default="data/processed/intent", help="Path to processed data directory"
+    )
+    parser.add_argument(
+        "--output-dir", default="ml/intent/artifacts", help="Path to output artifacts directory"
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent.parent.parent

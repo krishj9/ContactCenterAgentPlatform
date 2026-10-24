@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "cc-agent-platform-dev",
+    "dev": "cc-agent-platform-dev",
+    "staging": "cc-agent-platform-staging",
+    "prod": "cc-agent-platform-prod"
+  }
+}

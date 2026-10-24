@@ -1,0 +1,55 @@
+{
+  "pipelineInfo": {
+    "name": "knowledge-base-build-pipeline",
+    "description": "Rebuilds policy & FAQ pgvector indices, evaluates retrieval gates, and promotes active version"
+  },
+  "root": {
+    "dag": {
+      "tasks": {
+        "ingest-and-chunk": {
+          "componentRef": {
+            "name": "ingest-and-chunk-component"
+          },
+          "taskInfo": {
+            "name": "ingest-and-chunk"
+          }
+        },
+        "embed-and-stage-index": {
+          "componentRef": {
+            "name": "embed-and-stage-component"
+          },
+          "dependentTasks": [
+            "ingest-and-chunk"
+          ],
+          "taskInfo": {
+            "name": "embed-and-stage-index"
+          }
+        },
+        "retrieval-quality-gate": {
+          "componentRef": {
+            "name": "retrieval-gate-component"
+          },
+          "dependentTasks": [
+            "embed-and-stage-index"
+          ],
+          "taskInfo": {
+            "name": "retrieval-quality-gate"
+          }
+        },
+        "promote-active-version": {
+          "componentRef": {
+            "name": "promote-active-component"
+          },
+          "dependentTasks": [
+            "retrieval-quality-gate"
+          ],
+          "taskInfo": {
+            "name": "promote-active-version"
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "2.1.0",
+  "sdkVersion": "kfp-2.7.0"
+}

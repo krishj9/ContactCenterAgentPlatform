@@ -85,56 +85,56 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 - [x] **P4.11**: Build Agent UI Intent Chip and "Why?" 3-exemplar drawer.
 
 ### Phase P5: RAG v2, Grounding & UI Assist Cards
-- [ ] **P5.1**: Multi-turn query builder with intent description synthesis.
-- [ ] **P5.2**: Store router with parallel dispatch and filter-relax retry.
-- [ ] **P5.3**: Cross-encoder reranker adapter (`bge-reranker-v2-m3`).
-- [ ] **P5.4**: Calibrate evidence and policy thresholds from qrels.
-- [ ] **P5.5**: Structured Pydantic generation schemas with citation constraints.
-- [ ] **P5.6**: Local Ollama Gemma 3 generator adapter with JSON-schema mode.
-- [ ] **P5.7**: Claim and citation verifier (chunk ID verification + NLI entailment).
-- [ ] **P5.8**: Deterministic Grounding State Machine.
-- [ ] **P5.9**: Structured playbook YAML fallback templates.
-- [ ] **P5.10**: Invariant test suite verifying zero ungrounded actions.
-- [ ] **P5.11**: Summary Service v2 generating structured case notes.
-- [ ] **P5.12**: UI Grounding Banner component with dynamic status coloring.
-- [ ] **P5.13**: UI Next-Best Action Cards with step checklists and action-type tags.
-- [ ] **P5.14**: UI Suggested Response Card with 1-click copy/insert/edit.
-- [ ] **P5.15**: UI Collapsible Evidence Drawer with matched snippets and similarity scores.
-- [ ] **P5.16**: UI Post-Call Summary Modal.
+- [x] **P5.1**: Multi-turn query builder with intent description synthesis.
+- [x] **P5.2**: Store router with parallel dispatch and filter-relax retry.
+- [x] **P5.3**: Cross-encoder reranker adapter (`bge-reranker-v2-m3`).
+- [x] **P5.4**: Calibrate evidence and policy thresholds from qrels.
+- [x] **P5.5**: Structured Pydantic generation schemas with citation constraints.
+- [x] **P5.6**: Local Ollama Gemma 3 generator adapter with JSON-schema mode.
+- [x] **P5.7**: Claim and citation verifier (chunk ID verification + NLI entailment).
+- [x] **P5.8**: Deterministic Grounding State Machine.
+- [x] **P5.9**: Structured playbook YAML fallback templates.
+- [x] **P5.10**: Invariant test suite verifying zero ungrounded actions.
+- [x] **P5.11**: Summary Service v2 generating structured case notes.
+- [x] **P5.12**: UI Grounding Banner component with dynamic status coloring.
+- [x] **P5.13**: UI Next-Best Action Cards with step checklists and action-type tags.
+- [x] **P5.14**: UI Suggested Response Card with 1-click copy/insert/edit.
+- [x] **P5.15**: UI Collapsible Evidence Drawer with matched snippets and similarity scores.
+- [x] **P5.16**: UI Post-Call Summary Modal.
 
 ### Phase P6: Realtime Voice, Security & Cockpit Polish
-- [ ] **P6.1**: Signed JWT join tokens with Redis `jti` single-use tracking.
-- [ ] **P6.2**: Outbound event filter ensuring customers never receive internal assist data.
-- [ ] **P6.3**: Multi-instance Redis Pub/Sub broadcast.
-- [ ] **P6.4**: Web Audio API AudioWorklet (`pcm-recorder-worklet.js`) downsampling to 16kHz mono PCM.
-- [ ] **P6.5**: Local Faster-Whisper streaming speech-to-text adapter with VAD.
-- [ ] **P6.6**: Customer View (`/customer`) with animated audio waveform canvas.
-- [ ] **P6.7**: 3-column Agent Cockpit layout assembly (`/agent`).
-- [ ] **P6.8**: Live rolling transcript timeline with partial styling and keyword search.
-- [ ] **P6.9**: Customer Context & synthetic CRM history panel.
-- [ ] **P6.10**: Audio connection resilience, sequence gap tracking, and auto-reconnect.
+- [x] **P6.1**: Signed JWT join tokens with Redis `jti` single-use tracking.
+- [x] **P6.2**: Outbound event filter ensuring customers never receive internal assist data.
+- [x] **P6.3**: Multi-instance Redis Pub/Sub broadcast.
+- [x] **P6.4**: Web Audio API AudioWorklet (`pcm-recorder-worklet.js`) downsampling to 16kHz mono PCM.
+- [x] **P6.5**: Local Faster-Whisper streaming speech-to-text adapter with VAD.
+- [x] **P6.6**: Customer View (`/customer`) with animated audio waveform canvas.
+- [x] **P6.7**: 3-column Agent Cockpit layout assembly (`/agent`).
+- [x] **P6.8**: Live rolling transcript timeline with partial styling and keyword search.
+- [x] **P6.9**: Customer Context & synthetic CRM history panel.
+- [x] **P6.10**: Audio connection resilience, sequence gap tracking, and auto-reconnect.
 
 ### Phase P7: GCP Infrastructure, Terraform & Cloud Adapters
-- [ ] **P7.1**: Terraform core modules (project, remote state, artifact registry, KMS).
-- [ ] **P7.2**: Workload Identity Federation for GitHub Actions.
-- [ ] **P7.3**: VPC networking, NAT, Serverless VPC Access / Direct VPC Egress for Cloud Run, Private Service Access.
-- [ ] **P7.4**: Cloud SQL PostgreSQL 16 with pgvector extension enabled and Memorystore Redis provisioning.
-- [ ] **P7.5**: Firebase Hosting provisioning & distribution setup for Vite SPA static dist.
-- [ ] **P7.6**: Vertex AI Intent Endpoint provisioning with L4 GPU.
-- [ ] **P7.7**: Cloud Run API Gateway deployment (`api` with session affinity, 3600s WebSocket timeout, min instances ≥ 1).
-- [ ] **P7.8**: Cloud Armor WAF and Identity-Aware Proxy (IAP) guarding agent routes.
-- [ ] **P7.9**: GCP port adapters (Vertex embeddings, Cloud SQL pgvector, Ranking, Gemini Flash, STT V2).
-- [ ] **P7.10**: Cloud Run Job for knowledge base indexing into Cloud SQL PostgreSQL pgvector.
-- [ ] **P7.11**: Deploy complete Dev environment (`envs/dev`).
+- [x] **P7.1**: Terraform core modules (project, remote state, artifact registry, KMS).
+- [x] **P7.2**: Workload Identity Federation for GitHub Actions.
+- [x] **P7.3**: VPC networking, NAT, Serverless VPC Access / Direct VPC Egress for Cloud Run, Private Service Access.
+- [x] **P7.4**: Cloud SQL PostgreSQL 16 with pgvector extension enabled and Memorystore Redis provisioning.
+- [x] **P7.5**: Firebase Hosting provisioning & distribution setup for Vite SPA static dist.
+- [x] **P7.6**: Vertex AI Intent Endpoint provisioning with L4 GPU.
+- [x] **P7.7**: Cloud Run API Gateway deployment (`api` with session affinity, 3600s WebSocket timeout, min instances ≥ 1).
+- [x] **P7.8**: Cloud Armor WAF and Identity-Aware Proxy (IAP) guarding agent routes.
+- [x] **P7.9**: GCP port adapters (Vertex embeddings, Cloud SQL pgvector, Ranking, Gemini Flash, STT V2).
+- [x] **P7.10**: Cloud Run Job for knowledge base indexing into Cloud SQL PostgreSQL pgvector.
+- [x] **P7.11**: Deploy complete Dev environment (`envs/dev`).
 
 ### Phase P8: ML & Knowledge Pipelines, CI/CD Release Trains
-- [ ] **P8.1**: KFP `intent_train` Vertex AI Pipeline.
-- [ ] **P8.2**: Model promotion traffic splitting and alias management.
-- [ ] **P8.3**: KFP `kb_build` knowledge base pipeline with automated alias flip.
-- [ ] **P8.4**: GitHub Actions triggers for policy updates and taxonomy changes.
-- [ ] **P8.5**: Application CI/CD pipeline with Cosign image signing.
-- [ ] **P8.6**: Binary Authorization policy enforcement.
-- [ ] **P8.7**: Provision Staging and Production environments (`envs/staging`, `envs/prod`).
+- [x] **P8.1**: KFP `intent_train` Vertex AI Pipeline.
+- [x] **P8.2**: Model promotion traffic splitting and alias management.
+- [x] **P8.3**: KFP `kb_build` knowledge base pipeline with automated alias flip.
+- [x] **P8.4**: GitHub Actions triggers for policy updates and taxonomy changes.
+- [x] **P8.5**: Application CI/CD pipeline with Cosign image signing.
+- [x] **P8.6**: Binary Authorization policy enforcement.
+- [x] **P8.7**: Provision Staging and Production environments (`envs/staging`, `envs/prod`).
 
 ### Phase P9: Observability, Telemetry & GenAI Eval
 - [ ] **P9.1**: OpenTelemetry distributed tracing from Vite SPA to backend and LLM calls.

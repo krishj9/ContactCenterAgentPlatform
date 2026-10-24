@@ -11,6 +11,7 @@ class GroundingState(StrEnum):
     """Grounding states enforced by the Deterministic Grounding State Machine."""
 
     GROUNDED = "GROUNDED"
+    LOW_CONFIDENCE = "LOW_CONFIDENCE"
     POLICY_REVIEW_NEEDED = "POLICY_REVIEW_NEEDED"
     MISSING_EVIDENCE = "MISSING_EVIDENCE"
     UNGROUNDED = "UNGROUNDED"

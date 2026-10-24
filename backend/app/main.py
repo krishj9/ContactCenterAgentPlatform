@@ -51,6 +51,11 @@ def create_app() -> FastAPI:
             "profile": settings.APP_PROFILE,
         }
 
+    # Mount WebSocket and session endpoints
+    from app.ws.session import router as ws_router
+
+    app.include_router(ws_router)
+
     return app
 
 

@@ -6,7 +6,6 @@ Applies calibrated temperature scaling, multi-issue ambiguity rule, and out-of-s
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
 
 from ml.intent.calibrate import softmax
 
@@ -43,7 +42,7 @@ class IntentDecisionLayer:
         multi_issue_delta_max: float = 0.30,
     ) -> None:
         if isinstance(id2label, list):
-            self.id2label = {i: lbl for i, lbl in enumerate(id2label)}
+            self.id2label = dict(enumerate(id2label))
         else:
             self.id2label = {int(k): v for k, v in id2label.items()}
 

@@ -1,0 +1,15 @@
+intent_label: "travel_notice"
+title: "Register International Travel Security Notice"
+action_type: "inform"
+default_citations:
+  - "pol_travel_notice_01_s4_c1"
+  - "pol_travel_notice_01_s2_c1"
+steps:
+  - "Confirm departure date, return date, and transit countries/regions with cardholder."
+  - "Enter travel itinerary dates in Travel Management Portal (maximum 90 calendar days per request)."
+  - "Confirm card terminal numbers to include in international security authorization rule."
+  - "Advise customer that security filters are adjusted and emergency international collect calling is available."
+suggested_response:
+  text: "I have registered your travel notice with your destination dates. Your card is authorized for seamless international payments throughout your trip."
+  citations:
+    - "pol_travel_notice_01_s4_c1"

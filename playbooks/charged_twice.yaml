@@ -1,0 +1,15 @@
+intent_label: "charged_twice"
+title: "Duplicate Transaction Dispute and Merchant Reversal Verification"
+action_type: "verify"
+default_citations:
+  - "pol_fraud_dispute_01_s4_c1"
+  - "pol_fraud_dispute_01_s2_c1"
+steps:
+  - "Verify authorization sequence numbers, timestamps, and merchant terminal IDs for the duplicate entries."
+  - "Confirm whether duplicate charge is in 'Pending' status or posted to cleared transactions."
+  - "If pending, explain that automated system release will clear pending hold within 24-48 hours."
+  - "If both posted, initiate formal Regulation E / Z merchant duplicate charge dispute."
+suggested_response:
+  text: "I can see the duplicate charges on your transaction log. I have verified the merchant records and initiated a duplicate transaction dispute to credit the second charge back."
+  citations:
+    - "pol_fraud_dispute_01_s4_c1"

@@ -81,3 +81,26 @@ async def test_replay_all_remaining_scenarios(filename: str) -> None:
     assert result.turns_replayed >= 2
     assert result.total_events >= 4
     assert any(isinstance(e, SummaryReadyEvent) for e in result.events_emitted)
+
+
+@pytest.mark.asyncio
+async def test_replay_golden_scenario_with_gcp_profile():
+    """Verify golden scenario replay runs end-to-end with APP_PROFILE=gcp (Spec P7 exit criteria)."""
+    from app.core.config import Settings
+
+    settings = Settings(
+        APP_PROFILE="gcp",
+        GCP_PROJECT="test-gcp-project",
+        GCP_REGION="us-central1",
+    )
+    container = Container(settings=settings)
+    runner = TranscriptReplayRunner(container)
+
+    scenario_path = SCENARIOS_DIR / "card_declined.json"
+    result = await runner.replay_scenario(scenario_path)
+
+    assert result.scenario_id == "card_declined"
+    assert result.turns_replayed == 4
+    assert result.total_events > 5
+    assert any(isinstance(e, SummaryReadyEvent) for e in result.events_emitted)
+    assert "card_declined" in result.predicted_intents

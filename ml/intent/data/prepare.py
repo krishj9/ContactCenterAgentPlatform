@@ -101,14 +101,16 @@ def load_golden_scenarios(scenarios_dir: Path, taxonomy: TaxonomyRegistry) -> li
 
                 # Provide multi-turn joined text matching runtime (last <= 3 turns)
                 multi_turn_text = " [TURN] ".join(customer_history[-3:])
-                scenario_records.append({
-                    "text": multi_turn_text,
-                    "standalone_text": turn["text"],
-                    "intent": canonical_intent,
-                    "scenario_id": scenario_id,
-                    "turn_id": turn.get("turn_id"),
-                    "is_scenario": True,
-                })
+                scenario_records.append(
+                    {
+                        "text": multi_turn_text,
+                        "standalone_text": turn["text"],
+                        "intent": canonical_intent,
+                        "scenario_id": scenario_id,
+                        "turn_id": turn.get("turn_id"),
+                        "is_scenario": True,
+                    }
+                )
     return scenario_records
 
 
@@ -138,7 +140,7 @@ def build_splits(
     train_split: list[dict[str, Any]] = []
     val_split: list[dict[str, Any]] = []
 
-    for cat, items in by_category.items():
+    for _cat, items in by_category.items():
         random.shuffle(items)
         val_count = max(1, int(len(items) * val_ratio))
         val_split.extend(items[:val_count])
@@ -162,17 +164,21 @@ def build_splits(
 
     # Add scenario customer records to training split
     for s in scenario_records:
-        train_split.append({
-            "text": s["text"],
-            "intent": s["intent"],
-            "is_scenario": True,
-        })
-        if s.get("standalone_text") and s["standalone_text"] != s["text"]:
-            train_split.append({
-                "text": s["standalone_text"],
+        train_split.append(
+            {
+                "text": s["text"],
                 "intent": s["intent"],
                 "is_scenario": True,
-            })
+            }
+        )
+        if s.get("standalone_text") and s["standalone_text"] != s["text"]:
+            train_split.append(
+                {
+                    "text": s["standalone_text"],
+                    "intent": s["intent"],
+                    "is_scenario": True,
+                }
+            )
 
     # 4. Build canonical test split
     canonical_test: list[dict[str, Any]] = []
@@ -183,6 +189,11 @@ def build_splits(
     for text in oos_test:
         canonical_test.append({"text": text, "intent": "out_of_scope", "synthetic": True})
 
+    # Guarantee strict split isolation: remove test utterances from train/val
+    test_texts = {r["text"].strip().lower() for r in canonical_test}
+    train_split = [r for r in train_split if r["text"].strip().lower() not in test_texts]
+    val_split = [r for r in val_split if r["text"].strip().lower() not in test_texts]
+
     # Shuffle splits
     random.shuffle(train_split)
     random.shuffle(val_split)
@@ -190,7 +201,9 @@ def build_splits(
 
     # 5. Build Label Mapping covering all taxonomy definitions (taxonomy version tx-14)
     all_taxonomy_labels = {defn.label for defn in taxonomy.list_all_intents()}
-    all_data_labels = {item["intent"] for item in train_split + val_split + canonical_test + scenario_records}
+    all_data_labels = {
+        item["intent"] for item in train_split + val_split + canonical_test + scenario_records
+    }
     all_labels = sorted(all_taxonomy_labels | all_data_labels)
     label2id = {lbl: i for i, lbl in enumerate(all_labels)}
     id2label = {i: lbl for lbl, i in label2id.items()}

@@ -30,6 +30,14 @@ class Settings(BaseSettings):
         description="Deployment profile: local | gcp | test",
     )
     DEBUG: bool = False
+    SECRET_KEY: str = Field(
+        default="cc-agent-platform-hmac-sha256-secret-key-32b",
+        description="HMAC-SHA256 secret key for signing session join tokens.",
+    )
+    JWT_EXPIRATION_SECONDS: int = Field(
+        default=900,
+        description="TTL for WebSocket session join tokens (15 minutes).",
+    )
 
     # Path configuration
     DATA_DIR: Path = Field(default_factory=lambda: Path("data"))
@@ -81,6 +89,20 @@ class Settings(BaseSettings):
     POSTGRES_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/cc_platform"
     REDIS_URL: str = "redis://localhost:6379/0"
     GCS_BUCKET: str = "cc-agent-platform-raw"
+
+    # GCP Cloud Run / Vertex AI settings
+    GCP_PROJECT: str = Field(
+        default="cc-agent-platform-dev",
+        description="GCP Project ID for Vertex AI, Cloud Run, and Cloud SQL.",
+    )
+    GCP_REGION: str = Field(
+        default="us-central1",
+        description="GCP primary region.",
+    )
+    VERTEX_INTENT_ENDPOINT_URL: str = Field(
+        default="http://localhost:8001/v1/classify",
+        description="Vertex AI Endpoint URL or proxy for intent classification.",
+    )
 
     @property
     def corpus_paths(self) -> CorpusPaths:

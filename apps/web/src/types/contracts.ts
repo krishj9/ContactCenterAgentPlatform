@@ -8,6 +8,7 @@ export type EventRole = 'customer' | 'agent' | 'system';
 
 export type GroundingStatus =
   | 'GROUNDED'
+  | 'LOW_CONFIDENCE'
   | 'POLICY_REVIEW_NEEDED'
   | 'MISSING_EVIDENCE'
   | 'UNGROUNDED';
