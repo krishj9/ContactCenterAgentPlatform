@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from enum import StrEnum
+from pathlib import Path
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -57,3 +58,14 @@ class ScenarioFixture(BaseModel):
     turns: list[ScenarioTurn]
     expected_summary: ExpectedSummary | None = None
     tags: list[str] = Field(default_factory=list)
+
+
+def load_scenario_fixture(path: Path | str) -> ScenarioFixture:
+    """Load and validate a ScenarioFixture JSON file."""
+    import json
+    from pathlib import Path
+
+    file_path = Path(path)
+    with file_path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+    return ScenarioFixture.model_validate(data)

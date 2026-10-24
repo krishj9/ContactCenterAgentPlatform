@@ -137,22 +137,23 @@ This tracker reflects the production rebuild plan defined in [`docs/implementati
 - [x] **P8.7**: Provision Staging and Production environments (`envs/staging`, `envs/prod`).
 
 ### Phase P9: Observability, Telemetry & GenAI Eval
-- [ ] **P9.1**: OpenTelemetry distributed tracing from Vite SPA to backend and LLM calls.
-- [ ] **P9.2**: Local observability profile (Jaeger, Prometheus, Grafana, Loki).
-- [ ] **P9.3**: Cloud Monitoring SLO alerts and golden signal dashboards.
-- [ ] **P9.4**: Audit log sinks streaming to BigQuery and locked GCS bucket.
-- [ ] **P9.5**: Vertex AI GenAI Evaluation pipeline (groundedness, safety, policy adherence).
-- [ ] **P9.6**: Nightly automated quality evaluation job.
-- [ ] **P9.7**: Vertex AI Model Monitoring for drift detection on the intent endpoint.
-- [ ] **P9.8**: Agent UI feedback capture widgets streaming telemetry to BigQuery.
+- [x] **P9.1**: OpenTelemetry distributed tracing from Vite SPA to backend and LLM calls.
+- [x] **P9.2**: Local observability profile (Jaeger, Prometheus, Grafana, Loki).
+- [x] **P9.3**: Cloud Monitoring SLO alerts and golden signal dashboards.
+- [x] **P9.4**: Audit log sinks streaming to BigQuery and locked GCS bucket.
+- [x] **P9.5**: Vertex AI GenAI Evaluation pipeline (groundedness, safety, policy adherence).
+- [x] **P9.6**: Nightly automated quality evaluation job.
+- [x] **P9.7**: Vertex AI Model Monitoring for drift detection on the intent endpoint.
+- [x] **P9.8**: Agent UI feedback capture widgets streaming telemetry to BigQuery.
 
 ### Phase P10: Production Hardening, Security & Load Testing
-- [ ] **P10.1**: VPC Service Controls perimeter around all data and AI services.
-- [ ] **P10.2**: Customer-Managed Encryption Keys (CMEK) via Cloud KMS.
-- [ ] **P10.3**: Cloud DLP real-time PII inspection and redaction.
-- [ ] **P10.4**: Model Armor prompt injection protection layer.
-- [ ] **P10.5**: Adversarial prompt injection red-team test suite.
-- [ ] **P10.6**: k6 high-concurrency WebSocket load test (500 concurrent sessions).
-- [ ] **P10.7**: Chaos resilience drills testing component failure modes.
-- [ ] **P10.8**: WCAG 2.1 AA accessibility audit and keyboard navigation certification.
-- [ ] **P10.9**: Architecture Decision Records (ADRs) and production operational runbooks.
+- [x] **P10.1**: VPC Service Controls perimeter around all data and AI services.
+- [x] **P10.2**: Customer-Managed Encryption Keys (CMEK) via Cloud KMS.
+- [x] **P10.3**: Cloud DLP real-time PII inspection and redaction.
+- [x] **P10.4**: Model Armor prompt injection protection layer.
+- [x] **P10.5**: Adversarial prompt injection red-team test suite.
+- [x] **P10.6**: k6 high-concurrency WebSocket load test (500 concurrent sessions).
+- [x] **P10.7**: Chaos resilience drills testing component failure modes.
+- [x] **P10.8**: WCAG 2.1 AA accessibility audit and keyboard navigation certification.
+- [x] **P10.9**: Architecture Decision Records (ADRs) and production operational runbooks.
+

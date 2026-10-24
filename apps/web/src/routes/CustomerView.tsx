@@ -247,7 +247,13 @@ export default function CustomerView() {
             </span>
           </CardHeader>
 
-          <CardContent className="flex-1 overflow-y-auto p-4 space-y-3.5">
+          <CardContent
+            role="log"
+            aria-live="polite"
+            aria-label="Live conversation dialogue history"
+            tabIndex={0}
+            className="flex-1 overflow-y-auto p-4 space-y-3.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-700"
+          >
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -274,7 +280,7 @@ export default function CustomerView() {
 
             {/* Interim Partial Speech Turn */}
             {partialCustomerText && (
-              <div className="flex flex-col items-end animate-pulse">
+              <div className="flex flex-col items-end animate-pulse" aria-live="assertive">
                 <div className="flex items-center gap-1.5 mb-1 text-[11px] text-blue-400">
                   <span className="font-semibold">You (Speaking...)</span>
                 </div>
@@ -287,18 +293,19 @@ export default function CustomerView() {
         </Card>
 
         {/* Input Bar & Real-Time Mic Controls */}
-        <div className="mt-3.5 flex items-center gap-2">
+        <div className="mt-3.5 flex items-center gap-2" role="region" aria-label="Message composition controls">
           <Button
             type="button"
             variant={isRecording ? "destructive" : "secondary"}
             size="icon"
-            className={`h-11 w-11 shrink-0 rounded-xl transition-all cursor-pointer ${
+            className={`h-11 w-11 shrink-0 rounded-xl transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none ${
               isRecording
                 ? "bg-rose-600 hover:bg-rose-500 text-white shadow-lg shadow-rose-600/30 ring-2 ring-rose-500/40"
                 : "bg-slate-800 hover:bg-slate-700 text-slate-200"
             }`}
             onClick={toggleMicrophone}
             title={isRecording ? "Mute Microphone" : "Start Live 16kHz Microphone"}
+            aria-label={isRecording ? "Mute live microphone" : "Start live 16kHz microphone"}
           >
             {isRecording ? (
               <Mic className="h-5 w-5 animate-pulse" />
@@ -309,8 +316,9 @@ export default function CustomerView() {
 
           <input
             type="text"
-            className="flex-1 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 px-4 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+            className="flex-1 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 px-4 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition"
             placeholder="Type your message or speak naturally into your mic..."
+            aria-label="Type your message to customer specialist"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSendText()}
@@ -319,8 +327,9 @@ export default function CustomerView() {
           <Button
             type="button"
             variant="default"
-            className="h-11 px-5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/20 cursor-pointer"
+            className="h-11 px-5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/20 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
             onClick={handleSendText}
+            aria-label="Send message"
           >
             <Send className="h-4 w-4 mr-1.5" /> Send
           </Button>

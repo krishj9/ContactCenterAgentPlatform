@@ -124,10 +124,14 @@ async def session_websocket_endpoint(
     token: str | None = Query(default=None),
     role: str = Query(default="customer"),
     participant_id: str | None = Query(default=None),
+    traceparent: str | None = Query(default=None),
 ) -> None:
-    """Real-time bi-directional voice and control channel."""
+    """Real-time bi-directional voice and control channel with W3C trace propagation."""
+    from app.core.telemetry import get_telemetry_manager
+
     sec = get_security_manager()
     manager = get_connection_manager()
+    telemetry = get_telemetry_manager()
 
     p_id = participant_id or f"{role}_{session_id[-4:]}"
     validated_role = role
@@ -149,6 +153,7 @@ async def session_websocket_endpoint(
 
     await websocket.accept()
     manager.register(session_id, p_id, validated_role, websocket)
+    telemetry.track_websocket_connect()
 
     # Instantiate transcription service callback linked to broadcast
     async def _on_event(evt: Any) -> None:
@@ -239,3 +244,4 @@ async def session_websocket_endpoint(
         logger.info("WebSocket disconnected: %s in session %s", p_id, session_id)
     finally:
         manager.remove(session_id, p_id)
+        telemetry.track_websocket_disconnect()

@@ -52,9 +52,17 @@ def create_app() -> FastAPI:
         }
 
     # Mount WebSocket and session endpoints
+    from app.api.feedback import router as feedback_router
+    from app.core.telemetry import get_telemetry_manager
     from app.ws.session import router as ws_router
 
     app.include_router(ws_router)
+    app.include_router(feedback_router)
+
+    @app.get("/metrics")
+    async def get_metrics() -> dict[str, Any]:
+        """Expose Prometheus/SLO telemetry golden signals."""
+        return get_telemetry_manager().get_metrics_summary()
 
     return app
 

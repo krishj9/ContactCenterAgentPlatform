@@ -97,10 +97,21 @@ class RealtimeOrchestrator:
         if self.debounce_seconds > 0:
             await asyncio.sleep(0.001)
 
-        # Classify through container's intent classifier port
-        intent_pred: IntentPrediction = await self.container.intent_classifier.classify(
-            recent_turns
-        )
+        from app.domain.intent import IntentCandidate
+
+        try:
+            intent_pred: IntentPrediction = await self.container.intent_classifier.classify(
+                recent_turns
+            )
+        except Exception as exc:
+            logger.error(f"Intent classifier failure during turn classification: {exc}")
+            intent_pred = IntentPrediction(
+                intent_label="general_inquiry",
+                confidence=0.50,
+                is_out_of_scope=False,
+                degraded=True,
+                candidate_intents=[IntentCandidate("general_inquiry", 0.50)],
+            )
 
         events: list[WebSocketEvent] = []
 

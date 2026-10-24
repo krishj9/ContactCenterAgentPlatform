@@ -31,6 +31,7 @@ import { NextBestActionCard, type ActionStepItem } from "@/components/agent/Next
 import { SuggestedResponseCard } from "@/components/agent/SuggestedResponseCard";
 import { EvidenceDrawer } from "@/components/agent/EvidenceDrawer";
 import { SummaryModal } from "@/components/agent/SummaryModal";
+import { FeedbackControls } from "@/components/agent/FeedbackControls";
 
 import { useAudioWorklet } from "@/audio/useAudioWorklet";
 import { WebSocketClient, type ConnectionState } from "@/services/websocket";
@@ -796,6 +797,14 @@ export default function AgentCockpit() {
             citations={nbaCitations}
             onInsert={(text) => setInputText(text)}
             onCitationClick={handleCitationClick}
+          />
+
+          {/* Real-time Agent Feedback & BigQuery Telemetry (P9.8) */}
+          <FeedbackControls
+            sessionId={sessionId}
+            itemId={`rec_${activeIntent}`}
+            itemType="recommendation"
+            currentIntent={activeIntent}
           />
         </div>
       </div>

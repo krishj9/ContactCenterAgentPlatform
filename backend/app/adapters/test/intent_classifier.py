@@ -14,9 +14,11 @@ class TestIntentClassifier:
         self.default_intent = default_intent
 
     async def classify(self, turns: list[str]) -> IntentPrediction:
-        joined = " ".join(turns).lower()
+        import re
 
-        if any(w in joined for w in ["weather", "snow", "rain", "recipe", "yeast", "cookie"]):
+        joined = " ".join(turns).lower()
+        words = set(re.findall(r"\b\w+\b", joined))
+        if words & {"weather", "snow", "rain", "recipe", "yeast", "cookie"}:
             return IntentPrediction(
                 intent_label="out_of_scope",
                 confidence=0.92,

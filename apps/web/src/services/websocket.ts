@@ -3,6 +3,7 @@
  * message buffering, packet sequence tracking, and binary audio frame streaming.
  */
 
+import { createTraceparent } from "../telemetry/otel";
 import type { InboundEvent, OutboundEvent } from "../types/contracts";
 
 export type ConnectionState = "idle" | "connecting" | "connected" | "disconnected" | "error";
@@ -104,6 +105,7 @@ export class WebSocketClient {
     const query = new URLSearchParams({
       role: this.role,
       participant_id: this.participantId,
+      traceparent: createTraceparent(),
     });
     if (this.token) {
       query.set("token", this.token);
