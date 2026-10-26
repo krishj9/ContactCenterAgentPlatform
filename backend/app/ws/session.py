@@ -161,11 +161,19 @@ async def session_websocket_endpoint(
 
     # In local/test mode, use LocalFasterWhisperSTT
     from app.adapters.local.whisper_stt import LocalFasterWhisperSTT
+    from app.core.config import get_settings
+    from app.core.container import get_container
+    from app.services.realtime_orchestrator import RealtimeOrchestrator
 
     stt_adapter = LocalFasterWhisperSTT()
+    orchestrator = RealtimeOrchestrator(
+        container=get_container(),
+        debounce_ms=get_settings().INTENT_DEBOUNCE_MS,
+    )
     transcription_service = TranscriptionService(
         stt_adapter=stt_adapter,
         event_callback=_on_event,
+        orchestrator=orchestrator,
     )
 
     # Emit SessionReadyEvent

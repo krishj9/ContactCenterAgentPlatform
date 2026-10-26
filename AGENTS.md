@@ -11,7 +11,7 @@ All development must strictly adhere to the following stack:
 | Component | Standard / Version | Tooling & Notes |
 |---|---|---|
 | **Python Runtime** | **Python 3.14.8** | Pinned via `.python-version`. Must use `/Users/krishnajammula/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14` or `uv python pin 3.14.8`. |
-| **Package & Env Manager** | **uv** | Never use raw `pip` or virtualenv. Always use `uv venv`, `uv pip`, `uv run`, `uv add`. |
+| **Package & Env Manager** | **uv** | Never use raw `pip` or virtualenv. Always use `uv venv`, `uv sync`, `uv run`, `uv add`. |
 | **Backend Framework** | **FastAPI** | Async-first architecture, Pydantic v2 strict schema validation, Uvicorn ASGI server. |
 | **Frontend Framework** | **Vite 6 + React 19 + TypeScript** | Pure SPA architecture in `apps/web/`, zero SSR hydration overhead. |
 | **UI Components & Styling** | **Tailwind CSS v4 + shadcn/ui** | Radix UI primitives, Lucide React icons, dark/light theme support. |
@@ -33,8 +33,8 @@ Always invoke tools using `uv`:
 uv venv --python 3.14.8 .venv
 source .venv/bin/activate
 
-# Install dependencies
-uv pip install -r backend/requirements.txt
+# Install dependencies and dev tools
+uv sync
 
 # Run backend development server
 uv run uvicorn backend.app.main:app --reload --port 8000

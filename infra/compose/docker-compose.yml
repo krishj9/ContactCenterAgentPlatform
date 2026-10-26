@@ -54,6 +54,13 @@ services:
       CC_POSTGRES_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/cc_platform
       CC_REDIS_URL: redis://redis:6379/0
       CC_DEBUG: "true"
+      CC_GCP_PROJECT: ${CC_GCP_PROJECT:-${GCP_PROJECT:-cc-agent-platform-dev}}
+      CC_GCP_REGION: ${CC_GCP_REGION:-us-central1}
+      CC_GEMINI_MODEL: ${CC_GEMINI_MODEL:-gemini-3.8-flash}
+      CC_USE_GCP_LLM: "true"
+      GOOGLE_APPLICATION_CREDENTIALS: /home/appuser/.config/gcloud/application_default_credentials.json
+    volumes:
+      - ${HOME}/.config/gcloud:/home/appuser/.config/gcloud:ro
     ports:
       - "8000:8000"
     depends_on:

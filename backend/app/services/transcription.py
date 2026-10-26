@@ -112,11 +112,15 @@ class TranscriptionService:
         # Trigger downstream orchestrator for customer turns
         if role == EventRole.CUSTOMER and self.orchestrator is not None:
             try:
-                await self.orchestrator.handle_customer_turn(
+                orch_events = await self.orchestrator.handle_customer_turn(
                     session_id=session_id,
                     turn_id=turn_id,
                     utterance_text=final_text.strip(),
                 )
+                if orch_events:
+                    for o_evt in orch_events:
+                        if getattr(o_evt, "type", "") != "transcript.final":
+                            await self._emit_event(o_evt)
             except Exception as e:
                 logger.error("Orchestrator customer turn dispatch failed: %s", e)
 
@@ -137,11 +141,15 @@ class TranscriptionService:
 
         if event.speaker == EventRole.CUSTOMER and self.orchestrator is not None:
             try:
-                await self.orchestrator.handle_customer_turn(
+                orch_events = await self.orchestrator.handle_customer_turn(
                     session_id=event.session_id,
                     turn_id=turn_id,
                     utterance_text=event.text.strip(),
                 )
+                if orch_events:
+                    for o_evt in orch_events:
+                        if getattr(o_evt, "type", "") != "transcript.final":
+                            await self._emit_event(o_evt)
             except Exception as e:
                 logger.error("Orchestrator manual customer turn dispatch failed: %s", e)
 

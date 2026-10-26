@@ -1,7 +1,8 @@
-"""GCP Vertex AI Gemini Flash 1.5 adapter with schema-constrained decoding (P7.9)."""
+"""GCP Vertex AI Gemini 3.8 Flash adapter with schema-constrained decoding (P7.9)."""
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 from typing import Any
@@ -19,39 +20,42 @@ logger = logging.getLogger(__name__)
 
 
 class VertexAIGeminiGenerator:
-    """Generator port adapter connecting to GCP Vertex AI Gemini Flash 1.5 with response_schema."""
+    """Generator port adapter connecting to GCP Vertex AI Gemini 3.8 Flash with response_schema."""
 
     def __init__(
         self,
         project_id: str | None = None,
         location: str = "us-central1",
-        model_name: str = "gemini-1.5-flash-002",
+        model_name: str = "gemini-3.8-flash",
         fallback_service: PlaybookFallbackService | None = None,
         verifier: ClaimAndCitationVerifier | None = None,
     ) -> None:
         self.project_id = project_id
         self.location = location
         self.model_name = model_name
-        self._model: Any | None = None
+        self._client: Any | None = None
         self._fallback_service = fallback_service or PlaybookFallbackService()
         self._verifier = verifier or ClaimAndCitationVerifier()
 
-    def _get_model(self) -> Any:
-        if self._model is None:
+    def _get_client(self) -> Any:
+        if self._client is None:
+            settings = get_settings()
+            proj = self.project_id or getattr(settings, "GCP_PROJECT", "cc-agent-platform-dev")
+            loc = self.location or getattr(settings, "GCP_REGION", "us-central1")
             try:
-                import vertexai
-                from vertexai.generative_models import GenerativeModel
+                from google import genai
 
-                settings = get_settings()
-                proj = self.project_id or getattr(settings, "GCP_PROJECT", "cc-agent-platform-dev")
-                vertexai.init(project=proj, location=self.location)
-                self._model = GenerativeModel(self.model_name)
+                self._client = genai.Client(
+                    vertexai=True,
+                    project=proj,
+                    location=loc,
+                )
             except Exception as e:
                 logger.info(
-                    "Vertex AI Gemini model not available offline (%s). Using fallback playbooks.",
+                    "Vertex AI Gemini 3.8 Flash not available offline (%s). Using fallback playbooks.",
                     e,
                 )
-        return self._model
+        return self._client
 
     async def generate_action(
         self,
@@ -82,10 +86,49 @@ class VertexAIGeminiGenerator:
         session_id: str,
         transcript_turns: list[dict[str, Any]],
     ) -> CallSummary:
-        """Generate structured post-call summary and CRM case note."""
+        """Generate structured post-call summary and CRM case note using Gemini 3.8 Flash."""
+        client = self._get_client()
         customer_texts = [
             t.get("text", "") for t in transcript_turns if t.get("speaker") == "customer"
         ]
+
+        if client is not None and transcript_turns:
+            try:
+                from google.genai import types
+
+                turns_formatted = "\n".join(
+                    f"{t.get('speaker', 'unknown').upper()}: {t.get('text', '')}"
+                    for t in transcript_turns
+                )
+                prompt = (
+                    "You are a Contact Center AI assistant. Summarize the following customer-agent call into a structured summary.\n\n"
+                    f"CALL TRANSCRIPT:\n{turns_formatted}\n\n"
+                    "Output a JSON object with keys: call_overview (string), key_issues (list of strings), "
+                    "actions_completed (list of strings), required_followups (list of strings), crm_case_note (string)."
+                )
+                config = types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.2,
+                )
+                response = await asyncio.to_thread(
+                    client.models.generate_content,
+                    model=self.model_name,
+                    contents=prompt,
+                    config=config,
+                )
+                if response.text:
+                    data = json.loads(response.text)
+                    return CallSummary(
+                        summary_id=f"sum_{session_id}",
+                        session_id=session_id,
+                        call_overview=data.get("call_overview", ""),
+                        key_issues=data.get("key_issues", []),
+                        actions_completed=data.get("actions_completed", []),
+                        required_followups=data.get("required_followups", []),
+                        crm_case_note=data.get("crm_case_note", ""),
+                    )
+            except Exception as e:
+                logger.info("Vertex AI summary generation fallback: %s", e)
 
         overview = (
             f"Customer interaction ({len(transcript_turns)} turns) resolved with guidance. "
@@ -116,12 +159,12 @@ class VertexAIGeminiGenerator:
         evidence: list[EvidenceChunk],
         customer_context: dict[str, Any] | None,
     ) -> RAGGenerationOutput | None:
-        """Invoke Vertex AI Gemini model with JSON schema."""
-        model = self._get_model()
-        if model is None or not evidence:
+        """Invoke Vertex AI Gemini 3.8 Flash with JSON schema."""
+        client = self._get_client()
+        if client is None or not evidence:
             return None
 
-        from vertexai.generative_models import GenerationConfig
+        from google.genai import types
 
         context_text = "\n\n".join(f"[{c.chunk_id}] {c.title}\n{c.text}" for c in evidence)
 
@@ -132,15 +175,24 @@ class VertexAIGeminiGenerator:
             f"CUSTOMER CONTEXT: {customer_context or 'Standard Premier Account'}\n"
         )
 
-        config = GenerationConfig(
+        config = types.GenerateContentConfig(
             response_mime_type="application/json",
+            response_schema=RAGGenerationOutput,
             temperature=0.1,
         )
 
-        response = model.generate_content(prompt, generation_config=config)
-        if response.text:
-            parsed = json.loads(response.text)
-            return RAGGenerationOutput.model_validate(parsed)
+        try:
+            response = await asyncio.to_thread(
+                client.models.generate_content,
+                model=self.model_name,
+                contents=prompt,
+                config=config,
+            )
+            if response.text:
+                parsed = json.loads(response.text)
+                return RAGGenerationOutput.model_validate(parsed)
+        except Exception as e:
+            logger.info("Vertex AI Gemini 3.8 Flash call failed: %s", e)
         return None
 
     async def generate_rag_response(
@@ -149,12 +201,12 @@ class VertexAIGeminiGenerator:
         context_chunks: list[EvidenceChunk],
         customer_context: dict[str, Any] | None = None,
     ) -> RAGGenerationOutput:
-        """Generate structured NextBestAction and SuggestedResponse using Gemini Flash."""
-        model = self._get_model()
+        """Generate structured NextBestAction and SuggestedResponse using Gemini 3.8 Flash."""
+        client = self._get_client()
 
-        if model is not None and context_chunks:
+        if client is not None and context_chunks:
             try:
-                from vertexai.generative_models import GenerationConfig
+                from google.genai import types
 
                 context_text = "\n\n".join(
                     f"[{c.chunk_id}] {c.title}\n{c.text}" for c in context_chunks
@@ -166,12 +218,18 @@ class VertexAIGeminiGenerator:
                     f"CUSTOMER QUERY: {query}\n"
                 )
 
-                config = GenerationConfig(
+                config = types.GenerateContentConfig(
                     response_mime_type="application/json",
+                    response_schema=RAGGenerationOutput,
                     temperature=0.1,
                 )
 
-                response = model.generate_content(prompt, generation_config=config)
+                response = await asyncio.to_thread(
+                    client.models.generate_content,
+                    model=self.model_name,
+                    contents=prompt,
+                    config=config,
+                )
                 if response.text:
                     parsed = json.loads(response.text)
                     return RAGGenerationOutput.model_validate(parsed)

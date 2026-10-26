@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Center Agent Platform - Engineering Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--dark); color: #fff; }
+        
+        .slide-container { height: 100vh; overflow: hidden; }
+        .slide { height: 100vh; padding: 2rem 4rem; opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateX(100%); position: absolute; top: 0; left: 0; }
+        .slide.active { opacity: 1; transform: translateX(0); position: relative; z-index: 10; }
+        .slide.prev { opacity: 0; transform: translateX(-100%); }
+        
+        h1 { font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, #fff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; font-weight: 600; color: var(--primary); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; font-weight: 600; color: var(--accent); margin: 1.5rem 0 1rem 0; }
+        p { font-size: 1.125rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 1rem; }
+        
+        .grid-container { display: grid; gap: 1.5rem; }
+        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        
+        .card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 1rem; padding: 1.5rem; transition: all 0.3s ease; }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15); }
+        
+        .code-block { background: rgba(15, 23, 42, 0.95); border: 1px solid #334155; border-radius: 0.75rem; padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; overflow-x: auto; margin: 1rem 0; }
+        .code-block .keyword { color: #c084fc; }
+        .code-block .string { color: #86efac; }
+        .code-block .function { color: #60a5fa; }
+        .code-block .type { color: #f472b6; }
+        .code-block .comment { color: #94a3b8; }
+        
+        .mermaid { background: rgba(15, 23, 42, 0.9); border-radius: 0.75rem; padding: 1.5rem; overflow-x: auto; }
+        
+        .badge { display: inline-block; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; }
+        .badge-python { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+        .badge-js { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid #8b5cf6; }
+        .badge-gcp { background: rgba(234, 179, 8, 0.2); color: #fbbf24; border: 1px solid #eab308; }
+        
+        ul { list-style: none; margin: 0; }
+        ul li { position: relative; padding-left: 2rem; margin-bottom: 0.75rem; }
+        ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+        
+        .table-container { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; background: rgba(30, 41, 59, 0.6); border-radius: 0.75rem; overflow: hidden; }
+        th, td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid rgba(148, 163, 184, 0.2); }
+        th { background: rgba(37, 99, 235, 0.3); color: #fff; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        tr:last-child td { border-bottom: none; }
+        
+        .nav-controls { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 1rem; z-index: 100; }
+        .nav-btn { background: rgba(37, 99, 235, 0.9); border: none; color: white; padding: 0.75rem 1.5rem; border-radius: 9999px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .nav-btn:hover { background: var(--primary); transform: scale(1.05); }
+        
+        .slide-number { position: fixed; bottom: 2rem; right: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; color: rgba(148, 163, 184, 0.6); }
+        
+        .stat-card { text-align: center; }
+        .stat-value { font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-label { font-size: 0.875rem; color: #94a3b8; margin-top: 0.5rem; }
+        
+        .feature-icon { width: 3rem; height: 3rem; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">

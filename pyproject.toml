@@ -4,10 +4,24 @@ version = "0.1.0"
 description = "Contact Center Agent Helper Platform"
 readme = "README.md"
 requires-python = "==3.14.8"
-dependencies = []
+dependencies = [
+    "cc-agent-platform-backend",
+]
+
+[dependency-groups]
+dev = [
+    "cc-agent-platform-backend[dev]",
+]
 
 [tool.uv]
 managed = true
+package = false
+
+[tool.uv.sources]
+cc-agent-platform-backend = { workspace = true }
+
+[tool.uv.workspace]
+members = ["backend"]
 
 [tool.ruff]
 target-version = "py313"

@@ -77,6 +77,7 @@ class Container:
             self._generator: Generator = VertexAIGeminiGenerator(
                 project_id=self.settings.GCP_PROJECT,
                 location=self.settings.GCP_REGION,
+                model_name=self.settings.GEMINI_MODEL,
             )
             self._session_state_store: SessionStateStore = TestSessionStateStore()
             self._event_bus: EventBus = RedisEventBus(redis_url=self.settings.REDIS_URL)
@@ -96,7 +97,16 @@ class Container:
             self._vector_index: VectorIndex = TestVectorIndex()
             self._document_store: DocumentStore = TestDocumentStore()
             self._reranker: Reranker = TestReranker()
-            self._generator: Generator = TestGenerator()
+            if self.settings.USE_GCP_LLM:
+                from app.adapters.gcp.generator import VertexAIGeminiGenerator
+
+                self._generator: Generator = VertexAIGeminiGenerator(
+                    project_id=self.settings.GCP_PROJECT,
+                    location=self.settings.GCP_REGION,
+                    model_name=self.settings.GEMINI_MODEL,
+                )
+            else:
+                self._generator: Generator = TestGenerator()
             self._session_state_store: SessionStateStore = TestSessionStateStore()
             self._event_bus: EventBus = TestEventBus()
             self._blob_store: BlobStore = TestBlobStore()

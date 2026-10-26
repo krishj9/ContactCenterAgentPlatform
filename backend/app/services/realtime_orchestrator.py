@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+from typing import Any
 
 from app.contracts.events_v1 import (
     EventRole,
@@ -20,6 +21,7 @@ from app.contracts.events_v1 import (
     WebSocketEvent,
 )
 from app.core.container import Container, get_container
+from app.domain.evidence import EvidenceChunk
 from app.domain.intent import IntentPrediction
 
 logger = logging.getLogger(__name__)
@@ -81,12 +83,50 @@ class RealtimeOrchestrator:
         self._emitted_events.extend(events_emitted)
         return events_emitted
 
+    async def handle_customer_turn(
+        self,
+        session_id: str,
+        turn_id: int,
+        utterance_text: str,
+    ) -> list[WebSocketEvent]:
+        """Convenience bridge for customer speech and chat turns."""
+        return await self.handle_transcript_final(
+            session_id=session_id,
+            turn_id=turn_id,
+            speaker=EventRole.CUSTOMER,
+            text=utterance_text,
+        )
+
+    def _load_policy_evidence(self, intent_label: str) -> list[Any]:
+        """Load policy evidence chunks matching the classified intent."""
+        from app.services.rag.fallback import PlaybookFallbackService
+
+        fallback_service = PlaybookFallbackService()
+        playbook = fallback_service._playbooks.get(intent_label)
+        if not playbook:
+            playbook = fallback_service._playbooks.get("card_declined", {})
+
+        citations = playbook.get("default_citations", [f"pol_{intent_label}_01_s1"])
+        steps = playbook.get("steps", [])
+        title = playbook.get("title", f"{intent_label.replace('_', ' ').title()} Policy")
+        policy_text = f"{title}. Operational procedure:\n" + "\n".join(f"- {s}" for s in steps)
+
+        return [
+            EvidenceChunk(
+                chunk_id=citations[0] if citations else f"pol_{intent_label}_01",
+                store_type="policy",
+                title=title,
+                text=policy_text,
+                similarity_score=0.92,
+            )
+        ]
+
     async def _run_classification(
         self,
         session_id: str,
         turn_id: int,
     ) -> list[WebSocketEvent]:
-        """Execute intent classification and dispatch issue.update & guardrails."""
+        """Execute intent classification and dispatch issue.update, guardrails, & assist recommendation."""
         customer_history = self._customer_turns.get(session_id, [])
         recent_turns = customer_history[-3:] if customer_history else []
 
@@ -151,6 +191,76 @@ class RealtimeOrchestrator:
             )
             events.append(alert)
             await self.container.event_bus.publish(session_id, alert)
+        else:
+            # 3. Grounded Assist Recommendation generation via Generator (P5.5)
+            try:
+                evidence_chunks = self._load_policy_evidence(intent_pred.intent_label)
+                customer_context = {
+                    "session_id": session_id,
+                    "customer_id": "cust_sarah_jenkins_01",
+                    "account_type": "Sapphire Preferred Visa Signature",
+                    "relationship_tier": "Platinum",
+                    "last_utterance": recent_turns[-1] if recent_turns else "",
+                }
+                action, resp = await self.container.generator.generate_action(
+                    intent=intent_pred,
+                    evidence=evidence_chunks,
+                    customer_context=customer_context,
+                )
+                from app.contracts.events_v1 import (
+                    AssistRecommendationEvent,
+                    EvidenceItemPayload,
+                    GroundingStatus,
+                    NextBestActionPayload,
+                    SuggestedResponsePayload,
+                )
+
+                g_status = (
+                    GroundingStatus(action.grounding.state.value)
+                    if (action.grounding and hasattr(action.grounding.state, "value"))
+                    else GroundingStatus.GROUNDED
+                )
+                rec_event = AssistRecommendationEvent(
+                    session_id=session_id,
+                    turn_id=turn_id,
+                    recommendations=[
+                        NextBestActionPayload(
+                            action_id=action.action_id,
+                            title=action.title,
+                            description=action.description,
+                            action_type=action.action_type.value
+                            if hasattr(action.action_type, "value")
+                            else str(action.action_type),
+                            steps=action.steps,
+                            is_grounded=action.is_grounded,
+                            grounding_state=g_status,
+                            citations=action.citations,
+                        )
+                    ],
+                    suggested_response=SuggestedResponsePayload(
+                        text=resp.text,
+                        rationale=resp.rationale,
+                        is_grounded=resp.is_grounded,
+                        grounding_state=g_status,
+                        citations=resp.citations,
+                        is_editable=True,
+                    ),
+                    evidence=[
+                        EvidenceItemPayload(
+                            chunk_id=c.chunk_id,
+                            store_type=c.store_type,
+                            title=c.title,
+                            text=c.text,
+                            similarity_score=c.similarity_score,
+                        )
+                        for c in evidence_chunks
+                    ],
+                    grounding_state=g_status,
+                )
+                events.append(rec_event)
+                await self.container.event_bus.publish(session_id, rec_event)
+            except Exception as e:
+                logger.error("Assist recommendation generation failed: %s", e)
 
         return events
 

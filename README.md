@@ -38,7 +38,7 @@ flowchart TD
         STT["Speech-to-Text V2"]
         INTENT["Vertex AI Intent Classifier<br/>(Gemma 3 1B LoRA on L4 GPU)"]
         PG["Cloud SQL PostgreSQL 16<br/>(pgvector HNSW + tsvector)"]
-        LLM["Vertex AI Gemini 1.5 Flash<br/>(Grounded Generator)"]
+        LLM["Vertex AI Gemini 3.8 Flash<br/>(Grounded Generator)"]
         REDIS["Memorystore Redis 7<br/>(Session State & Pub/Sub)"]
     end
 
@@ -79,44 +79,70 @@ flowchart TD
 ## 3. Local Development Quickstart
 
 ### Prerequisites
-* macOS / Linux with [uv](https://github.com/astral-sh/uv) installed.
-* Docker Desktop or Podman for local PostgreSQL (pgvector) and Redis.
+* macOS / Linux with [uv](https://github.com/astral-sh/uv) (>= 0.4.0) and [Node.js](https://nodejs.org/) (>= 20).
+* Docker Desktop or Podman for containerized databases and services.
 
-### 1. Backend Setup & Virtual Environment
+---
+
+### Option A: All-in-One Docker Stack (Recommended for Evaluation)
+Launches the full containerized environment (PostgreSQL pgvector, Redis, API, and Web UI) with a single command:
+
 ```bash
-# Pin and create environment
+# Launch core application stack
+docker compose -f infra/compose/docker-compose.yml up -d
+
+# (Optional) Launch local observability stack (OTel Collector, Jaeger, Prometheus, Grafana, Loki)
+docker compose -f infra/compose/docker-compose.obs.yml up -d
+```
+* **Web UI**: [http://localhost:3000](http://localhost:3000)
+* **Backend API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Grafana Dashboards**: [http://localhost:3001](http://localhost:3001) (`admin`/`admin`)
+* **Jaeger Tracing**: [http://localhost:16686](http://localhost:16686)
+
+---
+
+### Option B: Local Development with Hot Reloading (Recommended for Coding)
+
+#### 1. Start Backing Infrastructure (Docker)
+Start only the stateful backing services:
+```bash
+# Start PostgreSQL pgvector, Redis, and Fake GCS
+docker compose -f infra/compose/docker-compose.yml up -d postgres redis fake-gcs-server
+
+# Run database migrations
+CC_APP_PROFILE=local uv run alembic -c backend/alembic.ini upgrade head
+```
+
+#### 2. Start Backend API Server
+```bash
+# Pin and create Python virtual environment
 uv venv --python 3.14.8 .venv
 source .venv/bin/activate
 
-# Install dependencies
-uv pip install -r backend/requirements.txt
-uv pip install -e ./backend
+# Install all workspace dependencies and dev tools
+uv sync
 
-# Run linting and formatting
-uv run ruff check .
-uv run ruff format .
-
-# Run offline unit and integration test suite
-uv run pytest backend/tests/ -v
+# Run backend with live reload on http://localhost:8000
+uv run uvicorn backend.app.main:app --reload --port 8000
 ```
 
-### 2. Frontend Development Server
+#### 3. Start Frontend Development Server
+In a separate terminal:
 ```bash
 cd apps/web
 npm install
 npm run dev
-# Open http://localhost:3000
+# Vite dev server running on http://localhost:3000
 ```
 
-### 3. Local Docker Compose Stack
+#### 4. Testing & Code Quality
 ```bash
-# Launch core stack (PostgreSQL pgvector, Redis, API, Web)
-docker compose -f infra/compose/docker-compose.yml up -d
+# Run offline unit and integration test suite
+uv run pytest backend/tests/ -v
 
-# Launch local observability profile (OTel Collector, Jaeger, Prometheus, Grafana, Loki)
-docker compose -f infra/compose/docker-compose.obs.yml up -d
-# Access Grafana dashboards at http://localhost:3001 (admin/admin)
-# Access Jaeger Tracing at http://localhost:16686
+# Run linter and formatter
+uv run ruff check .
+uv run ruff format .
 ```
 
 ---

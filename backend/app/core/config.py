@@ -103,6 +103,14 @@ class Settings(BaseSettings):
         default="http://localhost:8001/v1/classify",
         description="Vertex AI Endpoint URL or proxy for intent classification.",
     )
+    GEMINI_MODEL: str = Field(
+        default="gemini-3.8-flash",
+        description="Active Gemini model name on Vertex AI.",
+    )
+    USE_GCP_LLM: bool = Field(
+        default=True,
+        description="Whether to use real GCP Vertex AI Gemini LLM in local profile.",
+    )
 
     @property
     def corpus_paths(self) -> CorpusPaths:

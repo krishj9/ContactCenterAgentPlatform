@@ -11,12 +11,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
 ENV UV_COMPILE_BYTECODE=1 \
-    UV_LINK_MODE=copy
+    UV_LINK_MODE=copy \
+    UV_PYTHON_INSTALL_DIR=/opt/python
 
-COPY backend/pyproject.toml backend/requirements.txt ./
-RUN uv venv /app/.venv && \
-    . /app/.venv/bin/activate && \
-    uv pip install -r requirements.txt
+# Copy dependency configuration and lockfile for layer-cached installation
+COPY pyproject.toml uv.lock ./
+COPY backend/pyproject.toml backend/
+
+# Install locked production dependencies without dev tools or local project source
+RUN uv sync --frozen --no-dev --no-install-workspace && \
+    chmod -R a+rx /opt/python
 
 # Stage 2: Production runtime image
 FROM python:3.14-slim AS runner
@@ -27,6 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+COPY --from=builder /opt/python /opt/python
 COPY --from=builder /app/.venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONPATH="/app/backend:/app" \
