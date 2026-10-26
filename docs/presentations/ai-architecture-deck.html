@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scaling Next-Gen AI Architecture — RAG, Fine-Tuning, Real-Time & Security</title>
+  <meta name="description" content="Technical deep dive into production AI architecture: multi-stage RAG, cross-encoder reranking, fine-tuning trade-offs, WebSocket token streaming with Pub/Sub scaling, and enterprise AI guardrails." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+
+  <style>
+    :root {
+      --bg-0: #0b0f17;
+      --bg-1: #111827;
+      --bg-2: #161e2e;
+      --line: rgba(148, 163, 184, 0.16);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --cyan: #22d3ee;
+      --purple: #a78bfa;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+      --radius: 14px;
+      --font-head: "Inter Tight", "Inter", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    .reveal-viewport {
+      background:
+        radial-gradient(1200px 600px at 85% -10%, rgba(167, 139, 250, 0.14), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(34, 211, 238, 0.10), transparent 60%),
+        var(--bg-0);
+    }
+
+    .reveal {
+      font-family: var(--font-body);
+      font-size: 26px;
+      color: var(--text);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: var(--font-head);
+      text-transform: none;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-shadow: none;
+    }
+
+    .reveal h2 { font-size: 1.7em; margin-bottom: 0.15em; font-weight: 800; }
+    .reveal h3 { font-size: 0.95em; font-weight: 700; margin: 0 0 0.4em; }
+    .reveal p, .reveal li { line-height: 1.45; }
+    .reveal .slides section { text-align: left; }
+    .reveal ul { margin: 0 0 0 1em; }
+    .reveal li { margin: 0.18em 0; }
+    .reveal strong { color: var(--text); font-weight: 600; }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.5em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.4em;
+    }
+
+    .lede { color: var(--muted); font-size: 0.72em; margin: 0 0 0.9em; max-width: 92%; }
+
+    .c-cyan { color: var(--cyan); }
+    .c-purple { color: var(--purple); }
+    .c-emerald { color: var(--emerald); }
+    .c-amber { color: var(--amber); }
+    .c-rose { color: var(--rose); }
+    .muted { color: var(--muted); }
+    .mono { font-family: var(--font-mono); font-size: 0.92em; }
+
+    .grid { display: grid; gap: 18px; }
+    .g2 { grid-template-columns: 1fr 1fr; }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g4 { grid-template-columns: repeat(2, 1fr); }
+    .g-6-4 { grid-template-columns: 1.25fr 1fr; align-items: start; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(22, 30, 46, 0.92), rgba(17, 24, 39, 0.92));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      font-size: 0.62em;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute; inset: 0 0 auto 0; height: 3px;
+      background: var(--accent, var(--cyan));
+    }
+    .card ul { margin-left: 1.05em; }
+    .card .step {
+      font-family: var(--font-mono);
+      font-size: 0.82em;
+      color: var(--accent, var(--cyan));
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .a-cyan { --accent: var(--cyan); }
+    .a-purple { --accent: var(--purple); }
+    .a-emerald { --accent: var(--emerald); }
+    .a-amber { --accent: var(--amber); }
+    .a-rose { --accent: var(--rose); }
+
+    /* Pipeline flow */
+    .flow {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 0.5em;
+      margin: 0 0 18px;
+      flex-wrap: wrap;
+    }
+    .flow .node {
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--bg-2);
+      color: var(--text); white-space: nowrap;
+    }
+    .flow .node.hl { border-color: rgba(34, 211, 238, 0.55); box-shadow: 0 0 18px rgba(34, 211, 238, 0.18); }
+    .flow .arrow { color: var(--muted); }
+
+    /* Code */
+    .reveal pre {
+      width: 100%; margin: 0; box-shadow: none;
+      font-size: 0.42em; border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+    .reveal pre code {
+      font-family: var(--font-mono);
+      max-height: 420px; padding: 14px 16px; line-height: 1.5;
+      background: #0d1320; border-radius: 12px;
+    }
+    .code-label {
+      font-family: var(--font-mono); font-size: 0.42em; color: var(--muted);
+      margin: 0 0 6px; letter-spacing: 0.06em;
+    }
+
+    /* Funnel */
+    .funnel { display: flex; flex-direction: column; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.5em; }
+    .funnel .tier {
+      text-align: center; padding: 9px 0; border-radius: 10px;
+      border: 1px solid var(--line); background: var(--bg-2);
+    }
+    .funnel .t1 { width: 100%; border-color: rgba(148,163,184,.35); }
+    .funnel .t2 { width: 74%; border-color: rgba(167,139,250,.55); color: var(--purple); }
+    .funnel .t3 { width: 46%; border-color: rgba(52,211,153,.6); color: var(--emerald); box-shadow: 0 0 22px rgba(52,211,153,.18); }
+    .funnel small { display: block; color: var(--muted); font-size: 0.85em; margin-top: 2px; }
+
+    /* Table */
+    .matrix { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.56em; }
+    .reveal table.matrix th, .reveal table.matrix td {
+      border-bottom: 1px solid var(--line); padding: 11px 14px; vertical-align: top; text-align: left;
+    }
+    .reveal table.matrix thead th {
+      font-family: var(--font-head); font-size: 1.05em; border-bottom: 2px solid var(--line);
+    }
+    .reveal table.matrix tbody th { color: var(--muted); font-weight: 600; width: 19%; }
+    .matrix .col-rag { color: var(--cyan); }
+    .matrix .col-ft { color: var(--purple); }
+    .pill {
+      display: inline-block; font-family: var(--font-mono); font-size: 0.78em;
+      padding: 1px 8px; border-radius: 999px; margin-right: 6px; border: 1px solid currentColor;
+    }
+    .win { color: var(--emerald); }
+    .mid { color: var(--amber); }
+    .lose { color: var(--rose); }
+
+    /* Architecture lanes */
+    .lane {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: stretch;
+      margin-bottom: 14px;
+    }
+    .lane .box {
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px;
+      padding: 12px; font-size: 0.5em; position: relative; margin: 0 14px;
+    }
+    .lane .box:not(:last-child)::after {
+      content: "⇄"; position: absolute; right: -24px; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: 1.4em;
+    }
+    .lane .box b { display: block; font-family: var(--font-head); font-size: 1.12em; margin-bottom: 4px; }
+    .lane .box span { color: var(--muted); }
+
+    /* Stack diagram */
+    .stack { display: flex; flex-direction: column; gap: 8px; font-size: 0.52em; }
+    .stack .layer {
+      display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 12px;
+      border: 1px solid var(--line); border-radius: 12px; padding: 9px 14px; background: var(--bg-2);
+      border-left: 4px solid var(--accent, var(--cyan));
+    }
+    .stack .layer .lbl { font-family: var(--font-mono); font-size: 0.86em; color: var(--accent, var(--cyan)); letter-spacing: 0.06em; }
+    .stack .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .chip { font-family: var(--font-mono); font-size: 0.86em; padding: 3px 9px; border-radius: 7px; background: rgba(148,163,184,.08); border: 1px solid var(--line); }
+
+    /* Title slide */
+    .title-wrap { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .title-wrap h1 {
+      font-size: 3.1em; line-height: 1.02; font-weight: 800; margin: 0 0 0.3em;
+      background: linear-gradient(92deg, #f8fafc 10%, var(--cyan) 55%, var(--purple) 95%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .title-wrap .sub { font-size: 0.95em; color: var(--muted); max-width: 80%; }
+    .tags { display: flex; gap: 10px; margin-top: 1.4em; flex-wrap: wrap; }
+    .tag { font-family: var(--font-mono); font-size: 0.48em; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(17,24,39,.7); }
+    .tag i { font-style: normal; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+    .callout {
+      margin-top: 14px; font-size: 0.56em; padding: 10px 14px; border-radius: 10px;
+      background: rgba(34, 211, 238, 0.07); border: 1px solid rgba(34, 211, 238, 0.28);
+    }
+    .callout.purple { background: rgba(167,139,250,.08); border-color: rgba(167,139,250,.3); }
+
+    .reveal .progress { color: var(--cyan); height: 3px; }
+    .reveal .controls { color: var(--cyan); }
+    .reveal .slide-number { background: transparent; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+
+    .reveal .fragment.fade-up { transform: translate(0, 18px); }
+    .reveal .fragment.fade-up.visible { transform: none; }
+
+    @media (max-width: 900px) {
+      .g2, .g3, .g4, .g-6-4 { grid-template-columns: 1fr; }
+      .lane { grid-template-columns: 1fr 1fr; row-gap: 12px; }
+      .lane .box::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1 · TITLE -->
+    <section data-background-transition="fade">
+      <div class="title-wrap">
+        <div class="kicker">Architecture Deep Dive · 2026</div>
+        <h1>Scaling Next-Gen<br/>AI Architecture</h1>
+        <p class="sub">Deep Dive into RAG, Fine-Tuning, Real-Time WebSockets, and AI Security</p>
+        <div class="tags">
+          <span class="tag"><i style="background:var(--cyan)"></i>Hybrid Retrieval</span>
+          <span class="tag"><i style="background:var(--purple)"></i>Cross-Encoder Reranking</span>
+          <span class="tag"><i style="background:var(--emerald)"></i>LoRA Fine-Tuning</span>
+          <span class="tag"><i style="background:var(--amber)"></i>WebSocket + Pub/Sub</span>
+          <span class="tag"><i style="background:var(--rose)"></i>Guardrails &amp; RBAC</span>
+        </div>
+      </div>
+      <aside class="notes">Frame the talk: every section maps to a failure mode seen in production — stale knowledge, irrelevant context, cost blowups, dropped streams, and data leakage.</aside>
+    </section>
+
+    <!-- 2 · RAG -->
+    <section>
+      <div class="kicker">01 · Retrieval-Augmented Generation</div>
+      <h2>The Multi-Stage RAG Pipeline</h2>
+      <p class="lede">RAG decouples <span class="c-cyan">knowledge</span> (indexed, versioned, auditable) from <span class="c-purple">reasoning</span> (the model). Quality is decided long before the prompt is built.</p>
+
+      <div class="flow">
+        <span class="node">Ingestion</span><span class="arrow">→</span>
+        <span class="node">Chunking</span><span class="arrow">→</span>
+        <span class="node hl">Embedding</span><span class="arrow">→</span>
+        <span class="node hl">Vector DB</span><span class="arrow">→</span>
+        <span class="node">Retrieval + Rerank</span><span class="arrow">→</span>
+        <span class="node">Grounded Generation</span>
+      </div>
+
+      <div class="grid g3">
+        <div class="card a-cyan fragment fade-up">
+          <div class="step">STAGE 1 · OFFLINE</div>
+          <h3>Document Ingestion</h3>
+          <ul>
+            <li>Parse PDF/HTML/Markdown into a <strong>structure tree</strong>, not flat text.</li>
+            <li>Heading-aware chunking: <span class="mono c-cyan">~400–600 tokens</span>, 10–15% overlap, never split tables.</li>
+            <li>Attach lineage metadata: <span class="mono">doc_id</span>, version, effective dates, ACL tags.</li>
+            <li>Content-hash every chunk → idempotent re-indexing, cheap diffs.</li>
+          </ul>
+        </div>
+        <div class="card a-purple fragment fade-up">
+          <div class="step">STAGE 2 · ONLINE · ≤ 80 ms</div>
+          <h3>Vector Search</h3>
+          <ul>
+            <li>Embed query with the <strong>same model + task type</strong> used at index time.</li>
+            <li>ANN via <span class="mono c-purple">HNSW</span> (m=16, ef_search=40–100) — tune recall vs. p99.</li>
+            <li>Hybrid: dense cosine + sparse BM25 / <span class="mono">tsvector</span>, merged with <strong>Reciprocal Rank Fusion</strong>.</li>
+            <li>Metadata pre-filters (tenant, status=active) <em>inside</em> the index query.</li>
+          </ul>
+        </div>
+        <div class="card a-emerald fragment fade-up">
+          <div class="step">STAGE 3 · ONLINE · STREAMED</div>
+          <h3>LLM Generation</h3>
+          <ul>
+            <li>Assemble context in <strong>relevance order</strong>, IDs inline: <span class="mono">[pol_17_s4]</span>.</li>
+            <li>Schema-constrained decoding (JSON schema) → parseable, typed output.</li>
+            <li>Post-hoc citation verification: every claim must map to a retrieved chunk ID.</li>
+            <li>Abstain path when evidence is below threshold — never improvise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout fragment"><span class="c-cyan mono">RRF(d) = Σ 1 / (k + rank<sub>i</sub>(d))</span>, k ≈ 60 — rank-based fusion avoids calibrating incompatible score scales between BM25 and cosine similarity.</div>
+    </section>
+
+    <!-- 3 · RERANKING -->
+    <section>
+      <div class="kicker">02 · Retrieval Optimization</div>
+      <h2>Why Vector Search Alone Isn't Enough</h2>
+      <p class="lede">Bi-encoders compress an entire passage into one vector <em>before</em> seeing the query. That's fast — and lossy. Reranking restores precision where it matters.</p>
+
+      <div class="grid g-6-4">
+        <div>
+          <div class="grid g2">
+            <div class="card a-cyan fragment fade-up">
+              <div class="step">BI-ENCODER · RECALL</div>
+              <h3>Encode separately, compare cheaply</h3>
+              <ul>
+                <li><span class="mono">sim = cos(E(q), E(d))</span></li>
+                <li>Document vectors precomputed → <strong>O(log N)</strong> ANN lookup.</li>
+                <li>Misses negation, numeric constraints, and fine-grained term interplay.</li>
+                <li>Role: cast a wide net — Top-K = 50–100.</li>
+              </ul>
+            </div>
+            <div class="card a-purple fragment fade-up">
+              <div class="step">CROSS-ENCODER · PRECISION</div>
+              <h3>Joint attention over (q, d)</h3>
+              <ul>
+                <li><span class="mono">score = f([CLS] q [SEP] d)</span></li>
+                <li>Full token-level cross attention — understands <em>"fee <strong>not</strong> waived"</em>.</li>
+                <li>Cost: one forward pass per pair → only viable on a shortlist.</li>
+                <li>Role: re-score K candidates → Top-N = 3–8.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fragment fade-up" style="margin-top:14px">
+            <div class="code-label">rerank.py — two-stage retrieval</div>
+<pre><code class="language-python" data-trim>
+candidates = await index.hybrid_search(query, top_k=50, filters=acl)
+
+pairs  = [(query, c.text) for c in candidates]
+scores = cross_encoder.predict(pairs, batch_size=32)   # ~25 ms on L4
+
+ranked = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
+context = [c for c, s in ranked if s &gt;= MIN_RELEVANCE][:TOP_N]
+
+if not context:
+    return Abstain(reason="MISSING_EVIDENCE")       # never generate ungrounded
+</code></pre>
+          </div>
+        </div>
+
+        <div class="fragment fade-up">
+          <div class="funnel">
+            <div class="tier t1">Corpus · 10<sup>6</sup>–10<sup>9</sup> chunks<small>HNSW + BM25 · ms-scale</small></div>
+            <div class="tier t2">Top-K = 50<small>bi-encoder recall</small></div>
+            <div class="tier t3">Top-N = 5<small>cross-encoder precision</small></div>
+          </div>
+          <div class="card a-emerald" style="margin-top:16px">
+            <h3>Why Top-N wins</h3>
+            <ul>
+              <li><strong>Lost-in-the-middle:</strong> models under-attend to mid-context passages; fewer, better chunks beat more.</li>
+              <li><strong>Token economics:</strong> 50 → 5 chunks cuts prompt tokens ~90% and TTFT proportionally.</li>
+              <li><strong>Hallucination:</strong> distractor passages are a leading cause of confidently-wrong citations.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · FINE-TUNING vs RAG -->
+    <section>
+      <div class="kicker">03 · Technical Trade-offs</div>
+      <h2>Fine-Tuning vs. RAG</h2>
+      <p class="lede">Fine-tuning teaches <span class="c-purple">behavior and form</span>. RAG supplies <span class="c-cyan">facts and freshness</span>. Most production systems need both — applied to different problems.</p>
+
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="col-rag">RAG</th>
+            <th class="col-ft">Fine-Tuning (LoRA / full)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="fragment fade-up">
+            <th>Knowledge update frequency</th>
+            <td><span class="pill win">minutes</span>Re-index changed chunks; versioned, instantly reversible.</td>
+            <td><span class="pill lose">days–weeks</span>New dataset → train → eval → deploy. Facts frozen at checkpoint.</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <th>Domain adaptability</th>
+            <td><span class="pill mid">limited</span>Can't change tone, format, or reasoning style; bounded by base model.</td>
+            <td><span class="pill win">strong</span>Internalizes jargon, output schemas, classification heads, task style.</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <th>Hallucination mitigation</th>
+            <td><span class="pill win">auditable</span>Citations to source chunks; abstain when evidence is missing.</td>
+            <td><span class="pill lose">opaque</span>Knowledge in weights — no provenance; can amplify confident errors.</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <th>Cost profile</th>
+            <td><span class="pill mid">per-query</span>Embedding + vector DB + larger prompts (context tokens dominate).</td>
+            <td><span class="pill mid">up-front</span>GPU training + eval; cheaper per call with shorter prompts &amp; smaller models.</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <th>Latency</th>
+            <td><span class="pill mid">+50–300 ms</span>Retrieval + rerank hop; longer prefill from injected context.</td>
+            <td><span class="pill win">lowest</span>Single forward pass; a 1B LoRA classifier can serve in &lt; 60 ms p95.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout purple fragment">Pattern that works: <strong>fine-tune a small model for intent / routing / format</strong>, then use <strong>RAG for every factual claim</strong> the user can see.</div>
+    </section>
+
+    <!-- 5 · REAL-TIME STREAMING -->
+    <section>
+      <div class="kicker">04 · Real-Time AI</div>
+      <h2>Streaming Tokens to Millions: WebSockets + Pub/Sub</h2>
+      <p class="lede">Decouple <span class="c-cyan">connection state</span> from <span class="c-purple">compute</span>. Gateways hold sockets; workers hold GPUs; the bus is the only thing that knows both.</p>
+
+      <div class="lane">
+        <div class="box fragment fade-up"><b class="c-cyan">Client</b><span>WSS, resumable session id, last-seen <span class="mono">seq</span> for replay on reconnect.</span></div>
+        <div class="box fragment fade-up"><b class="c-purple">WS Gateway</b><span>Stateless pods, ~50–100k conns each; auth at upgrade, per-socket bounded queue.</span></div>
+        <div class="box fragment fade-up"><b class="c-amber">Redis Streams / Kafka</b><span>Channel per session; partition by session id for ordering.</span></div>
+        <div class="box fragment fade-up"><b class="c-emerald">LLM Worker Pool</b><span>Continuous batching (vLLM/TGI); publishes token deltas with monotonic <span class="mono">seq</span>.</span></div>
+      </div>
+
+      <div class="grid g2">
+        <div class="card a-rose fragment fade-up">
+          <div class="step">BACKPRESSURE · DEFENSE IN DEPTH</div>
+          <ul>
+            <li><strong>Per-socket high-water mark:</strong> bounded <span class="mono">asyncio.Queue</span>; slow clients get coalesced deltas, then disconnect — never unbounded buffering.</li>
+            <li><strong>Token coalescing:</strong> flush every 30–50 ms or 16 tokens, cutting frames ~10× with no perceived lag.</li>
+            <li><strong>Admission control:</strong> workers pull from a queue (credit-based) instead of being pushed to — GPU saturation surfaces as queue depth, not OOM.</li>
+            <li><strong>Durability choice:</strong> Pub/Sub is fire-and-forget; Streams/Kafka + consumer groups give replay after gateway failover.</li>
+          </ul>
+        </div>
+        <div class="fragment fade-up">
+          <div class="code-label">gateway.py — bounded fan-out with coalescing</div>
+<pre><code class="language-python" data-trim>
+async def pump(ws: WebSocket, q: asyncio.Queue[Delta]) -&gt; None:
+    buf: list[str] = []
+    while True:
+        try:
+            d = await asyncio.wait_for(q.get(), timeout=0.04)
+            buf.append(d.text)
+            if len(buf) &lt; 16 and not d.final:
+                continue
+        except TimeoutError:
+            if not buf:
+                continue
+        await ws.send_json({"seq": d.seq, "delta": "".join(buf)})
+        buf.clear()
+
+def on_bus_message(q: asyncio.Queue[Delta], d: Delta) -&gt; None:
+    try:
+        q.put_nowait(d)
+    except asyncio.QueueFull:          # slow consumer
+        metrics.slow_client.inc()
+        raise SlowConsumer(d.session_id)   # close 1013, client resumes from seq
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · SECURITY -->
+    <section>
+      <div class="kicker">05 · Enterprise AI Security</div>
+      <h2>Attack Vectors &amp; Guardrails</h2>
+      <p class="lede">An LLM app is an interpreter that executes untrusted natural language with access to private data. Treat every boundary accordingly.</p>
+
+      <div class="grid g-6-4">
+        <div class="grid g4">
+          <div class="card a-rose fragment fade-up">
+            <div class="step">PROMPT INJECTION</div>
+            <ul>
+              <li>Direct ("ignore previous…") and <strong>indirect</strong> — instructions hidden in retrieved docs, emails, web pages.</li>
+              <li>Mitigate: input classifiers, delimited untrusted context, tool allow-lists, <strong>no auto-execution</strong> of side-effecting actions.</li>
+            </ul>
+          </div>
+          <div class="card a-amber fragment fade-up">
+            <div class="step">PII MASKING</div>
+            <ul>
+              <li>Redact <em>before</em> logging, embedding, or sending to a third-party model.</li>
+              <li>Reversible tokenization (<span class="mono">&lt;CARD_4821&gt;</span>) keeps utility; vault re-hydrates only for authorized views.</li>
+            </ul>
+          </div>
+          <div class="card a-purple fragment fade-up">
+            <div class="step">RBAC FOR EMBEDDINGS</div>
+            <ul>
+              <li>Vectors leak content — embedding inversion is real. Treat the index as the source data.</li>
+              <li>Enforce ACLs <strong>inside the ANN query</strong> (row-level security), not by filtering results afterwards.</li>
+            </ul>
+          </div>
+          <div class="card a-emerald fragment fade-up">
+            <div class="step">RATE &amp; COST GUARDRAILS</div>
+            <ul>
+              <li>Token-bucket limits per user <em>and</em> per tenant, measured in <strong>tokens</strong>, not requests.</li>
+              <li>Hard caps on <span class="mono">max_output_tokens</span>, tool-call depth, and daily spend; circuit-break on anomaly.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fragment fade-up">
+          <div class="code-label">retrieval.sql — ACL enforced at query time</div>
+<pre><code class="language-sql" data-trim>
+-- Postgres RLS: the session can only ever see permitted rows
+ALTER TABLE kb_chunks ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY tenant_acl ON kb_chunks
+  USING (
+    tenant_id = current_setting('app.tenant_id')::uuid
+    AND acl_groups &amp;&amp; string_to_array(
+          current_setting('app.groups'), ',')
+    AND status = 'active'
+  );
+
+-- ANN search inherits the policy automatically
+SELECT chunk_id, text,
+       1 - (embedding &lt;=&gt; $1) AS cosine
+FROM   kb_chunks
+ORDER  BY embedding &lt;=&gt; $1
+LIMIT  50;
+</code></pre>
+          <div class="callout" style="margin-top:12px">Post-filtering Top-K leaks via <strong>timing and empty-result side channels</strong> — and silently degrades recall.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · SUMMARY -->
+    <section>
+      <div class="kicker">06 · Putting It Together</div>
+      <h2>Reference Architecture: Secure, Real-Time, Grounded</h2>
+      <p class="lede">Each layer owns one failure mode. Remove any one and the system degrades in a predictable, observable way.</p>
+
+      <div class="grid g-6-4">
+        <div class="stack">
+          <div class="layer a-cyan fragment fade-up"><span class="lbl">EDGE</span><div class="chips"><span class="chip">CDN SPA</span><span class="chip">WAF</span><span class="chip">OIDC / mTLS</span><span class="chip">WSS upgrade auth</span></div></div>
+          <div class="layer a-rose fragment fade-up"><span class="lbl">GUARDRAILS</span><div class="chips"><span class="chip">Injection classifier</span><span class="chip">PII redaction</span><span class="chip">Token budgets</span><span class="chip">Output policy check</span></div></div>
+          <div class="layer a-amber fragment fade-up"><span class="lbl">REAL-TIME</span><div class="chips"><span class="chip">WS gateways</span><span class="chip">Redis Streams / Kafka</span><span class="chip">Backpressure</span><span class="chip">seq replay</span></div></div>
+          <div class="layer a-purple fragment fade-up"><span class="lbl">INTELLIGENCE</span><div class="chips"><span class="chip">LoRA intent router</span><span class="chip">Hybrid retrieval</span><span class="chip">Cross-encoder</span><span class="chip">Schema-constrained LLM</span></div></div>
+          <div class="layer a-emerald fragment fade-up"><span class="lbl">DATA</span><div class="chips"><span class="chip">pgvector + RLS</span><span class="chip">Versioned corpus</span><span class="chip">Audit hash-chain</span><span class="chip">CMEK</span></div></div>
+          <div class="layer fragment fade-up" style="--accent:#64748b"><span class="lbl">OBSERVABILITY</span><div class="chips"><span class="chip">OTel traceparent end-to-end</span><span class="chip">TTFT / p99</span><span class="chip">Grounding rate</span><span class="chip">Cost per session</span></div></div>
+        </div>
+
+        <div class="card a-cyan fragment fade-up" style="font-size:0.6em">
+          <h3>Five principles to ship with</h3>
+          <ul>
+            <li><strong class="c-cyan">Retrieve wide, rerank narrow.</strong> Recall is cheap; precision is what the model sees.</li>
+            <li><strong class="c-purple">Fine-tune for form, retrieve for facts.</strong> Small models route; grounded models answer.</li>
+            <li><strong class="c-amber">Sockets ≠ compute.</strong> Scale gateways and GPUs independently through the bus.</li>
+            <li><strong class="c-rose">Enforce security in the query, not the UI.</strong> RLS, redaction, and budgets live server-side.</li>
+            <li><strong class="c-emerald">Abstain beats improvise.</strong> Missing evidence is a valid, measurable outcome.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1280,
+    height: 760,
+    margin: 0.05,
+    minScale: 0.2,
+    maxScale: 1.6,
+    transition: "slide",
+    transitionSpeed: "default",
+    backgroundTransition: "fade",
+    slideNumber: "c/t",
+    controls: true,
+    progress: true,
+    center: false,
+    plugins: [RevealHighlight, RevealNotes],
+  });
+</script>
+</body>
+</html>
